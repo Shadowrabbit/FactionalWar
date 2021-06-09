@@ -1,0 +1,6 @@
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\ModRimworldFactionalWar\Assemblies\ModRimworldFactionalWar.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\ModRimworldFactionalWar\Assemblies\ModRimworldFactionalWar.pdb
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\ModRimworldFactionalWar\Source\ModRimworldFactionalWar\obj\Debug\ModRimworldFactionalWar.csprojAssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\ModRimworldFactionalWar\Source\ModRimworldFactionalWar\obj\Debug\ModRimworldFactionalWar.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\ModRimworldFactionalWar\Source\ModRimworldFactionalWar\obj\Debug\ModRimworldFactionalWar.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\ModRimworldFactionalWar\Source\ModRimworldFactionalWar\obj\Debug\ModRimworldFactionalWar.pdb

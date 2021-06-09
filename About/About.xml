@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+    <packageId>SR.ModRimworld.FactionalWar</packageId>
+    <name>[SR]Factional War</name>
+    <author>Shadowrabbit</author>
+    <supportedVersions>
+        <li>1.2</li>
+    </supportedVersions>
+    <loadAfter>
+        <li>Ludeon.RimWorld</li>
+        <li>Ludeon.RimWorld.Royalty</li>
+    </loadAfter>
+    <description>暂无</description>
+</ModMetaData>

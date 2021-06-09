@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/projectSettingsUpdater.xml
+/.idea.ModRimworldFactionalWar.iml
+/contentModel.xml
+# Datasource local storage ignored files
+/../../../../../../../../../../../../../:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\ModRimworldFactionalWar\Source\ModRimworldFactionalWar\.idea\.idea.ModRimworldFactionalWar\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
