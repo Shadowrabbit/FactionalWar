@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <IncidentDef>
+        <defName>SrFactionWar</defName>
+        <label>派系战争</label>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerFactionWar</workerClass>
+        <category>SrFactionWar</category>
+        <baseChance>4</baseChance>
+        <pointsScaleable>true</pointsScaleable>
+        <requireColonistsPresent>True</requireColonistsPresent>
+    </IncidentDef>
+</Defs>
