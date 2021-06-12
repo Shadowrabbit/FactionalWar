@@ -1,5 +1,5 @@
 ﻿// ******************************************************************
-//       /\ /|       @file       LordJobAssaultOtherFaction.cs
+//       /\ /|       @file       LordJobAssaultHostileFaction.cs
 //       \ V/        @brief      集群AI 突击敌对派系
 //       | "")       @author     Shadowrabbit, yingtu0401@gmail.com
 //       /  |                    

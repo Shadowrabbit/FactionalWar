@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <RaidStrategyDef Name="ImmediateAttack">
+        <defName>SrFactionFirst</defName>
+        <workerClass>RaidStrategyWorker_ImmediateAttack</workerClass>
+        <selectionWeightPerPointsCurve>
+            <points>
+                <li>(100,0.75)</li>
+                <li>(700,0.25)</li>
+            </points>
+        </selectionWeightPerPointsCurve>
+        <pointsFactorCurve>
+            <points>
+                <li>0, 1</li>
+            </points>
+        </pointsFactorCurve>
+        <arriveModes>
+            <li>SrFactionWarEdgeWalkIn</li>
+        </arriveModes>
+        <letterLabelEnemy>派系战争</letterLabelEnemy>
+        <arrivalTextEnemy>来自{1}的{0}与来自{3}的{2}即将激烈交战!</arrivalTextEnemy>
+        <letterLabelFriendly>派系战争</letterLabelFriendly>
+        <arrivalTextFriendly>来自{1}的{0}与来自{3}的{2}即将激烈交战!</arrivalTextFriendly>
+    </RaidStrategyDef>
+</Defs>

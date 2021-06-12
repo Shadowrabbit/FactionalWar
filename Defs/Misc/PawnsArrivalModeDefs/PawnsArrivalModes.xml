@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <PawnsArrivalModeDef>
+        <defName>SrFactionWarEdgeWalkIn</defName>
+        <workerClass>PawnsArrivalModeWorker_EdgeWalkIn</workerClass>
+        <selectionWeightCurve>
+            <points>
+                <li>(300, 1.0)</li>
+                <li>(700, 0.4)</li>
+            </points>
+        </selectionWeightCurve>
+        <textEnemy>来自{1}的一群{0}与来自{3}的一群{2}到达附近。</textEnemy>
+        <textFriendly>来自{1}的一群{0}与来自{3}的一群{2}到达附近。</textFriendly>
+        <textWillArrive>来自{1}的一群{0}与来自{3}的一群{2}到达附近。</textWillArrive>
+        <walkIn>true</walkIn>
+    </PawnsArrivalModeDef>
+</Defs>
