@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-    <RaidStrategyDef Name="ImmediateAttack">
+    <RaidStrategyDef>
         <defName>SrFactionFirst</defName>
-        <workerClass>RaidStrategyWorker_ImmediateAttack</workerClass>
+        <workerClass>SR.ModRimworld.FactionalWar.RaidStrategyWorkerFactionFirst</workerClass>
         <selectionWeightPerPointsCurve>
             <points>
                 <li>(100,0.75)</li>
@@ -18,8 +18,6 @@
             <li>SrFactionWarEdgeWalkIn</li>
         </arriveModes>
         <letterLabelEnemy>派系战争</letterLabelEnemy>
-        <arrivalTextEnemy>来自{1}的{0}与来自{3}的{2}即将激烈交战!</arrivalTextEnemy>
-        <letterLabelFriendly>派系战争</letterLabelFriendly>
-        <arrivalTextFriendly>来自{1}的{0}与来自{3}的{2}即将激烈交战!</arrivalTextFriendly>
+        <arrivalTextEnemy>来自{1}的{0}与来自{3}的{2}即将激烈交战!他们的目标并不是你。</arrivalTextEnemy>
     </RaidStrategyDef>
 </Defs>
