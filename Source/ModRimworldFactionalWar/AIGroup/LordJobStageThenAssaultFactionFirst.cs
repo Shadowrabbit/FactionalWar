@@ -16,7 +16,7 @@ namespace SR.ModRimWorld.FactionalWar
     public class LordJobStageThenAssaultFactionFirst : LordJob
     {
         public Faction TargetFaction => _targetFaction;
-        private const int TickLimit = 0x3E8; //等待tick
+        private const int TickLimit = 0x1388; //等待tick
         private Faction _faction; //派系
         private Faction _targetFaction; //敌对派系
         private IntVec3 _stageLoc; //集结中心
