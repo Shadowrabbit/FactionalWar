@@ -46,6 +46,7 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="AIGroup\TriggerFactionAssaultVictory.cs" />
         <Compile Include="AIGroup\LordJobAssaultFactionFirst.cs" />
         <Compile Include="AIGroup\LordJobStageThenAssaultFactionFirst.cs" />
         <Compile Include="AIGroup\LordToilAssaultFactionFirst.cs" />

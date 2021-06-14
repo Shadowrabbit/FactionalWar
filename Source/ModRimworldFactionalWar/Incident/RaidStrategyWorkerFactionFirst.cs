@@ -18,7 +18,7 @@ namespace SR.ModRimworld.FactionalWar
     [UsedImplicitly]
     public class RaidStrategyWorkerFactionFirst : RaidStrategyWorker_StageThenAttack
     {
-        public Faction TargetFaction { get; set; } //目标派系
+        public Faction TempTargetFaction { get; set; } //目标派系
 
         /// <summary>
         /// 创建集群AI
@@ -32,7 +32,7 @@ namespace SR.ModRimworld.FactionalWar
         {
             var stageLoc = RCellFinder.FindSiegePositionFrom_NewTemp(
                 parms.spawnCenter.IsValid ? parms.spawnCenter : pawns[0].PositionHeld, map);
-            return new LordJobStageThenAssaultFactionFirst(parms.faction, stageLoc, raidSeed, TargetFaction);
+            return new LordJobStageThenAssaultFactionFirst(parms.faction, stageLoc, raidSeed, TempTargetFaction);
         }
     }
 }

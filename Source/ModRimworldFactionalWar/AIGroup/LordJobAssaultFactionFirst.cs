@@ -19,6 +19,10 @@ namespace SR.ModRimworld.FactionalWar
         private Faction _assaulterFaction; //突击者派系
         private Faction _targetFaction; //目标派系
 
+        public LordJobAssaultFactionFirst()
+        {
+        }
+
         public LordJobAssaultFactionFirst(Faction targetFaction, Faction assaulterFaction)
         {
             _targetFaction = targetFaction;
@@ -58,9 +62,15 @@ namespace SR.ModRimworld.FactionalWar
                     (NamedArgument) _assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
                     (NamedArgument) _assaulterFaction.Name)));
             stateGraph.AddTransition(transitionAssaultFactionFirstToAssaultEnemy);
-            //todo 没有除玩家外敌对派系（派系胜利离开）攻击对方派系 转变为 离开地图
+            //没有除玩家外敌对派系（派系胜利离开）攻击对方派系 转变为 离开地图
             var transitionFactionVictory = new Transition(lordToilAssaultFactionFirst, lordToilExitMap);
-
+            var triggerFactionAssaultVictory = new TriggerFactionAssaultVictory(_targetFaction);
+            transitionFactionVictory.AddTrigger(triggerFactionAssaultVictory);
+            transitionFactionVictory.AddPreAction(new TransitionAction_Message(
+                "SrAssaultFactionVictory".Translate(
+                    (NamedArgument) _assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
+                    (NamedArgument) _assaulterFaction.Name)));
+            stateGraph.AddTransition(transitionFactionVictory);
             //派系和好 攻击对方派系 转变为 离开地图
             var transitionAssaultFactionFirstToExitMap = new Transition(lordToilAssaultFactionFirst, lordToilExitMap);
             var triggerBecameNonHostileToFaction = new TriggerBecameNonHostileToFaction(_targetFaction);

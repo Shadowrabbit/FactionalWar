@@ -7,15 +7,12 @@
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
 
+using RimWorld;
 using Verse.AI.Group;
 
 namespace SR.ModRimworld.FactionalWar
 {
-    public class LordToilAssaultFactionFirst : LordToil
+    public class LordToilAssaultFactionFirst : LordToil_AssaultColony
     {
-        public override void UpdateAllDuties()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

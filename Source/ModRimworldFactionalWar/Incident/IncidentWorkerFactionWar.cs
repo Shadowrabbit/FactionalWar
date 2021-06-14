@@ -106,25 +106,17 @@ namespace SR.ModRimworld.FactionalWar
             //信件通知
             SendLetter(parms, pawnListFaction1, parms2, pawnListFaction2);
             //根据分组生成集群AI
-            if (!(parms.raidStrategy.Worker is RaidStrategyWorkerFactionFirst raidStrategyWorkerFactionFirst1))
-            {
-                Log.Error("strategy must be RaidStrategyWorkerFactionFirst");
-                return false;
-            }
-
-            if (!(parms2.raidStrategy.Worker is RaidStrategyWorkerFactionFirst raidStrategyWorkerFactionFirst2))
+            if (!(parms.raidStrategy.Worker is RaidStrategyWorkerFactionFirst raidStrategyWorkerFactionFirst))
             {
                 Log.Error("strategy must be RaidStrategyWorkerFactionFirst");
                 return false;
             }
 
             //互相设置敌对派系
-            raidStrategyWorkerFactionFirst1.TargetFaction = _faction2;
-            raidStrategyWorkerFactionFirst2.TargetFaction = _faction1;
-            raidStrategyWorkerFactionFirst1.MakeLords(parms, pawnListFaction1);
-            raidStrategyWorkerFactionFirst2.MakeLords(parms2, pawnListFaction2);
-            //袭击时设置一倍速
-            Find.TickManager.slower.SignalForceNormalSpeedShort();
+            raidStrategyWorkerFactionFirst.TempTargetFaction = _faction2;
+            raidStrategyWorkerFactionFirst.MakeLords(parms, pawnListFaction1);
+            raidStrategyWorkerFactionFirst.TempTargetFaction = _faction1;
+            raidStrategyWorkerFactionFirst.MakeLords(parms2, pawnListFaction2);
             //更新参与袭击的敌人记录
             Find.StoryWatcher.statsRecord.numRaidsEnemy++;
             return true;

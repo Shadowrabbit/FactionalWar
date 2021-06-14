@@ -8,7 +8,6 @@
 // ******************************************************************
 
 using RimWorld;
-using Verse;
 using Verse.AI.Group;
 
 namespace SR.ModRimworld.FactionalWar
@@ -32,12 +31,6 @@ namespace SR.ModRimworld.FactionalWar
             if (signal.dinfo.Instigator == null)
             {
                 return false;
-            }
-
-            //todo
-            if (signal.dinfo.Instigator.Faction == Faction.OfPlayer)
-            {
-                Log.Warning($"派系{lord.faction.Name}受到玩家伤害");
             }
 
             return signal.dinfo.Instigator.Faction == Faction.OfPlayer;

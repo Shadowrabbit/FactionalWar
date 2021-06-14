@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
     <SrIrritateFaction>你的攻击惹怒了{1}的{0}，他们现在将你也列为攻击目标！</SrIrritateFaction>
+    <SrAssaultFactionVictory>{1}的{0}大获全胜，心满意足的离开。</SrAssaultFactionVictory>
 </LanguageData>
