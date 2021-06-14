@@ -11,10 +11,11 @@ using RimWorld;
 using Verse;
 using Verse.AI.Group;
 
-namespace SR.ModRimworld.FactionalWar
+namespace SR.ModRimWorld.FactionalWar
 {
     public class LordJobStageThenAssaultFactionFirst : LordJob
     {
+        public Faction TargetFaction => _targetFaction;
         private const int TickLimit = 0x3E8; //等待tick
         private Faction _faction; //派系
         private Faction _targetFaction; //敌对派系

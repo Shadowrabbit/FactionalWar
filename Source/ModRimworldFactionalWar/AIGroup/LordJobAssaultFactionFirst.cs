@@ -12,7 +12,7 @@ using Verse;
 using Verse.AI;
 using Verse.AI.Group;
 
-namespace SR.ModRimworld.FactionalWar
+namespace SR.ModRimWorld.FactionalWar
 {
     public class LordJobAssaultFactionFirst : LordJob
     {

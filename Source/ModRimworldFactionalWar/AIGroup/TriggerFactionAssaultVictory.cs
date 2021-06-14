@@ -11,7 +11,7 @@ using RimWorld;
 using Verse;
 using Verse.AI.Group;
 
-namespace SR.ModRimworld.FactionalWar
+namespace SR.ModRimWorld.FactionalWar
 {
     public class TriggerFactionAssaultVictory : Trigger
     {

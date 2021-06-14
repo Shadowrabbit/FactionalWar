@@ -15,7 +15,7 @@ using JetBrains.Annotations;
 using RimWorld;
 using Verse;
 
-namespace SR.ModRimworld.FactionalWar
+namespace SR.ModRimWorld.FactionalWar
 {
     [UsedImplicitly]
     public class IncidentWorkerFactionWar : IncidentWorker_Raid

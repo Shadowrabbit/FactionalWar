@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ModRimworldFactionalWar")]
+[assembly: AssemblyTitle("ModRimWorldFactionalWar")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ModRimworldFactionalWar")]
+[assembly: AssemblyProduct("ModRimWorldFactionalWar")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("D0D957F5-3353-436E-829F-971FA9840635")]
+[assembly: Guid("F06AB588-7206-482F-8FB9-5EAD7DAFAE2D")]
 
 // Version information for an assembly consists of the following four values:
 //

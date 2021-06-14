@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <DutyDef>
+        <defName>SrAssaultFactionFirst</defName>
+        <alwaysShowWeapon>true</alwaysShowWeapon>
+        <thinkNode Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="JobGiver_TakeCombatEnhancingDrug"/>
+                <li Class="SR.ModRimWorld.FactionalWar.JobGiverAIFightHostileFaction">
+                    <targetAcquireRadius>65</targetAcquireRadius>
+                    <targetKeepRadius>72</targetKeepRadius>
+                </li>
+                <li Class="SR.ModRimWorld.FactionalWar.JobGiverAIGotoNearestHostileFactionMember"/>
+                <li Class="JobGiver_AISapper">
+                    <canMineNonMineables>false</canMineNonMineables>
+                </li>
+            </subNodes>
+        </thinkNode>
+    </DutyDef>
+</Defs>

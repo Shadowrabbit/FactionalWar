@@ -10,7 +10,7 @@
 using RimWorld;
 using Verse.AI.Group;
 
-namespace SR.ModRimworld.FactionalWar
+namespace SR.ModRimWorld.FactionalWar
 {
     public class TriggetGetDamageFromPlayer : Trigger
     {

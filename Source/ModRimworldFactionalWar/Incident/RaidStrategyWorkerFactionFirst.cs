@@ -13,7 +13,7 @@ using RimWorld;
 using Verse;
 using Verse.AI.Group;
 
-namespace SR.ModRimworld.FactionalWar
+namespace SR.ModRimWorld.FactionalWar
 {
     [UsedImplicitly]
     public class RaidStrategyWorkerFactionFirst : RaidStrategyWorker_StageThenAttack

@@ -4,11 +4,11 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{D0D957F5-3353-436E-829F-971FA9840635}</ProjectGuid>
+        <ProjectGuid>{F06AB588-7206-482F-8FB9-5EAD7DAFAE2D}</ProjectGuid>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>SR.ModRimworld.FactionalWar</RootNamespace>
-        <AssemblyName>ModRimworldFactionalWar</AssemblyName>
+        <RootNamespace>SR.ModRimWorld.FactionalWar</RootNamespace>
+        <AssemblyName>ModRimWorldFactionalWar</AssemblyName>
         <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>
@@ -26,10 +26,10 @@
         <PlatformTarget>AnyCPU</PlatformTarget>
         <DebugType>pdbonly</DebugType>
         <Optimize>true</Optimize>
-        <OutputPath>..\..\Assemblies\</OutputPath>
         <DefineConstants>TRACE</DefineConstants>
         <ErrorReport>prompt</ErrorReport>
         <WarningLevel>4</WarningLevel>
+        <OutputPath>..\..\Assemblies\</OutputPath>
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="Assembly-CSharp, Version=1.2.7705.25110, Culture=neutral, PublicKeyToken=null">
@@ -46,16 +46,23 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="AIGroup\TriggerFactionAssaultVictory.cs" />
+        <Compile Include="AIGroup\DutyDefOf.cs" />
         <Compile Include="AIGroup\LordJobAssaultFactionFirst.cs" />
         <Compile Include="AIGroup\LordJobStageThenAssaultFactionFirst.cs" />
         <Compile Include="AIGroup\LordToilAssaultFactionFirst.cs" />
         <Compile Include="AIGroup\TriggerBecameNonHostileToFaction.cs" />
+        <Compile Include="AIGroup\TriggerFactionAssaultVictory.cs" />
         <Compile Include="AIGroup\TriggetGetDamageFromPlayer.cs" />
+        <Compile Include="AI\JobGiverAIFightHostileFaction.cs" />
+        <Compile Include="AI\JobGiverAIGotoNearestHostileFactionMember.cs" />
         <Compile Include="Incident\IncidentWorkerFactionWar.cs" />
         <Compile Include="Incident\RaidStrategyDefOf.cs" />
         <Compile Include="Incident\RaidStrategyWorkerFactionFirst.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="Lib\Assembly-CSharp.dll" />
+      <Content Include="Lib\UnityEngine.CoreModule.dll" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
