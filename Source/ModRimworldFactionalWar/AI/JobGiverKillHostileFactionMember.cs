@@ -40,6 +40,9 @@ namespace SR.ModRimWorld.FactionalWar
                 job.maxNumMeleeAttacks = 1;
                 job.expiryInterval = 200;
                 job.reactingToMeleeThreat = true;
+                //强制击杀倒地目标 不激活的话角色不会攻击倒地目标
+                job.killIncappedTarget = true;
+                return job;
             }
             return null;
         }

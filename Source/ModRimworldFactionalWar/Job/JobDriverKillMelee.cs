@@ -48,15 +48,7 @@ namespace SR.ModRimWorld.FactionalWar
         private void OnHit()
         {
             var thing = job.GetTarget(TargetIndex.A).Thing;
-            if (!(thing is Pawn pawnBeHit))
-            {
-                return;
-            }
-            if (!pawnBeHit.Dead)
-            {
-                return;
-            }
-            EndJobWith(JobCondition.Succeeded);
+            pawn.meleeVerbs.TryMeleeAttack(thing, job.verbToUse);
         }
     }
 }
