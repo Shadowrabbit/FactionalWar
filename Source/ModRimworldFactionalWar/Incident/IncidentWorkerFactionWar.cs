@@ -117,6 +117,8 @@ namespace SR.ModRimWorld.FactionalWar
             raidStrategyWorkerFactionFirst.MakeLords(parms, pawnListFaction1);
             raidStrategyWorkerFactionFirst.TempTargetFaction = _faction1;
             raidStrategyWorkerFactionFirst.MakeLords(parms2, pawnListFaction2);
+            //袭击时设置一倍速
+            Find.TickManager.slower.SignalForceNormalSpeedShort();
             //更新参与袭击的敌人记录
             Find.StoryWatcher.statsRecord.numRaidsEnemy++;
             return true;
@@ -177,7 +179,7 @@ namespace SR.ModRimWorld.FactionalWar
         /// <returns></returns>
         protected override LetterDef GetLetterDef()
         {
-            return LetterDefOf.ThreatSmall;
+            return LetterDefOf.ThreatBig;
         }
 
         /// <summary>

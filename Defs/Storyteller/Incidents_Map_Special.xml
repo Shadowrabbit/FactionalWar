@@ -7,7 +7,7 @@
             <li>Map_PlayerHome</li>
         </targetTags>
         <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerFactionWar</workerClass>
-        <category>ThreatSmall</category>
+        <category>ThreatBig</category>
         <baseChance>4</baseChance>
         <pointsScaleable>true</pointsScaleable>
         <requireColonistsPresent>false</requireColonistsPresent>
