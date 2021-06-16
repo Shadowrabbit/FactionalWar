@@ -10,6 +10,7 @@
 using JetBrains.Annotations;
 using RimWorld;
 using Verse;
+using Verse.AI;
 using Verse.AI.Group;
 
 namespace SR.ModRimWorld.FactionalWar
@@ -40,6 +41,17 @@ namespace SR.ModRimWorld.FactionalWar
 
             //目标派系是冲突派系
             return targetPawn.Faction == lordJobSeacher.TargetFaction;
+        }
+
+        /// <summary>
+        /// 深拷贝
+        /// </summary>
+        /// <param name="resolve"></param>
+        /// <returns></returns>
+        public override ThinkNode DeepCopy(bool resolve = true)
+        {
+            var jobGiverAIFightHostileFaction = (JobGiverAIFightHostileFaction)base.DeepCopy(resolve);
+            return jobGiverAIFightHostileFaction;
         }
     }
 }
