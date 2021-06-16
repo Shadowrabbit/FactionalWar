@@ -17,4 +17,18 @@
             </subNodes>
         </thinkNode>
     </DutyDef>
+    <DutyDef>
+        <defName>SrClearBattlefield</defName>
+        <thinkNode Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="JobGiver_TakeWoundedGuest"/>
+                <li Class="JobGiver_ExitMapBest">
+                    <defaultLocomotion>Jog</defaultLocomotion>
+                    <jobMaxDuration>500</jobMaxDuration>
+                    <forceCanDigIfAnyHostileActiveThreat>true</forceCanDigIfAnyHostileActiveThreat>
+                    <forceCanDigIfCantReachMapEdge>true</forceCanDigIfCantReachMapEdge>
+                </li>
+            </subNodes>
+        </thinkNode>
+    </DutyDef>
 </Defs>

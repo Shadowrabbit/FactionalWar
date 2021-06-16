@@ -52,6 +52,9 @@ namespace SR.ModRimWorld.FactionalWar
             var lordToilExitMap =
                 new LordToil_ExitMap(LocomotionUrgency.Jog, interruptCurrentJob: true) {useAvoidGrid = true};
             stateGraph.AddToil(lordToilExitMap);
+            //添加流程 救援派系成员
+            var lordToilClearBattlefield = new LordToilClearBattlefield();
+            stateGraph.AddToil(lordToilClearBattlefield);
             //受到玩家攻击(被激怒) 攻击对方派系 转变为 攻击敌人
             var transitionAssaultFactionFirstToAssaultEnemy =
                 new Transition(lordToilAssaultFactionFirst, lordToilAssaultEnemey);
@@ -62,8 +65,8 @@ namespace SR.ModRimWorld.FactionalWar
                     (NamedArgument) _assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
                     (NamedArgument) _assaulterFaction.Name)));
             stateGraph.AddTransition(transitionAssaultFactionFirstToAssaultEnemy);
-            //没有除玩家外敌对派系（派系胜利离开）攻击对方派系 转变为 离开地图
-            var transitionFactionVictory = new Transition(lordToilAssaultFactionFirst, lordToilExitMap);
+            // todo没有除玩家外敌对派系（派系胜利离开）攻击对方派系 转变为 离开地图
+            var transitionFactionVictory = new Transition(lordToilAssaultFactionFirst, lordToilClearBattlefield);
             var triggerFactionAssaultVictory = new TriggerFactionAssaultVictory(_targetFaction);
             transitionFactionVictory.AddTrigger(triggerFactionAssaultVictory);
             transitionFactionVictory.AddPreAction(new TransitionAction_Message(

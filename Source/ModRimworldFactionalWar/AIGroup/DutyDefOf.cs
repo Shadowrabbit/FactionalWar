@@ -17,5 +17,6 @@ namespace SR.ModRimWorld.FactionalWar
     public static class DutyDefOf
     {
         [UsedImplicitly] public static readonly DutyDef SrAssaultFactionFirst; //派系优先
+        [UsedImplicitly] public static readonly DutyDef SrClearBattlefield; //派系胜利 清理战场
     }
 }

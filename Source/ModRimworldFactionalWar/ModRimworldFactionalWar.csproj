@@ -50,6 +50,7 @@
         <Compile Include="AIGroup\LordJobAssaultFactionFirst.cs" />
         <Compile Include="AIGroup\LordJobStageThenAssaultFactionFirst.cs" />
         <Compile Include="AIGroup\LordToilAssaultFactionFirst.cs" />
+        <Compile Include="AIGroup\LordToilClearBattlefield.cs" />
         <Compile Include="AIGroup\TriggerBecameNonHostileToFaction.cs" />
         <Compile Include="AIGroup\TriggerFactionAssaultVictory.cs" />
         <Compile Include="AIGroup\TriggetGetDamageFromPlayer.cs" />
