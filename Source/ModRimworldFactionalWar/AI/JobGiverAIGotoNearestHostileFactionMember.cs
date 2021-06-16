@@ -32,7 +32,7 @@ namespace SR.ModRimWorld.FactionalWar
             var targetFaction = lordJob.TargetFaction;
             //保底目标
             var num = float.MaxValue;
-            var targetThing = (Thing) null;
+            var targetThing = (Thing)null;
             var potentialTargetsFor =
                 pawn.Map.attackTargetsCache.GetPotentialTargetsFor(pawn);
             foreach (var target in potentialTargetsFor)
@@ -43,7 +43,7 @@ namespace SR.ModRimWorld.FactionalWar
                 }
 
                 //目标不是当前敌对派系
-                var tempTargetThing = (Thing) target;
+                var tempTargetThing = (Thing)target;
                 if (tempTargetThing.Faction != targetFaction)
                 {
                     continue;
@@ -64,7 +64,8 @@ namespace SR.ModRimWorld.FactionalWar
                 return null;
             }
 
-            var job = JobMaker.MakeJob(JobDefOf.Goto, targetThing);
+            //走向目标
+            var job = JobMaker.MakeJob(RimWorld.JobDefOf.Goto, targetThing);
             job.checkOverrideOnExpire = true;
             job.expiryInterval = 500;
             job.collideWithPawns = true;

@@ -62,6 +62,8 @@
         <Compile Include="Incident\IncidentWorkerFactionWar.cs" />
         <Compile Include="Incident\RaidStrategyDefOf.cs" />
         <Compile Include="Incident\RaidStrategyWorkerFactionFirst.cs" />
+        <Compile Include="Job\JobDefOf.cs" />
+        <Compile Include="Job\JobDriverKillMelee.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>

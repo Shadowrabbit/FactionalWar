@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <JobDef>
+        <defName>SrKillMelee</defName>
+        <driverClass>SR.ModRimWorld.FactionalWar.JobDriverKillMelee</driverClass>
+        <reportString>melee attacking TargetA.</reportString>
+        <alwaysShowWeapon>true</alwaysShowWeapon>
+        <casualInterruptible>false</casualInterruptible>
+        <collideWithPawns>true</collideWithPawns>
+    </JobDef>
+</Defs>

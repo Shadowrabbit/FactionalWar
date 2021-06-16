@@ -6,8 +6,8 @@
 //      /  \\        @Modified   2021-06-16 12:55:07
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
+using System.Linq;
 using JetBrains.Annotations;
-using RimWorld;
 using Verse;
 using Verse.AI;
 using Verse.AI.Group;
@@ -33,15 +33,10 @@ namespace SR.ModRimWorld.FactionalWar
                 return null;
             }
             //存在存活的敌对派系成员就近战击杀
-            foreach (var targetPawn in pawn.Map.mapPawns.PawnsInFaction(targetFaction))
+            foreach (var job in from targetPawn in pawn.Map.mapPawns.PawnsInFaction(targetFaction)
+                where !targetPawn.Dead
+                select JobMaker.MakeJob(JobDefOf.SrKillMelee, targetPawn))
             {
-                if (targetPawn.Dead)
-                {
-                    continue;
-                }
-                Log.Warning("准备击杀" + targetPawn.Name);
-                //击杀这个目标角色
-                var job = JobMaker.MakeJob(JobDefOf.AttackMelee, targetPawn);
                 job.maxNumMeleeAttacks = 1;
                 job.expiryInterval = 200;
                 job.reactingToMeleeThreat = true;
