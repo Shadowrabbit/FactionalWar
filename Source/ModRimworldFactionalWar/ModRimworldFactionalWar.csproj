@@ -59,6 +59,7 @@
         <Compile Include="AI\JobGiverAIFightHostileFaction.cs" />
         <Compile Include="AI\JobGiverAIGotoNearestHostileFactionMember.cs" />
         <Compile Include="AI\JobGiverKillHostileFactionMember.cs" />
+        <Compile Include="AI\JobGiverTakeSpoils.cs" />
         <Compile Include="Incident\IncidentWorkerFactionWar.cs" />
         <Compile Include="Incident\RaidStrategyDefOf.cs" />
         <Compile Include="Incident\RaidStrategyWorkerFactionFirst.cs" />

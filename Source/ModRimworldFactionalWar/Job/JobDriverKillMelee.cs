@@ -6,6 +6,7 @@
 //      /  \\        @Modified   2021-06-16 14:21:01
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
+
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using RimWorld;
@@ -28,6 +29,7 @@ namespace SR.ModRimWorld.FactionalWar
             {
                 pawn.Map.attackTargetReservationManager.Reserve(pawn, job, attackTarget);
             }
+
             return true;
         }
 

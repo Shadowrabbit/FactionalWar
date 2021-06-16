@@ -50,7 +50,7 @@ namespace SR.ModRimWorld.FactionalWar
         /// <returns></returns>
         public override ThinkNode DeepCopy(bool resolve = true)
         {
-            var jobGiverAIFightHostileFaction = (JobGiverAIFightHostileFaction)base.DeepCopy(resolve);
+            var jobGiverAIFightHostileFaction = (JobGiverAIFightHostileFaction) base.DeepCopy(resolve);
             return jobGiverAIFightHostileFaction;
         }
     }

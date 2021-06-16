@@ -35,7 +35,7 @@
         <thinkNode Class="ThinkNode_Priority">
             <subNodes>
                 <li Class="JobGiver_TakeWoundedGuest"/>
-                <!--                带走战利品-->
+                <li Class="SR.ModRimWorld.FactionalWar.JobGiverTakeSpoils"/>
                 <li Class="JobGiver_ExitMapBest">
                     <defaultLocomotion>Jog</defaultLocomotion>
                     <jobMaxDuration>500</jobMaxDuration>

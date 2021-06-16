@@ -65,8 +65,8 @@ namespace SR.ModRimWorld.FactionalWar
             transitionAssaultFactionFirstToAssaultEnemy.AddTrigger(triggerGetDamageFromPlayer);
             transitionAssaultFactionFirstToAssaultEnemy.AddPreAction(new TransitionAction_Message(
                 "SrIrritateFaction".Translate(
-                    (NamedArgument)_assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
-                    (NamedArgument)_assaulterFaction.Name)));
+                    (NamedArgument) _assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
+                    (NamedArgument) _assaulterFaction.Name)));
             stateGraph.AddTransition(transitionAssaultFactionFirstToAssaultEnemy);
             //没有除玩家外敌对派系（派系胜利离开）攻击对方派系 转变为 击杀敌对派系成员
             var transitionAssaultFactionFirstToKillHostileFactionMember =
@@ -75,10 +75,10 @@ namespace SR.ModRimWorld.FactionalWar
             transitionAssaultFactionFirstToKillHostileFactionMember.AddTrigger(triggerFactionAssaultVictory);
             transitionAssaultFactionFirstToKillHostileFactionMember.AddPreAction(new TransitionAction_Message(
                 "SrAssaultFactionVictory".Translate(
-                    (NamedArgument)_assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
-                    (NamedArgument)_assaulterFaction.Name,
-                    (NamedArgument)_targetFaction.def.pawnsPlural.CapitalizeFirst(),
-                    (NamedArgument)_targetFaction.Name)));
+                    (NamedArgument) _assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
+                    (NamedArgument) _assaulterFaction.Name,
+                    (NamedArgument) _targetFaction.def.pawnsPlural.CapitalizeFirst(),
+                    (NamedArgument) _targetFaction.Name)));
             stateGraph.AddTransition(transitionAssaultFactionFirstToKillHostileFactionMember);
             //敌对派系成员全部死亡 击杀敌对派系成员 转变为 清理战场离开
             var transitionKillHostileFactionMemberToClearBattleField =
@@ -87,8 +87,8 @@ namespace SR.ModRimWorld.FactionalWar
             transitionKillHostileFactionMemberToClearBattleField.AddTrigger(triggerAllHostileFactionMembersDead);
             transitionKillHostileFactionMemberToClearBattleField.AddPreAction(new TransitionAction_Message(
                 "SrClearBattlefiled".Translate(
-                    (NamedArgument)_assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
-                    (NamedArgument)_assaulterFaction.Name)));
+                    (NamedArgument) _assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
+                    (NamedArgument) _assaulterFaction.Name)));
             stateGraph.AddTransition(transitionKillHostileFactionMemberToClearBattleField);
             //派系和好 攻击对方派系 转变为 离开地图
             var transitionAssaultFactionFirstToExitMap = new Transition(lordToilAssaultFactionFirst, lordToilExitMap);
@@ -96,8 +96,8 @@ namespace SR.ModRimWorld.FactionalWar
             transitionAssaultFactionFirstToExitMap.AddTrigger(triggerBecameNonHostileToFaction);
             transitionAssaultFactionFirstToExitMap.AddPreAction(new TransitionAction_Message(
                 "MessageRaidersLeaving".Translate(
-                    (NamedArgument)_assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
-                    (NamedArgument)_assaulterFaction.Name)));
+                    (NamedArgument) _assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
+                    (NamedArgument) _assaulterFaction.Name)));
             stateGraph.AddTransition(transitionAssaultFactionFirstToExitMap);
             return stateGraph;
         }

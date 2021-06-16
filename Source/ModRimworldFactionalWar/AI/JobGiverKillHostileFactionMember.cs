@@ -6,8 +6,9 @@
 //      /  \\        @Modified   2021-06-16 12:55:07
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
-using System.Linq;
+
 using JetBrains.Annotations;
+using RimWorld;
 using Verse;
 using Verse.AI;
 using Verse.AI.Group;
@@ -32,19 +33,44 @@ namespace SR.ModRimWorld.FactionalWar
             {
                 return null;
             }
-            //存在存活的敌对派系成员就近战击杀
-            foreach (var job in from targetPawn in pawn.Map.mapPawns.PawnsInFaction(targetFaction)
-                where !targetPawn.Dead
-                select JobMaker.MakeJob(JobDefOf.SrKillMelee, targetPawn))
+
+            //最近的目标
+            var targetThing = GenClosest.ClosestThingReachable(pawn.Position, pawn.Map,
+                ThingRequest.ForGroup(ThingRequestGroup.Pawn), PathEndMode.ClosestTouch, TraverseParms.For(pawn),
+                validator: (t) => TargetValidator(t, targetFaction));
+            if (targetThing == null)
             {
-                job.maxNumMeleeAttacks = 1;
-                job.expiryInterval = 200;
-                job.reactingToMeleeThreat = true;
-                //强制击杀倒地目标 不激活的话角色不会攻击倒地目标
-                job.killIncappedTarget = true;
-                return job;
+                return null;
             }
-            return null;
+
+            var job = JobMaker.MakeJob(JobDefOf.SrKillMelee, targetThing);
+            job.maxNumMeleeAttacks = 1;
+            job.expiryInterval = 200;
+            job.reactingToMeleeThreat = true;
+            //强制击杀倒地目标 不激活的话角色不会攻击倒地目标
+            job.killIncappedTarget = true;
+            return job;
+        }
+
+        /// <summary>
+        /// 目标验证器
+        /// </summary>
+        /// <param name="target"></param>
+        /// <param name="targetFaction"></param>
+        /// <returns></returns>
+        private static bool TargetValidator(Thing target, Faction targetFaction)
+        {
+            if (!(target is Pawn pawn))
+            {
+                return false;
+            }
+
+            if (pawn.Faction != targetFaction)
+            {
+                return false;
+            }
+
+            return !pawn.Dead;
         }
     }
 }
