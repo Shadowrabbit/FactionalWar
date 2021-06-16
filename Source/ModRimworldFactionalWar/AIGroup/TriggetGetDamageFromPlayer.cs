@@ -8,6 +8,7 @@
 // ******************************************************************
 
 using RimWorld;
+using Verse;
 using Verse.AI.Group;
 
 namespace SR.ModRimWorld.FactionalWar
@@ -33,7 +34,20 @@ namespace SR.ModRimWorld.FactionalWar
                 return false;
             }
 
-            return signal.dinfo.Instigator.Faction == Faction.OfPlayer;
+            //不是玩家派系
+            if (signal.dinfo.Instigator.Faction != Faction.OfPlayer)
+            {
+                return false;
+            }
+
+            //不是生物 可能是炮塔之类的
+            if (!(signal.dinfo.Instigator is Pawn pawn))
+            {
+                return true;
+            }
+
+            //动物造成伤害不算
+            return !pawn.RaceProps.Animal;
         }
     }
 }

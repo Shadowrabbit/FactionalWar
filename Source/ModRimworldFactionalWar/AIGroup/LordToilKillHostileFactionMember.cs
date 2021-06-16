@@ -1,18 +1,17 @@
 ﻿// ******************************************************************
-//       /\ /|       @file       LordToilClearBattlefield.cs
-//       \ V/        @brief      集群AI流程 派系胜利清理战场
+//       /\ /|       @file       LordToilKillHostileFactionMember.cs
+//       \ V/        @brief      集群AI流程 击杀敌方派系成员
 //       | "")       @author     Shadowrabbit, yingtu0401@gmail.com
 //       /  |                    
-//      /  \\        @Modified   2021-06-16 09:30:04
+//      /  \\        @Modified   2021-06-16 12:02:41
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
-
 using Verse.AI;
 using Verse.AI.Group;
 
 namespace SR.ModRimWorld.FactionalWar
 {
-    public class LordToilClearBattlefield : LordToil
+    public class LordToilKillHostileFactionMember : LordToil
     {
         /// <summary>
         /// 更新职责
@@ -21,7 +20,7 @@ namespace SR.ModRimWorld.FactionalWar
         {
             foreach (var pawn in lord.ownedPawns)
             {
-                pawn.mindState.duty = new PawnDuty(DutyDefOf.SrClearBattlefield);
+                pawn.mindState.duty = new PawnDuty(DutyDefOf.SrKillHostileFactionMember);
             }
         }
     }

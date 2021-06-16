@@ -52,7 +52,10 @@ namespace SR.ModRimWorld.FactionalWar
             var lordToilExitMap =
                 new LordToil_ExitMap(LocomotionUrgency.Jog, interruptCurrentJob: true) {useAvoidGrid = true};
             stateGraph.AddToil(lordToilExitMap);
-            //添加流程 救援派系成员
+            //添加流程 击杀敌对派系成员
+            var lordToilKillHostileFactionMember = new LordToilKillHostileFactionMember();
+            stateGraph.AddToil(lordToilKillHostileFactionMember);
+            //添加流程 清理战场
             var lordToilClearBattlefield = new LordToilClearBattlefield();
             stateGraph.AddToil(lordToilClearBattlefield);
             //受到玩家攻击(被激怒) 攻击对方派系 转变为 攻击敌人
@@ -62,26 +65,39 @@ namespace SR.ModRimWorld.FactionalWar
             transitionAssaultFactionFirstToAssaultEnemy.AddTrigger(triggerGetDamageFromPlayer);
             transitionAssaultFactionFirstToAssaultEnemy.AddPreAction(new TransitionAction_Message(
                 "SrIrritateFaction".Translate(
-                    (NamedArgument) _assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
-                    (NamedArgument) _assaulterFaction.Name)));
+                    (NamedArgument)_assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
+                    (NamedArgument)_assaulterFaction.Name)));
             stateGraph.AddTransition(transitionAssaultFactionFirstToAssaultEnemy);
-            // todo没有除玩家外敌对派系（派系胜利离开）攻击对方派系 转变为 离开地图
-            var transitionFactionVictory = new Transition(lordToilAssaultFactionFirst, lordToilClearBattlefield);
+            //没有除玩家外敌对派系（派系胜利离开）攻击对方派系 转变为 击杀敌对派系成员
+            var transitionAssaultFactionFirstToKillHostileFactionMember =
+                new Transition(lordToilAssaultFactionFirst, lordToilKillHostileFactionMember);
             var triggerFactionAssaultVictory = new TriggerFactionAssaultVictory(_targetFaction);
-            transitionFactionVictory.AddTrigger(triggerFactionAssaultVictory);
-            transitionFactionVictory.AddPreAction(new TransitionAction_Message(
+            transitionAssaultFactionFirstToKillHostileFactionMember.AddTrigger(triggerFactionAssaultVictory);
+            transitionAssaultFactionFirstToKillHostileFactionMember.AddPreAction(new TransitionAction_Message(
                 "SrAssaultFactionVictory".Translate(
-                    (NamedArgument) _assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
-                    (NamedArgument) _assaulterFaction.Name)));
-            stateGraph.AddTransition(transitionFactionVictory);
+                    (NamedArgument)_assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
+                    (NamedArgument)_assaulterFaction.Name,
+                    (NamedArgument)_targetFaction.def.pawnsPlural.CapitalizeFirst(),
+                    (NamedArgument)_targetFaction.Name)));
+            stateGraph.AddTransition(transitionAssaultFactionFirstToKillHostileFactionMember);
+            //敌对派系成员全部死亡 击杀敌对派系成员 转变为 清理战场离开
+            var transitionKillHostileFactionMemberToClearBattleField =
+                new Transition(lordToilKillHostileFactionMember, lordToilClearBattlefield);
+            var triggerAllHostileFactionMembersDead = new TriggerAllHostileFactionMembersDead(_targetFaction);
+            transitionKillHostileFactionMemberToClearBattleField.AddTrigger(triggerAllHostileFactionMembersDead);
+            transitionKillHostileFactionMemberToClearBattleField.AddPreAction(new TransitionAction_Message(
+                "SrClearBattlefiled".Translate(
+                    (NamedArgument)_assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
+                    (NamedArgument)_assaulterFaction.Name)));
+            stateGraph.AddTransition(transitionKillHostileFactionMemberToClearBattleField);
             //派系和好 攻击对方派系 转变为 离开地图
             var transitionAssaultFactionFirstToExitMap = new Transition(lordToilAssaultFactionFirst, lordToilExitMap);
             var triggerBecameNonHostileToFaction = new TriggerBecameNonHostileToFaction(_targetFaction);
             transitionAssaultFactionFirstToExitMap.AddTrigger(triggerBecameNonHostileToFaction);
             transitionAssaultFactionFirstToExitMap.AddPreAction(new TransitionAction_Message(
                 "MessageRaidersLeaving".Translate(
-                    (NamedArgument) _assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
-                    (NamedArgument) _assaulterFaction.Name)));
+                    (NamedArgument)_assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
+                    (NamedArgument)_assaulterFaction.Name)));
             stateGraph.AddTransition(transitionAssaultFactionFirstToExitMap);
             return stateGraph;
         }

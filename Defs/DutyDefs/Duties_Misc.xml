@@ -18,10 +18,24 @@
         </thinkNode>
     </DutyDef>
     <DutyDef>
+        <defName>SrKillHostileFactionMember</defName>
+        <thinkNode Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="JobGiver_AIDefendSelf">
+                    <targetAcquireRadius>35</targetAcquireRadius>
+                    <targetKeepRadius>40</targetKeepRadius>
+                </li>
+                <li Class="JobGiver_SelfTend"/>
+                <li Class="SR.ModRimWorld.FactionalWar.JobGiverKillHostileFactionMember"/>
+            </subNodes>
+        </thinkNode>
+    </DutyDef>
+    <DutyDef>
         <defName>SrClearBattlefield</defName>
         <thinkNode Class="ThinkNode_Priority">
             <subNodes>
                 <li Class="JobGiver_TakeWoundedGuest"/>
+                <!--                带走战利品-->
                 <li Class="JobGiver_ExitMapBest">
                     <defaultLocomotion>Jog</defaultLocomotion>
                     <jobMaxDuration>500</jobMaxDuration>
