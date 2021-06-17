@@ -60,9 +60,16 @@
         <Compile Include="AI\JobGiverAIGotoNearestHostileFactionMember.cs" />
         <Compile Include="AI\JobGiverKillHostileFactionMember.cs" />
         <Compile Include="AI\JobGiverTakeSpoils.cs" />
+        <Compile Include="Extension\FactionExtension.cs" />
         <Compile Include="Incident\IncidentWorkerFactionWar.cs" />
+        <Compile Include="Incident\IncidentWorkerFactionWarShelling.cs" />
+        <Compile Include="Incident\IncidentWorkerLogging.cs" />
+        <Compile Include="Incident\IncidentWorkerPoaching.cs" />
         <Compile Include="Incident\RaidStrategyDefOf.cs" />
         <Compile Include="Incident\RaidStrategyWorkerFactionFirst.cs" />
+        <Compile Include="Incident\RaidStrategyWorkerLogging.cs" />
+        <Compile Include="Incident\RaidStrategyWorkerPoaching.cs" />
+        <Compile Include="Incident\RaidStrategyWorkerShellingFactionFirst.cs" />
         <Compile Include="Job\JobDefOf.cs" />
         <Compile Include="Job\JobDriverKillMelee.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />

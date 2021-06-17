@@ -19,5 +19,8 @@ namespace SR.ModRimWorld.FactionalWar
         [UsedImplicitly] public static readonly DutyDef SrAssaultFactionFirst; //派系优先
         [UsedImplicitly] public static readonly DutyDef SrKillHostileFactionMember; //派系胜利 自我防卫 包扎伤口 击杀敌对派系成员
         [UsedImplicitly] public static readonly DutyDef SrClearBattlefield; // 清理战场物资
+        [UsedImplicitly] public static readonly DutyDef SrLogging; // 伐木
+        [UsedImplicitly] public static readonly DutyDef SrPoaching; // 偷猎
+        [UsedImplicitly] public static readonly DutyDef SrShellingFactionsPriority; // 炮击派系优先
     }
 }

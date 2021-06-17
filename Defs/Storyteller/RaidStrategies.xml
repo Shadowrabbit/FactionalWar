@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
+    <!--派系战争-->
     <RaidStrategyDef>
         <defName>SrFactionFirst</defName>
         <workerClass>SR.ModRimworld.FactionalWar.RaidStrategyWorkerFactionFirst</workerClass>
         <selectionWeightPerPointsCurve>
             <points>
-                <li>(100,0.75)</li>
-                <li>(700,0.25)</li>
+                <li>(100,0.4)</li>
+                <li>(700,0.8)</li>
             </points>
         </selectionWeightPerPointsCurve>
         <pointsFactorCurve>
@@ -15,9 +16,74 @@
             </points>
         </pointsFactorCurve>
         <arriveModes>
-            <li>SrFactionWarEdgeWalkIn</li>
+            <li>SrTwoFactionsEdgeWalkIn</li>
+            <li>SrTwoFactionsEdgeDrop</li>
         </arriveModes>
         <letterLabelEnemy>派系战争</letterLabelEnemy>
         <arrivalTextEnemy>来自{1}的{0}与来自{3}的{2}即将激烈交战!他们的目标并不是你。</arrivalTextEnemy>
+    </RaidStrategyDef>
+    <!--伐木-->
+    <RaidStrategyDef>
+        <defName>SrLogging</defName>
+        <workerClass>SR.ModRimworld.FactionalWar.RaidStrategyWorkerLogging</workerClass>
+        <selectionWeightPerPointsCurve>
+            <points>
+                <li>(100,0.4)</li>
+                <li>(700,0.8)</li>
+            </points>
+        </selectionWeightPerPointsCurve>
+        <pointsFactorCurve>
+            <points>
+                <li>0, 1</li>
+            </points>
+        </pointsFactorCurve>
+        <arriveModes>
+            <li>EdgeWalkIn</li>
+        </arriveModes>
+        <letterLabelEnemy>伐木</letterLabelEnemy>
+        <arrivalTextEnemy>来自{1}的{0}打算在附近伐木。</arrivalTextEnemy>
+    </RaidStrategyDef>
+    <!--偷猎-->
+    <RaidStrategyDef>
+        <defName>SrPoaching</defName>
+        <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerPoaching</workerClass>
+        <selectionWeightPerPointsCurve>
+            <points>
+                <li>(100,0.4)</li>
+                <li>(700,0.8)</li>
+            </points>
+        </selectionWeightPerPointsCurve>
+        <pointsFactorCurve>
+            <points>
+                <li>0, 1</li>
+            </points>
+        </pointsFactorCurve>
+        <arriveModes>
+            <li>EdgeWalkIn</li>
+        </arriveModes>
+        <letterLabelEnemy>偷猎</letterLabelEnemy>
+        <arrivalTextEnemy>来自{1}的{0}打算在附近偷猎。</arrivalTextEnemy>
+    </RaidStrategyDef>
+    <!--派系炮击-->
+    <RaidStrategyDef>
+        <defName>SrShellingFaction</defName>
+        <workerClass>SR.ModRimworld.FactionalWar.RaidStrategyWorkerShellingFactionFirst</workerClass>
+        <selectionWeightPerPointsCurve>
+            <points>
+                <li>(100,0.4)</li>
+                <li>(700,0.8)</li>
+            </points>
+        </selectionWeightPerPointsCurve>
+        <pointsFactorCurve>
+            <points>
+                <li>0, 1</li>
+            </points>
+        </pointsFactorCurve>
+        <arriveModes>
+            <li>SrTwoFactionsEdgeWalkIn</li>
+            <li>SrTwoFactionsEdgeDrop</li>
+        </arriveModes>
+        <letterLabelEnemy>派系战争(炮击)</letterLabelEnemy>
+        <arrivalTextEnemy>来自{1}的{0}与来自{3}的{2}即将展开炮击战！小心被误伤。</arrivalTextEnemy>
     </RaidStrategyDef>
 </Defs>

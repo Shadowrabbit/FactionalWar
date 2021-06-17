@@ -46,6 +46,19 @@ namespace SR.ModRimWorld.FactionalWar
         }
 
         /// <summary>
+        /// 派系能否成为资源组
+        /// </summary>
+        /// <param name="f">派系</param>
+        /// <param name="map">地图</param>
+        /// <param name="desperate">绝望难度</param>
+        /// <returns></returns>
+        protected override bool FactionCanBeGroupSource(Faction f, Map map, bool desperate = false)
+        {
+            return base.FactionCanBeGroupSource(f, map, desperate) &&
+                   (desperate || GenDate.DaysPassed >= f.def.earliestRaidDays);
+        }
+
+        /// <summary>
         /// 执行事件
         /// </summary>
         /// <param name="parms"></param>
@@ -91,7 +104,7 @@ namespace SR.ModRimWorld.FactionalWar
 
             //战利品生成点数
             var raidLootPoints = parms.points / 10;
-            //调整袭击点数
+            //根据策略再次调整袭击点数
             parms.points = AdjustedRaidPoints(parms.points, parms.raidArrivalMode,
                 parms.raidStrategy, parms.faction, combat);
             parms2.points = parms.points;
@@ -132,17 +145,6 @@ namespace SR.ModRimWorld.FactionalWar
         protected override bool TryResolveRaidFaction(IncidentParms parms)
         {
             return false;
-        }
-
-        /// <summary>
-        /// 解决突袭策略
-        /// </summary>
-        /// <param name="parms"></param>
-        /// <param name="groupKind"></param>
-        public override void ResolveRaidStrategy(IncidentParms parms, PawnGroupKindDef groupKind)
-        {
-            //派系优先
-            parms.raidStrategy = RaidStrategyDefOf.SrFactionFirst;
         }
 
         /// <summary>
@@ -224,16 +226,14 @@ namespace SR.ModRimWorld.FactionalWar
         }
 
         /// <summary>
-        /// 派系能否成为资源组
+        /// 解决突袭策略
         /// </summary>
-        /// <param name="f">派系</param>
-        /// <param name="map">地图</param>
-        /// <param name="desperate">绝望难度</param>
-        /// <returns></returns>
-        protected override bool FactionCanBeGroupSource(Faction f, Map map, bool desperate = false)
+        /// <param name="parms"></param>
+        /// <param name="groupKind"></param>
+        public override void ResolveRaidStrategy(IncidentParms parms, PawnGroupKindDef groupKind)
         {
-            return base.FactionCanBeGroupSource(f, map, desperate) &&
-                   (desperate || GenDate.DaysPassed >= f.def.earliestRaidDays);
+            //派系优先
+            parms.raidStrategy = RaidStrategyDefOf.SrFactionFirst;
         }
 
         /// <summary>
@@ -301,14 +301,14 @@ namespace SR.ModRimWorld.FactionalWar
             foreach (var faction in candidateFactionList)
             {
                 //无效派系
-                if (!IsFactionEffective(faction, points))
+                if (!faction.IsFactionEffective(points, PawnGroupKindDefOf.Combat))
                 {
                     continue;
                 }
 
                 //遍历可用派系 寻找与当前派系敌对的派系
                 foreach (var anotherFaction in candidateFactionList
-                    .Where(anotherFaction => IsFactionEffective(anotherFaction, points))
+                    .Where(anotherFaction => anotherFaction.IsFactionEffective(points, PawnGroupKindDefOf.Combat))
                     .Where(anotherFaction => faction.HostileTo(anotherFaction)))
                 {
                     faction1 = faction;
@@ -316,49 +316,6 @@ namespace SR.ModRimWorld.FactionalWar
                     return;
                 }
             }
-        }
-
-        /// <summary>
-        /// 是否属于有效派系
-        /// </summary>
-        /// <param name="faction"></param>
-        /// <param name="points"></param>
-        /// <returns></returns>
-        private static bool IsFactionEffective(Faction faction, float points)
-        {
-            //派系是临时的
-            if (faction.temporary)
-            {
-                return false;
-            }
-
-            //派系被打败了
-            if (faction.defeated)
-            {
-                return false;
-            }
-
-            //派系不是人类派系
-            if (!faction.def.humanlikeFaction)
-            {
-                return false;
-            }
-
-            //派系没有角色组制作器
-            if (faction.def.pawnGroupMakers == null)
-            {
-                return false;
-            }
-
-            //派系角色组中没有战士型
-            if (!faction.def.pawnGroupMakers.Any(
-                x => x.kindDef == PawnGroupKindDefOf.Combat))
-            {
-                return false;
-            }
-
-            //袭击点数不足以生成战士组
-            return points >= faction.def.MinPointsToGeneratePawnGroup(PawnGroupKindDefOf.Combat);
         }
 
         /// <summary>

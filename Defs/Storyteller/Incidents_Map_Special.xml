@@ -5,8 +5,26 @@
         <label>派系战争</label>
         <targetTags>
             <li>Map_PlayerHome</li>
+            <li>Map_TempIncident</li>
+            <li>Map_Misc</li>
+            <li>Map_RaidBeacon</li>
         </targetTags>
         <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerFactionWar</workerClass>
+        <category>ThreatBig</category>
+        <baseChance>4</baseChance>
+        <pointsScaleable>true</pointsScaleable>
+        <requireColonistsPresent>false</requireColonistsPresent>
+    </IncidentDef>
+    <IncidentDef>
+        <defName>SrFactionWarShelling</defName>
+        <label>派系战争(炮击)</label>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+            <li>Map_TempIncident</li>
+            <li>Map_Misc</li>
+            <li>Map_RaidBeacon</li>
+        </targetTags>
+        <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerFactionWarShelling</workerClass>
         <category>ThreatBig</category>
         <baseChance>4</baseChance>
         <pointsScaleable>true</pointsScaleable>

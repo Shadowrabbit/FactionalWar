@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
+    <!--突击派系优先-->
     <DutyDef>
         <defName>SrAssaultFactionFirst</defName>
         <alwaysShowWeapon>true</alwaysShowWeapon>
@@ -17,6 +18,7 @@
             </subNodes>
         </thinkNode>
     </DutyDef>
+    <!--击杀敌对派系成员-->
     <DutyDef>
         <defName>SrKillHostileFactionMember</defName>
         <thinkNode Class="ThinkNode_Priority">
@@ -30,17 +32,76 @@
             </subNodes>
         </thinkNode>
     </DutyDef>
+    <!--清理战场-->
     <DutyDef>
         <defName>SrClearBattlefield</defName>
         <thinkNode Class="ThinkNode_Priority">
             <subNodes>
                 <li Class="JobGiver_TakeWoundedGuest"/>
                 <li Class="SR.ModRimWorld.FactionalWar.JobGiverTakeSpoils"/>
+                <li Class="JobGiver_AIDefendSelf">
+                    <targetAcquireRadius>35</targetAcquireRadius>
+                    <targetKeepRadius>40</targetKeepRadius>
+                </li>
                 <li Class="JobGiver_ExitMapBest">
                     <defaultLocomotion>Jog</defaultLocomotion>
                     <jobMaxDuration>500</jobMaxDuration>
                     <forceCanDigIfAnyHostileActiveThreat>true</forceCanDigIfAnyHostileActiveThreat>
                     <forceCanDigIfCantReachMapEdge>true</forceCanDigIfCantReachMapEdge>
+                </li>
+            </subNodes>
+        </thinkNode>
+    </DutyDef>
+    <!--伐木-->
+    <DutyDef>
+        <defName>SrLogging</defName>
+        <thinkNode Class="ThinkNode_Priority">
+            <subNodes>
+                <!--                砍树-->
+                <!--                带走木材-->
+                <li Class="JobGiver_AIDefendSelf">
+                    <targetAcquireRadius>35</targetAcquireRadius>
+                    <targetKeepRadius>40</targetKeepRadius>
+                </li>
+                <li Class="JobGiver_ExitMapBest">
+                    <defaultLocomotion>Jog</defaultLocomotion>
+                    <jobMaxDuration>500</jobMaxDuration>
+                    <forceCanDigIfAnyHostileActiveThreat>true</forceCanDigIfAnyHostileActiveThreat>
+                    <forceCanDigIfCantReachMapEdge>true</forceCanDigIfCantReachMapEdge>
+                </li>
+            </subNodes>
+        </thinkNode>
+    </DutyDef>
+    <!--偷猎-->
+    <DutyDef>
+        <defName>SrPoaching</defName>
+        <thinkNode Class="ThinkNode_Priority">
+            <subNodes>
+                
+                <!--                猎杀动物-->
+                <!--                带走新鲜尸体-->
+                <li Class="JobGiver_AIDefendSelf">
+                    <targetAcquireRadius>35</targetAcquireRadius>
+                    <targetKeepRadius>40</targetKeepRadius>
+                </li>
+                <li Class="JobGiver_ExitMapBest">
+                    <defaultLocomotion>Jog</defaultLocomotion>
+                    <jobMaxDuration>500</jobMaxDuration>
+                    <forceCanDigIfAnyHostileActiveThreat>true</forceCanDigIfAnyHostileActiveThreat>
+                    <forceCanDigIfCantReachMapEdge>true</forceCanDigIfCantReachMapEdge>
+                </li>
+            </subNodes>
+        </thinkNode>
+    </DutyDef>
+    <!--炮击派系优先-->
+    <DutyDef>
+        <defName>SrShellingFactionsPriority</defName>
+        <thinkNode Class="ThinkNode_Priority">
+            <subNodes>
+                <!--                炮击相关-->
+                <li Class="JobGiver_AIDefendSelf">
+                    <targetAcquireRadius>35</targetAcquireRadius>
+                    <targetKeepRadius>40</targetKeepRadius>
                 </li>
             </subNodes>
         </thinkNode>
