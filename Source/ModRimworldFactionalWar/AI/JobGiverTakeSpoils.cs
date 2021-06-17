@@ -8,6 +8,7 @@
 // ******************************************************************
 
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using RimWorld;
 using UnityEngine;
@@ -100,7 +101,7 @@ namespace SR.ModRimWorld.FactionalWar
             //验证器 搜索者不存在 或者搜索者可以预留当前物体 并且没有禁用 并且物体可以被偷 并且物体没在燃烧中 并且物品周围有敌对派系尸体
             bool SpoilValidator(Thing t) => (seacher == null || seacher.CanReserve(t)) &&
                                             (disallowed == null || !disallowed.Contains(t)) && t.def.stealable &&
-                                            !t.IsBurning() && IsThingNearByCorpse(t, targetFaction);
+                                            !t.IsBurning() && IsThingNearByCorpse(t, targetFaction) && !(t is Corpse);
 
             item = GenClosest.ClosestThing_Regionwise_ReachablePrioritized(root, map,
                 ThingRequest.ForGroup(ThingRequestGroup.HaulableEverOrMinifiable), PathEndMode.ClosestTouch,
@@ -114,43 +115,18 @@ namespace SR.ModRimWorld.FactionalWar
         /// 物体附近是否存在敌对派系尸体
         /// </summary>
         /// <param name="thing"></param>
-        /// <param name="faction"></param>
+        /// <param name="targetFaction"></param>
         /// <returns></returns>
-        private static bool IsThingNearByCorpse(Thing thing, Faction faction)
+        private static bool IsThingNearByCorpse(Thing thing, Faction targetFaction)
         {
             var posRoot = thing.Position;
             var cellRectRoot = new CellRect(posRoot.x - 1, posRoot.z - 1, 3, 3);
-            Log.Warning($"起始点{posRoot.x},{posRoot.z}");
-            foreach (var cell in cellRectRoot.EdgeCells)
-            {
-                Log.Warning($"{cell.x},{cell.z}");
-                var corpse = cell.GetFirstThing<Pawn>(thing.Map);
-                //没找到角色
-                if (corpse == null)
-                {
-                    Log.Warning("1");
-                    continue;
-                }
-
-                //当前角色没死
-                if (!corpse.Dead)
-                {
-                    Log.Warning("2");
-                    continue;
-                }
-
-                //不是目标派系的尸体
-                if (corpse.Faction != faction)
-                {
-                    Log.Warning("3");
-                    continue;
-                }
-
-                return true;
-            }
-
-            Log.Warning("结束");
-            return false;
+            return (from cell in cellRectRoot.EdgeCells
+                where cell.InBounds(thing.Map)
+                select cell.GetFirstThing<Corpse>(thing.Map)
+                into corpse
+                where corpse != null
+                select corpse).Any(corpse => corpse.InnerPawn.Faction == targetFaction);
         }
     }
 }

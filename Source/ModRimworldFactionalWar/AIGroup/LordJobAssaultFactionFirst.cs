@@ -81,15 +81,24 @@ namespace SR.ModRimWorld.FactionalWar
                     (NamedArgument) _targetFaction.Name)));
             stateGraph.AddTransition(transitionAssaultFactionFirstToKillHostileFactionMember);
             //敌对派系成员全部死亡 击杀敌对派系成员 转变为 清理战场离开
-            var transitionKillHostileFactionMemberToClearBattleField =
+            var transitionKillHostileFactionMemberToClearBattlefield =
                 new Transition(lordToilKillHostileFactionMember, lordToilClearBattlefield);
             var triggerAllHostileFactionMembersDead = new TriggerAllHostileFactionMembersDead(_targetFaction);
-            transitionKillHostileFactionMemberToClearBattleField.AddTrigger(triggerAllHostileFactionMembersDead);
-            transitionKillHostileFactionMemberToClearBattleField.AddPreAction(new TransitionAction_Message(
+            transitionKillHostileFactionMemberToClearBattlefield.AddTrigger(triggerAllHostileFactionMembersDead);
+            transitionKillHostileFactionMemberToClearBattlefield.AddPreAction(new TransitionAction_Message(
                 "SrClearBattlefiled".Translate(
                     (NamedArgument) _assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
                     (NamedArgument) _assaulterFaction.Name)));
-            stateGraph.AddTransition(transitionKillHostileFactionMemberToClearBattleField);
+            stateGraph.AddTransition(transitionKillHostileFactionMemberToClearBattlefield);
+            //没有敌对派系存活 (派系胜利并且没有敌对伤员) 攻击敌方派系转变为 清理战场离开
+            var transitionAssaultFactionFirstToClearBattlefield =
+                new Transition(lordToilAssaultFactionFirst, lordToilClearBattlefield);
+            transitionAssaultFactionFirstToClearBattlefield.AddTrigger(triggerAllHostileFactionMembersDead);
+            transitionAssaultFactionFirstToClearBattlefield.AddPreAction(new TransitionAction_Message(
+                "SrClearBattlefiled".Translate(
+                    (NamedArgument) _assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
+                    (NamedArgument) _assaulterFaction.Name)));
+            stateGraph.AddTransition(transitionAssaultFactionFirstToClearBattlefield);
             //派系和好 攻击对方派系 转变为 离开地图
             var transitionAssaultFactionFirstToExitMap = new Transition(lordToilAssaultFactionFirst, lordToilExitMap);
             var triggerBecameNonHostileToFaction = new TriggerBecameNonHostileToFaction(_targetFaction);
