@@ -46,7 +46,7 @@
     <!--偷猎-->
     <RaidStrategyDef>
         <defName>SrPoaching</defName>
-        <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerPoaching</workerClass>
+        <workerClass>SR.ModRimworld.FactionalWar.RaidStrategyWorkerPoaching</workerClass>
         <selectionWeightPerPointsCurve>
             <points>
                 <li>(100,0.4)</li>

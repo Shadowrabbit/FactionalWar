@@ -58,11 +58,24 @@
         <thinkNode Class="ThinkNode_Priority">
             <subNodes>
                 <!--                砍树-->
-                <!--                带走木材-->
                 <li Class="JobGiver_AIDefendSelf">
                     <targetAcquireRadius>35</targetAcquireRadius>
                     <targetKeepRadius>40</targetKeepRadius>
                 </li>
+            </subNodes>
+        </thinkNode>
+    </DutyDef>
+    <!--带着木材离开-->
+    <DutyDef>
+        <defName>SrTakeWoodExit</defName>
+        <thinkNode Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="JobGiver_AIDefendSelf">
+                    <targetAcquireRadius>35</targetAcquireRadius>
+                    <targetKeepRadius>40</targetKeepRadius>
+                </li>
+                <li Class="JobGiver_SelfTend"/>
+                <!--                带走木材-->
                 <li Class="JobGiver_ExitMapBest">
                     <defaultLocomotion>Jog</defaultLocomotion>
                     <jobMaxDuration>500</jobMaxDuration>
@@ -77,13 +90,25 @@
         <defName>SrPoaching</defName>
         <thinkNode Class="ThinkNode_Priority">
             <subNodes>
-                
-                <!--                猎杀动物-->
-                <!--                带走新鲜尸体-->
+                    <!--                猎杀动物-->
                 <li Class="JobGiver_AIDefendSelf">
                     <targetAcquireRadius>35</targetAcquireRadius>
                     <targetKeepRadius>40</targetKeepRadius>
                 </li>
+            </subNodes>
+        </thinkNode>
+    </DutyDef>
+    <!--带着猎物离开-->
+    <DutyDef>
+        <defName>SrTakePreyExit</defName>
+        <thinkNode Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="JobGiver_AIDefendSelf">
+                    <targetAcquireRadius>35</targetAcquireRadius>
+                    <targetKeepRadius>40</targetKeepRadius>
+                </li>
+                <li Class="JobGiver_SelfTend"/>
+                <!--                带走新鲜尸体-->
                 <li Class="JobGiver_ExitMapBest">
                     <defaultLocomotion>Jog</defaultLocomotion>
                     <jobMaxDuration>500</jobMaxDuration>

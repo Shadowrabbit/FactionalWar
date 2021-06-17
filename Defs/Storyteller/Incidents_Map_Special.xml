@@ -16,6 +16,30 @@
         <requireColonistsPresent>false</requireColonistsPresent>
     </IncidentDef>
     <IncidentDef>
+        <defName>SrPoaching</defName>
+        <label>偷猎</label>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerPoaching</workerClass>
+        <category>ThreatSmall</category>
+        <baseChance>4</baseChance>
+        <pointsScaleable>true</pointsScaleable>
+        <requireColonistsPresent>false</requireColonistsPresent>
+    </IncidentDef>
+    <IncidentDef>
+        <defName>SrLogging</defName>
+        <label>伐木</label>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerLogging</workerClass>
+        <category>ThreatSmall</category>
+        <baseChance>4</baseChance>
+        <pointsScaleable>true</pointsScaleable>
+        <requireColonistsPresent>false</requireColonistsPresent>
+    </IncidentDef>
+    <IncidentDef>
         <defName>SrFactionWarShelling</defName>
         <label>派系战争(炮击)</label>
         <targetTags>

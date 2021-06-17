@@ -16,7 +16,7 @@ namespace SR.ModRimWorld.FactionalWar
     public class LordJobStageThenAssaultFactionFirst : LordJob
     {
         public Faction TargetFaction => _targetFaction;
-        private const int TickLimit = 0x1388; //等待tick
+        private const int TickLimit = 0xBB8; //等待tick
         private Faction _faction; //派系
         private Faction _targetFaction; //敌对派系
         private IntVec3 _stageLoc; //集结中心
@@ -67,7 +67,7 @@ namespace SR.ModRimWorld.FactionalWar
             transition.AddTrigger(new Trigger_FractionPawnsLost(0.3f));
             transition.AddPreAction(new TransitionAction_Message(
                 "SrFactionAssaultBegin".Translate(_faction.def.pawnsPlural.CapitalizeFirst(),
-                    _faction.Name, _targetFaction.Name), MessageTypeDefOf.ThreatSmall, $"xxx-{_raidSeed}"));
+                    _faction.Name, _targetFaction.Name), MessageTypeDefOf.ThreatBig, $"xxx-{_raidSeed}"));
             //唤醒成员
             transition.AddPostAction(new TransitionAction_WakeAll());
             stateGraph.AddTransition(transition);

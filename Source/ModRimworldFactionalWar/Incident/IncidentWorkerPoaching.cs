@@ -7,7 +7,6 @@
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
 
-using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using RimWorld;
@@ -21,8 +20,6 @@ namespace SR.ModRimWorld.FactionalWar
     {
         private const int MaxPoints = 2000; //最大事件点数
         private const int MinPoints = 200; //最小事件点数
-        private const int MaxPawnCount = 5; //最大生成角色数量
-        private const int MinPawnCount = 1; //最小生成角色数量
 
         /// <summary>
         /// 派系能否成为资源组
@@ -43,11 +40,12 @@ namespace SR.ModRimWorld.FactionalWar
         /// <returns></returns>
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
-            if (!(parms.target is Map map))
+            if (!(parms.target is Map))
             {
                 Log.Error("target must be a map.");
                 return false;
             }
+
             //处理袭击点数
             ResolveRaidPoints(parms);
             //处理袭击派系
@@ -56,6 +54,7 @@ namespace SR.ModRimWorld.FactionalWar
                 Log.Warning("cant find raid factions");
                 return false;
             }
+
             //解决袭击策略
             ResolveRaidStrategy(parms, PawnGroupKindDefOf.Settlement);
             //解决到达方式
@@ -66,11 +65,22 @@ namespace SR.ModRimWorld.FactionalWar
                 Log.Warning($"cant resolve raid spawn center: {parms}");
                 return false;
             }
+
             //根据策略再次调整袭击点数
             parms.points = AdjustedRaidPoints(parms.points, parms.raidArrivalMode,
                 parms.raidStrategy, parms.faction, PawnGroupKindDefOf.Settlement);
             //生成派系部队
-            var pawnListFaction1 = parms.raidStrategy.Worker.SpawnThreats(parms);
+            var pawnList = PawnSpawnUtil.SpawnPawns(parms, PawnGroupKindDefOf.Settlement);
+            //信件通知
+            var letterLabel = (TaggedString) GetLetterLabel(parms);
+            var letterText = (TaggedString) GetLetterText(parms, pawnList);
+            SendStandardLetter(letterLabel, letterText, GetLetterDef(), parms, pawnList);
+            //设置集群AI
+            parms.raidStrategy.Worker.MakeLords(parms, pawnList);
+            //袭击时设置一倍速
+            Find.TickManager.slower.SignalForceNormalSpeedShort();
+            //更新参与袭击的敌人记录
+            Find.StoryWatcher.statsRecord.numRaidsEnemy++;
             return true;
         }
 
@@ -105,9 +115,11 @@ namespace SR.ModRimWorld.FactionalWar
             var candidateFactionList = CandidateFactions(map).ToList();
             //乱序
             candidateFactionList.Shuffle();
-            return candidateFactionList.Where(faction => faction.IsFactionEffective(parms.points, PawnGroupKindDefOf.Settlement))
+            return candidateFactionList.Where(faction =>
+                    faction.IsFactionEffective(parms.points, PawnGroupKindDefOf.Settlement))
                 .Any(faction => faction.HostileTo(Faction.OfPlayer));
         }
+
         /// <summary>
         /// 解决突袭策略
         /// </summary>
@@ -135,17 +147,5 @@ namespace SR.ModRimWorld.FactionalWar
         {
             parms.points = Mathf.Clamp(StorytellerUtility.DefaultThreatPointsNow(parms.target), MinPoints, MaxPoints);
         }
-
-
-        private List<Pawn> SpawnPawns(IncidentParms parms)
-        {
-            var target = (Map)parms.target;
-            var list = PawnGroupMakerUtility
-                .GeneratePawns(IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDef, parms, true), false).ToList<Pawn>();
-            foreach (var newThing in list)
-                GenSpawn.Spawn(newThing, CellFinder.RandomClosewalkCellNear(parms.spawnCenter, target, 5), target);
-            return list;
-        }
-        public PawnGroupKindDef PawnGroupKindDef { get; set; }
     }
 }
