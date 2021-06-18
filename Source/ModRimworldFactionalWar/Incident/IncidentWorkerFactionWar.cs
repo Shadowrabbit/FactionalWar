@@ -201,14 +201,13 @@ namespace SR.ModRimWorld.FactionalWar
         /// <param name="parms"></param>
         protected override void ResolveRaidPoints(IncidentParms parms)
         {
-            if (parms.points <= 0f)
+            if (!(parms.points <= 0f))
             {
-                Log.Error(
-                    "RaidEnemy is resolving raid points. They should always be set before initiating the incident.");
-                parms.points = StorytellerUtility.DefaultThreatPointsNow(parms.target);
+                return;
             }
-
-            parms.points /= 2;
+            Log.Error(
+                "RaidEnemy is resolving raid points. They should always be set before initiating the incident.");
+            parms.points = StorytellerUtility.DefaultThreatPointsNow(parms.target);
         }
 
         /// <summary>
@@ -289,10 +288,14 @@ namespace SR.ModRimWorld.FactionalWar
         private void FindFactionsInWar(IncidentParms parms, out Faction faction1,
             out Faction faction2)
         {
-            var map = parms.target as Map; //目标地图
-            var points = parms.points; //袭击点数
             faction1 = null;
             faction2 = null;
+            if (!(parms.target is Map map))
+            {
+                Log.Error("target must be a map");
+                return;
+            }
+            var points = parms.points; //袭击点数
             //全部派系
             var candidateFactionList = CandidateFactions(map).ToList();
             //乱序

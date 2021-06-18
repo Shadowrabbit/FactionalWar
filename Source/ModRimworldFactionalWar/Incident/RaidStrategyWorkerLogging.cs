@@ -16,8 +16,16 @@ using Verse.AI.Group;
 namespace SR.ModRimWorld.FactionalWar
 {
     [UsedImplicitly]
-    public class RaidStrategyWorkerLogging : RaidStrategyWorker
+    public class RaidStrategyWorkerLogging : RaidStrategyWorkerPoaching
     {
+        /// <summary>
+        /// 创建集群AI工作
+        /// </summary>
+        /// <param name="parms"></param>
+        /// <param name="map"></param>
+        /// <param name="pawns"></param>
+        /// <param name="raidSeed"></param>
+        /// <returns></returns>
         protected override LordJob MakeLordJob(IncidentParms parms, Map map, List<Pawn> pawns, int raidSeed)
         {
             return new LordJobLogging();
