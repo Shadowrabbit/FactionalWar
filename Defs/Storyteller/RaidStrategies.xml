@@ -41,7 +41,7 @@
             <li>EdgeWalkIn</li>
         </arriveModes>
         <letterLabelEnemy>伐木</letterLabelEnemy>
-        <arrivalTextEnemy>来自{1}的{0}打算在附近伐木。</arrivalTextEnemy>
+        <arrivalTextEnemy>他们打算在附近伐木。</arrivalTextEnemy>
     </RaidStrategyDef>
     <!--偷猎-->
     <RaidStrategyDef>
@@ -62,7 +62,7 @@
             <li>EdgeWalkIn</li>
         </arriveModes>
         <letterLabelEnemy>偷猎</letterLabelEnemy>
-        <arrivalTextEnemy>来自{1}的{0}打算在附近偷猎。</arrivalTextEnemy>
+        <arrivalTextEnemy>他们打算在附近偷猎。</arrivalTextEnemy>
     </RaidStrategyDef>
     <!--派系炮击-->
     <RaidStrategyDef>

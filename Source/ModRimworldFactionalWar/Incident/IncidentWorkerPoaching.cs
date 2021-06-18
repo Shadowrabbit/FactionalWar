@@ -104,23 +104,6 @@ namespace SR.ModRimWorld.FactionalWar
         }
 
         /// <summary>
-        /// 尝试解决突袭派系
-        /// </summary>
-        /// <param name="parms"></param>
-        /// <returns></returns>
-        protected override bool TryResolveRaidFaction(IncidentParms parms)
-        {
-            var map = parms.target as Map; //目标地图
-            //全部派系
-            var candidateFactionList = CandidateFactions(map).ToList();
-            //乱序
-            candidateFactionList.Shuffle();
-            return candidateFactionList.Where(faction =>
-                    faction.IsFactionEffective(parms.points, PawnGroupKindDefOf.Settlement))
-                .Any(faction => faction.HostileTo(Faction.OfPlayer));
-        }
-
-        /// <summary>
         /// 解决突袭策略
         /// </summary>
         /// <param name="parms"></param>

@@ -301,14 +301,14 @@ namespace SR.ModRimWorld.FactionalWar
             foreach (var faction in candidateFactionList)
             {
                 //无效派系
-                if (!faction.IsFactionEffective(points, PawnGroupKindDefOf.Combat))
+                if (!IsFactionEffective(faction, points, PawnGroupKindDefOf.Combat))
                 {
                     continue;
                 }
 
                 //遍历可用派系 寻找与当前派系敌对的派系
                 foreach (var anotherFaction in candidateFactionList
-                    .Where(anotherFaction => anotherFaction.IsFactionEffective(points, PawnGroupKindDefOf.Combat))
+                    .Where(anotherFaction => IsFactionEffective(anotherFaction, points, PawnGroupKindDefOf.Combat))
                     .Where(anotherFaction => faction.HostileTo(anotherFaction)))
                 {
                     faction1 = faction;
@@ -341,6 +341,50 @@ namespace SR.ModRimWorld.FactionalWar
             }
 
             parms.raidArrivalMode.Worker.Arrive(pawnList, parms);
+        }
+
+        /// <summary>
+        /// 派系是否有效
+        /// </summary>
+        /// <param name="faction">派系</param>
+        /// <param name="points">事件点数</param>
+        /// <param name="pawnGroupKindDef">角色组类型定义</param>
+        /// <returns></returns>
+        private static bool IsFactionEffective(Faction faction, float points, PawnGroupKindDef pawnGroupKindDef)
+        {
+            //派系是临时的
+            if (faction.temporary)
+            {
+                return false;
+            }
+
+            //派系被打败了
+            if (faction.defeated)
+            {
+                return false;
+            }
+
+            //派系不是人类派系
+            if (!faction.def.humanlikeFaction)
+            {
+                return false;
+            }
+
+            //派系没有角色组制作器
+            if (faction.def.pawnGroupMakers == null)
+            {
+                return false;
+            }
+
+            //派系角色组中没有类型
+            if (!faction.def.pawnGroupMakers.Any(
+                x => x.kindDef == pawnGroupKindDef))
+            {
+                return false;
+            }
+
+            //袭击点数不足以生成组
+            return points >= faction.def.MinPointsToGeneratePawnGroup(pawnGroupKindDef);
         }
     }
 }

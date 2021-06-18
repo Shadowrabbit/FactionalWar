@@ -15,7 +15,7 @@ namespace SR.ModRimWorld.FactionalWar
 {
     public class LordJobPoaching : LordJob
     {
-        private const int TickLimit = 0x960; //等待tick
+        private static readonly IntRange ExitTime = new IntRange(13000, 19000); //离开时间
 
         public override StateGraph CreateGraph()
         {
@@ -32,7 +32,7 @@ namespace SR.ModRimWorld.FactionalWar
             var faction = lord.faction;
             //过渡 偷猎到带着猎物离开
             var transitionPoachingToTakePreyExit = new Transition(lordToilPoaching, lordToilTakePreyExit);
-            var triggerTicksPassed = new Trigger_TicksPassed(TickLimit);
+            var triggerTicksPassed = new Trigger_TicksPassed(ExitTime.RandomInRange);
             transitionPoachingToTakePreyExit.AddTrigger(triggerTicksPassed);
             transitionPoachingToTakePreyExit.AddPreAction(new TransitionAction_Message(
                 "SrTakePreyExit".Translate(faction.def.pawnsPlural.CapitalizeFirst(),
