@@ -8,7 +8,6 @@
 // ******************************************************************
 
 using JetBrains.Annotations;
-using RimWorld;
 using Verse;
 using Verse.AI;
 using Verse.AI.Group;
@@ -16,7 +15,7 @@ using Verse.AI.Group;
 namespace SR.ModRimWorld.FactionalWar
 {
     [UsedImplicitly]
-    public class JobGiverAIGotoNearestHostileFactionMember : JobGiver_AIGotoNearestHostile
+    public class JobGiverAIGotoNearestHostileFactionMember : ThinkNode_JobGiver
     {
         protected override Job TryGiveJob(Pawn pawn)
         {

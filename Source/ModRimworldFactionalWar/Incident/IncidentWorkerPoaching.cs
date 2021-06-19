@@ -35,7 +35,7 @@ namespace SR.ModRimWorld.FactionalWar
 
             return Enumerable.Any(candidateFactionList, faction => faction.HostileTo(Faction.OfPlayer));
         }
-        
+
         /// <summary>
         /// 派系能否成为资源组
         /// </summary>
@@ -47,7 +47,7 @@ namespace SR.ModRimWorld.FactionalWar
         {
             return base.FactionCanBeGroupSource(f, map, desperate) && f.def.humanlikeFaction;
         }
-        
+
         /// <summary>
         /// 解决突袭策略
         /// </summary>

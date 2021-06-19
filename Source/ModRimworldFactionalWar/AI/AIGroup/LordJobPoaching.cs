@@ -15,7 +15,7 @@ namespace SR.ModRimWorld.FactionalWar
 {
     public class LordJobPoaching : LordJob
     {
-        private static readonly IntRange ExitTime = new IntRange(13000, 19000); //离开时间
+        private static readonly IntRange ExitTime = new IntRange(5000, 8000); //离开时间
 
         public override StateGraph CreateGraph()
         {

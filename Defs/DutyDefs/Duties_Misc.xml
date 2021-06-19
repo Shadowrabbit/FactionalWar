@@ -8,7 +8,7 @@
             <subNodes>
                 <li Class="JobGiver_TakeCombatEnhancingDrug"/>
                 <li Class="SR.ModRimWorld.FactionalWar.JobGiverAIFightHostileFaction">
-                    <targetAcquireRadius>65</targetAcquireRadius>
+                    <targetAcquireRadius>35</targetAcquireRadius>
                     <targetKeepRadius>72</targetKeepRadius>
                 </li>
                 <li Class="SR.ModRimWorld.FactionalWar.JobGiverAIGotoNearestHostileFactionMember"/>
@@ -57,11 +57,11 @@
         <defName>SrLogging</defName>
         <thinkNode Class="ThinkNode_Priority">
             <subNodes>
-                <!--                砍树-->
-                <li Class="JobGiver_AIDefendSelf">
+                <li Class="JobGiver_AIFightEnemies">
                     <targetAcquireRadius>35</targetAcquireRadius>
                     <targetKeepRadius>40</targetKeepRadius>
                 </li>
+                <!--                砍树-->
             </subNodes>
         </thinkNode>
     </DutyDef>
@@ -90,11 +90,11 @@
         <defName>SrPoaching</defName>
         <thinkNode Class="ThinkNode_Priority">
             <subNodes>
-                    <!--                猎杀动物-->
-                <li Class="JobGiver_AIDefendSelf">
+                <li Class="JobGiver_AIFightEnemies">
                     <targetAcquireRadius>35</targetAcquireRadius>
                     <targetKeepRadius>40</targetKeepRadius>
                 </li>
+                <li Class="SR.ModRimWorld.FactionalWar.JobGiverAIFightAnimal"/>
             </subNodes>
         </thinkNode>
     </DutyDef>
@@ -108,7 +108,7 @@
                     <targetKeepRadius>40</targetKeepRadius>
                 </li>
                 <li Class="JobGiver_SelfTend"/>
-                <!--                带走新鲜尸体-->
+                <li Class="SR.ModRimWorld.FactionalWar.JobGiverTakePreyExit"/>
                 <li Class="JobGiver_ExitMapBest">
                     <defaultLocomotion>Jog</defaultLocomotion>
                     <jobMaxDuration>500</jobMaxDuration>

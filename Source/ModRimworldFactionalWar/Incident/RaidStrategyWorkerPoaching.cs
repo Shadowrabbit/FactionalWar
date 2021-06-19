@@ -19,7 +19,7 @@ namespace SR.ModRimWorld.FactionalWar
     [UsedImplicitly]
     public class RaidStrategyWorkerPoaching : RaidStrategyWorker
     {
-        private const int MaxPawnCount = 7; //最大生成角色数量
+        private const int MaxPawnCount = 6; //最大生成角色数量
         private const int MinPawnCount = 1; //最小生成角色数量
 
         /// <summary>
@@ -60,6 +60,7 @@ namespace SR.ModRimWorld.FactionalWar
                     pawnList.RemoveAt(i);
                 }
             }
+
             parms.raidArrivalMode.Worker.Arrive(pawnList, parms);
             return pawnList;
         }

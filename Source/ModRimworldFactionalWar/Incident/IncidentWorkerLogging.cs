@@ -6,6 +6,7 @@
 //      /  \\        @Modified   2021-06-17 19:42:56
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
+
 using System.Linq;
 using JetBrains.Annotations;
 using RimWorld;
@@ -34,7 +35,7 @@ namespace SR.ModRimWorld.FactionalWar
 
             return Enumerable.Any(candidateFactionList, faction => faction.HostileTo(Faction.OfPlayer));
         }
-        
+
         /// <summary>
         /// 派系能否成为资源组
         /// </summary>
@@ -56,6 +57,7 @@ namespace SR.ModRimWorld.FactionalWar
         {
             parms.raidStrategy = RaidStrategyDefOf.SrLogging;
         }
+
         /// <summary>
         /// 获取信件定义
         /// </summary>

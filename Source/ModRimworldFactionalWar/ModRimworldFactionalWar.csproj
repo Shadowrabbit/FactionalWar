@@ -46,26 +46,32 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="AIGroup\DutyDefOf.cs" />
-        <Compile Include="AIGroup\LordJobAssaultFactionFirst.cs" />
-        <Compile Include="AIGroup\LordJobLogging.cs" />
-        <Compile Include="AIGroup\LordJobPoaching.cs" />
-        <Compile Include="AIGroup\LordJobStageThenAssaultFactionFirst.cs" />
-        <Compile Include="AIGroup\LordToilAssaultFactionFirst.cs" />
-        <Compile Include="AIGroup\LordToilClearBattlefield.cs" />
-        <Compile Include="AIGroup\LordToilKillHostileFactionMember.cs" />
-        <Compile Include="AIGroup\LordToilLogging.cs" />
-        <Compile Include="AIGroup\LordToilPoaching.cs" />
-        <Compile Include="AIGroup\LordToilTakePreyExit.cs" />
-        <Compile Include="AIGroup\LordToilTakeWoodExit.cs" />
-        <Compile Include="AIGroup\TriggerAllHostileFactionMembersDead.cs" />
-        <Compile Include="AIGroup\TriggerBecameNonHostileToFaction.cs" />
-        <Compile Include="AIGroup\TriggerFactionAssaultVictory.cs" />
-        <Compile Include="AIGroup\TriggetGetDamageFromPlayer.cs" />
-        <Compile Include="AI\JobGiverAIFightHostileFaction.cs" />
-        <Compile Include="AI\JobGiverAIGotoNearestHostileFactionMember.cs" />
-        <Compile Include="AI\JobGiverKillHostileFactionMember.cs" />
-        <Compile Include="AI\JobGiverTakeSpoils.cs" />
+        <Compile Include="AI\AIGroup\DutyDefOf.cs" />
+        <Compile Include="AI\AIGroup\LordJobAssaultFactionFirst.cs" />
+        <Compile Include="AI\AIGroup\LordJobLogging.cs" />
+        <Compile Include="AI\AIGroup\LordJobPoaching.cs" />
+        <Compile Include="AI\AIGroup\LordJobStageThenAssaultFactionFirst.cs" />
+        <Compile Include="AI\AIGroup\LordToilAssaultFactionFirst.cs" />
+        <Compile Include="AI\AIGroup\LordToilClearBattlefield.cs" />
+        <Compile Include="AI\AIGroup\LordToilKillHostileFactionMember.cs" />
+        <Compile Include="AI\AIGroup\LordToilLogging.cs" />
+        <Compile Include="AI\AIGroup\LordToilPoaching.cs" />
+        <Compile Include="AI\AIGroup\LordToilTakePreyExit.cs" />
+        <Compile Include="AI\AIGroup\LordToilTakeWoodExit.cs" />
+        <Compile Include="AI\AIGroup\TriggerAllHostileFactionMembersDead.cs" />
+        <Compile Include="AI\AIGroup\TriggerBecameNonHostileToFaction.cs" />
+        <Compile Include="AI\AIGroup\TriggerFactionAssaultVictory.cs" />
+        <Compile Include="AI\AIGroup\TriggetGetDamageFromPlayer.cs" />
+        <Compile Include="AI\AISingle\JobDefOf.cs" />
+        <Compile Include="AI\AISingle\JobDriverKillMelee.cs" />
+        <Compile Include="AI\AISingle\JobGiverAIFightAnimal.cs" />
+        <Compile Include="AI\AISingle\JobGiverAIFightHostileFaction.cs" />
+        <Compile Include="AI\AISingle\JobGiverAIGotoNearestHostileFactionMember.cs" />
+        <Compile Include="AI\AISingle\JobGiverKillHostileFactionMember.cs" />
+        <Compile Include="AI\AISingle\JobGiverLogging.cs" />
+        <Compile Include="AI\AISingle\JobGiverTakePreyExit.cs" />
+        <Compile Include="AI\AISingle\JobGiverTakeSpoils.cs" />
+        <Compile Include="AI\AISingle\JobGiverTakeWoodExit.cs" />
         <Compile Include="Incident\IncidentWorkerFactionWar.cs" />
         <Compile Include="Incident\IncidentWorkerFactionWarShelling.cs" />
         <Compile Include="Incident\IncidentWorkerLogging.cs" />
@@ -75,8 +81,6 @@
         <Compile Include="Incident\RaidStrategyWorkerLogging.cs" />
         <Compile Include="Incident\RaidStrategyWorkerPoaching.cs" />
         <Compile Include="Incident\RaidStrategyWorkerShellingFactionFirst.cs" />
-        <Compile Include="Job\JobDefOf.cs" />
-        <Compile Include="Job\JobDriverKillMelee.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Util\PawnSpawnUtil.cs" />
     </ItemGroup>

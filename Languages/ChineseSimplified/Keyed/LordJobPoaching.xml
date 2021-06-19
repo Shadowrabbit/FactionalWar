@@ -1,4 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-    <LordJobPoaching>{1}的{0}准备带着猎物离开。</LordJobPoaching>
+    <SrTakePreyExit>{1}的{0}准备带着猎物离开。</SrTakePreyExit>
 </LanguageData>
