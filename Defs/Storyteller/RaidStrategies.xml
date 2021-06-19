@@ -6,8 +6,8 @@
         <workerClass>SR.ModRimworld.FactionalWar.RaidStrategyWorkerFactionFirst</workerClass>
         <selectionWeightPerPointsCurve>
             <points>
-                <li>(100,0.4)</li>
-                <li>(700,0.8)</li>
+                <li>(100,0.75)</li>
+                <li>(700,0.25)</li>
             </points>
         </selectionWeightPerPointsCurve>
         <pointsFactorCurve>
@@ -28,8 +28,7 @@
         <workerClass>SR.ModRimworld.FactionalWar.RaidStrategyWorkerShellingFactionFirst</workerClass>
         <selectionWeightPerPointsCurve>
             <points>
-                <li>(100,0.4)</li>
-                <li>(700,0.8)</li>
+                <li>(0,1.25)</li>
             </points>
         </selectionWeightPerPointsCurve>
         <pointsFactorCurve>

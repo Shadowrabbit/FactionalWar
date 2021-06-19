@@ -53,16 +53,14 @@ namespace SR.ModRimWorld.FactionalWar
         public override StateGraph CreateGraph()
         {
             var stateGraph = new StateGraph();
-            //复制子状态机流程
+            //添加流程 集结
+            var lordToilStage = new LordToil_Stage(_stageLoc);
+            //复制子状态机 突击派系
             var stateGraphAssaultFactionFirst =
                 new LordJobAssaultFactionFirst(_targetFaction, _faction).CreateGraph();
             stateGraph.AttachSubgraph(stateGraphAssaultFactionFirst);
-            //子状态机初始流程
-            var subGraphStartingToil = stateGraphAssaultFactionFirst.StartingToil;
-            //集结 防卫状态
-            var lordToilStage = new LordToil_Stage(_stageLoc);
             //集结 转变为 进攻
-            var transition = new Transition(lordToilStage, subGraphStartingToil);
+            var transition = new Transition(lordToilStage, stateGraphAssaultFactionFirst.StartingToil);
             transition.AddTrigger(new Trigger_TicksPassed(TickLimit));
             transition.AddTrigger(new Trigger_FractionPawnsLost(0.3f));
             transition.AddPreAction(new TransitionAction_Message(
@@ -71,8 +69,6 @@ namespace SR.ModRimWorld.FactionalWar
             //唤醒成员
             transition.AddPostAction(new TransitionAction_WakeAll());
             stateGraph.AddTransition(transition);
-            //设置初始状态
-            stateGraph.StartingToil = lordToilStage;
             return stateGraph;
         }
     }

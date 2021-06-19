@@ -16,7 +16,6 @@ namespace SR.ModRimWorld.FactionalWar
     public static class RaidStrategyDefOf
     {
         [UsedImplicitly] public static readonly RaidStrategyDef SrFactionFirst; //派系优先
-        [UsedImplicitly] public static readonly RaidStrategyDef SrLogging; //伐木
-        [UsedImplicitly] public static readonly RaidStrategyDef SrPoaching; //偷猎
+        [UsedImplicitly] public static readonly RaidStrategyDef SrShellingFaction; //派系优先
     }
 }

@@ -60,16 +60,13 @@ namespace SR.ModRimWorld.FactionalWar
         /// <returns></returns>
         private static bool TargetValidator(Thing target, Faction targetFaction)
         {
-            Log.Warning("目标验证器");
             if (!(target is Pawn pawn))
             {
-                Log.Warning("1");
                 return false;
             }
 
             if (pawn.Faction != targetFaction)
             {
-                Log.Warning("2");
                 return false;
             }
 

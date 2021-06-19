@@ -48,10 +48,12 @@
     <ItemGroup>
         <Compile Include="AI\AIGroup\DutyDefOf.cs" />
         <Compile Include="AI\AIGroup\LordJobAssaultFactionFirst.cs" />
+        <Compile Include="AI\AIGroup\LordJobShellFactionFirst.cs" />
         <Compile Include="AI\AIGroup\LordJobStageThenAssaultFactionFirst.cs" />
         <Compile Include="AI\AIGroup\LordToilAssaultFactionFirst.cs" />
         <Compile Include="AI\AIGroup\LordToilClearBattlefield.cs" />
         <Compile Include="AI\AIGroup\LordToilKillHostileFactionMember.cs" />
+        <Compile Include="AI\AIGroup\LordToilShellFactionFirst.cs" />
         <Compile Include="AI\AIGroup\TriggerAllHostileFactionMembersDead.cs" />
         <Compile Include="AI\AIGroup\TriggerBecameNonHostileToFaction.cs" />
         <Compile Include="AI\AIGroup\TriggerFactionAssaultVictory.cs" />
