@@ -22,7 +22,7 @@ namespace SR.ModRimWorld.FactionalWar
             //集群AI
             var lord = pawn.GetLord();
             //当前的集群AI流程
-            if (!(lord.LordJob is LordJobStageThenAssaultFactionFirst lordJob))
+            if (!(lord.LordJob is LordJobFactionPairBase lordJob))
             {
                 return null;
             }

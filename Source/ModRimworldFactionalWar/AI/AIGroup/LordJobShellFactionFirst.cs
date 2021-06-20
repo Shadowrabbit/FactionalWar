@@ -7,6 +7,7 @@
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
 
+using JetBrains.Annotations;
 using RimWorld;
 using Verse;
 using Verse.AI;
@@ -14,23 +15,17 @@ using Verse.AI.Group;
 
 namespace SR.ModRimWorld.FactionalWar
 {
-    public class LordJobShellFactionFirst : LordJob
+    public class LordJobShellFactionFirst : LordJobFactionPairBase
     {
-        private Faction _faction; //派系
-        private Faction _targetFaction; //敌对派系
-        private IntVec3 _siegeSpot; //集结坐标
         private float _blueprintPoints; //蓝图数量
 
         public LordJobShellFactionFirst()
         {
         }
 
-        public LordJobShellFactionFirst(Faction faction, Faction targetFaction, IntVec3 siegeSpot,
-            float blueprintPoints)
+        public LordJobShellFactionFirst(Faction faction, Faction targetFaction, IntVec3 stageLoc,
+            float blueprintPoints) : base(faction, targetFaction, stageLoc)
         {
-            _faction = faction;
-            _targetFaction = targetFaction;
-            _siegeSpot = siegeSpot;
             _blueprintPoints = blueprintPoints;
         }
 
@@ -39,9 +34,7 @@ namespace SR.ModRimWorld.FactionalWar
         /// </summary>
         public override void ExposeData()
         {
-            Scribe_References.Look(ref _faction, "_faction");
-            Scribe_References.Look(ref _targetFaction, "_targetFaction");
-            Scribe_Values.Look(ref _siegeSpot, "_siegeSpot");
+            base.ExposeData();
             Scribe_Values.Look(ref _blueprintPoints, "_blueprintPoints");
         }
 
@@ -49,47 +42,96 @@ namespace SR.ModRimWorld.FactionalWar
         {
             var stateGraph = new StateGraph();
             //复制状态机 旅行
-            var lordJobTravel = new LordJob_Travel(_siegeSpot).CreateGraph();
+            var lordJobTravel = new LordJob_Travel(stageLoc).CreateGraph();
             var subGraphTravel = stateGraph.AttachSubgraph(lordJobTravel);
+            var lordToilTravel = subGraphTravel.StartingToil;
             //复制状态机 突击
-            var lordJobAssaultFactionFirst = new LordJobAssaultFactionFirst(_faction, _targetFaction).CreateGraph();
+            var lordJobAssaultFactionFirst = new LordJobAssaultFactionFirst(faction, targetFaction).CreateGraph();
             var subGraphAssaultFactionFirst = stateGraph.AttachSubgraph(lordJobAssaultFactionFirst);
+            var lordToilAssaultFactionFirst = subGraphAssaultFactionFirst.StartingToil;
             //添加流程 派系炮击
-            var lordToilSiege = new LordToil_Siege(_siegeSpot, _blueprintPoints);
+            var lordToilSiege = new LordToil_Siege(stageLoc, _blueprintPoints);
             stateGraph.AddToil(lordToilSiege);
             //添加流程 离开地图
             var lordToilExitMap =
                 new LordToil_ExitMap(LocomotionUrgency.Jog, interruptCurrentJob: true) {useAvoidGrid = true};
             stateGraph.AddToil(lordToilExitMap);
+            //旅行转变为击杀
+            var lordToilKillHostileFactionMember = FindToilKillHostileFactionMember(subGraphAssaultFactionFirst);
+            if (lordToilKillHostileFactionMember == null)
+            {
+                Log.Error("can't find LordToilKillHostileFactionMember in subgraph.");
+                return stateGraph;
+            }
+
+            var transitionTravelToKillHostileFactionMember =
+                new Transition(lordToilTravel, lordToilKillHostileFactionMember);
+            var triggerFactionAssaultVictory = new TriggerFactionAssaultVictory(targetFaction);
+            transitionTravelToKillHostileFactionMember.AddTrigger(triggerFactionAssaultVictory);
+            transitionTravelToKillHostileFactionMember.AddPreAction(new TransitionAction_Message(
+                "SrAssaultFactionVictory".Translate(
+                    (NamedArgument) faction.def.pawnsPlural.CapitalizeFirst(),
+                    (NamedArgument) faction.Name,
+                    (NamedArgument) targetFaction.def.pawnsPlural.CapitalizeFirst(),
+                    (NamedArgument) targetFaction.Name)));
+            stateGraph.AddTransition(transitionTravelToKillHostileFactionMember);
+            //炮击转变为击杀
+            var transitionSiegeToKillHostileFactionMember =
+                new Transition(lordToilSiege, lordToilKillHostileFactionMember);
+            transitionSiegeToKillHostileFactionMember.AddTrigger(triggerFactionAssaultVictory);
+            transitionSiegeToKillHostileFactionMember.AddPreAction(new TransitionAction_Message(
+                "SrAssaultFactionVictory".Translate(
+                    (NamedArgument) faction.def.pawnsPlural.CapitalizeFirst(),
+                    (NamedArgument) faction.Name,
+                    (NamedArgument) targetFaction.def.pawnsPlural.CapitalizeFirst(),
+                    (NamedArgument) targetFaction.Name)));
+            stateGraph.AddTransition(transitionSiegeToKillHostileFactionMember);
             //旅行转变为炮击
-            var transitionTravelToSiege = new Transition(subGraphTravel.StartingToil, lordToilSiege);
+            var transitionTravelToSiege = new Transition(lordToilTravel, lordToilSiege);
             transitionTravelToSiege.AddTrigger(new Trigger_Memo("TravelArrived"));
             transitionTravelToSiege.AddTrigger(new Trigger_TicksPassed(5000));
             transitionTravelToSiege.AddPreAction(new TransitionAction_Message(
-                "SrFactionShellBegin".Translate(_faction.def.pawnsPlural.CapitalizeFirst(),
-                    _faction.Name, _targetFaction.Name), MessageTypeDefOf.ThreatBig));
+                "SrFactionShellBegin".Translate(faction.def.pawnsPlural.CapitalizeFirst(),
+                    faction.Name, targetFaction.Name), MessageTypeDefOf.ThreatBig));
             stateGraph.AddTransition(transitionTravelToSiege);
             //炮击转变为突击
-            var transitionSiegeToAssault = new Transition(lordToilSiege, subGraphAssaultFactionFirst.StartingToil);
+            var transitionSiegeToAssault = new Transition(lordToilSiege, lordToilAssaultFactionFirst);
             transitionSiegeToAssault.AddTrigger(new Trigger_Memo("NoBuilders"));
             transitionSiegeToAssault.AddTrigger(new Trigger_Memo("NoArtillery"));
-            transitionSiegeToAssault.AddTrigger(new Trigger_PawnHarmed(0.02f));
-            transitionSiegeToAssault.AddTrigger(new Trigger_TicksPassed(12000));
+            transitionSiegeToAssault.AddTrigger(new Trigger_PawnHarmed(0.005f));
             transitionSiegeToAssault.AddPreAction(new TransitionAction_Message(
-                "SrFactionAssaultBegin".Translate(_faction.def.pawnsPlural.CapitalizeFirst(),
-                    _faction.Name, _targetFaction.Name), MessageTypeDefOf.ThreatBig));
+                "SrFactionAssaultBegin".Translate(faction.def.pawnsPlural.CapitalizeFirst(),
+                    faction.Name, targetFaction.Name), MessageTypeDefOf.ThreatBig));
             transitionSiegeToAssault.AddPostAction(new TransitionAction_WakeAll());
             stateGraph.AddTransition(transitionSiegeToAssault);
             //派系和好 攻击对方派系 转变为 离开地图
             var transitionSiegeToExitMap = new Transition(lordToilSiege, lordToilExitMap);
-            var triggerBecameNonHostileToFaction = new TriggerBecameNonHostileToFaction(_targetFaction);
+            var triggerBecameNonHostileToFaction = new TriggerBecameNonHostileToFaction(targetFaction);
             transitionSiegeToExitMap.AddTrigger(triggerBecameNonHostileToFaction);
             transitionSiegeToExitMap.AddPreAction(new TransitionAction_Message(
                 "MessageRaidersLeaving".Translate(
-                    (NamedArgument) _faction.def.pawnsPlural.CapitalizeFirst(),
-                    (NamedArgument) _faction.Name)));
+                    (NamedArgument) faction.def.pawnsPlural.CapitalizeFirst(),
+                    (NamedArgument) faction.Name)));
             stateGraph.AddTransition(transitionSiegeToExitMap);
             return stateGraph;
+        }
+
+        /// <summary>
+        /// 查找击杀敌对派系流程
+        /// </summary>
+        /// <param name="stateGraph"></param>
+        /// <returns></returns>
+        private static LordToilKillHostileFactionMember FindToilKillHostileFactionMember(StateGraph stateGraph)
+        {
+            foreach (var lordToil in stateGraph.lordToils)
+            {
+                if (lordToil is LordToilKillHostileFactionMember lordToilKillHostileFactionMember)
+                {
+                    return lordToilKillHostileFactionMember;
+                }
+            }
+
+            return null;
         }
     }
 }

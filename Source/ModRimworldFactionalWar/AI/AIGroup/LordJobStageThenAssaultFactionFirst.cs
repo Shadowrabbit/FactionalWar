@@ -13,26 +13,19 @@ using Verse.AI.Group;
 
 namespace SR.ModRimWorld.FactionalWar
 {
-    public class LordJobStageThenAssaultFactionFirst : LordJob
+    public class LordJobStageThenAssaultFactionFirst : LordJobFactionPairBase
     {
-        public Faction TargetFaction => _targetFaction;
         private const int TickLimit = 0xBB8; //等待tick
-        private Faction _faction; //派系
-        private Faction _targetFaction; //敌对派系
-        private IntVec3 _stageLoc; //集结中心
         private int _raidSeed; //袭击种子
 
         public LordJobStageThenAssaultFactionFirst()
         {
         }
 
-        public LordJobStageThenAssaultFactionFirst(Faction faction, IntVec3 stageLoc, int raidSeed,
-            Faction targetFaction)
+        public LordJobStageThenAssaultFactionFirst(Faction faction, Faction targetFaction, IntVec3 stageLoc,
+            int raidSeed) : base(faction, targetFaction, stageLoc)
         {
-            _faction = faction;
-            _stageLoc = stageLoc;
             _raidSeed = raidSeed;
-            _targetFaction = targetFaction;
         }
 
         /// <summary>
@@ -40,9 +33,7 @@ namespace SR.ModRimWorld.FactionalWar
         /// </summary>
         public override void ExposeData()
         {
-            Scribe_References.Look(ref _faction, "_faction");
-            Scribe_References.Look(ref _targetFaction, "_targetFaction");
-            Scribe_Values.Look(ref _stageLoc, "_stageLoc");
+            base.ExposeData();
             Scribe_Values.Look(ref _raidSeed, "_raidSeed");
         }
 
@@ -54,18 +45,18 @@ namespace SR.ModRimWorld.FactionalWar
         {
             var stateGraph = new StateGraph();
             //添加流程 集结
-            var lordToilStage = new LordToil_Stage(_stageLoc);
+            var lordToilStage = new LordToil_Stage(stageLoc);
             //复制子状态机 突击派系
             var stateGraphAssaultFactionFirst =
-                new LordJobAssaultFactionFirst(_targetFaction, _faction).CreateGraph();
+                new LordJobAssaultFactionFirst(faction, targetFaction).CreateGraph();
             stateGraph.AttachSubgraph(stateGraphAssaultFactionFirst);
             //集结 转变为 进攻
             var transition = new Transition(lordToilStage, stateGraphAssaultFactionFirst.StartingToil);
             transition.AddTrigger(new Trigger_TicksPassed(TickLimit));
             transition.AddTrigger(new Trigger_FractionPawnsLost(0.3f));
             transition.AddPreAction(new TransitionAction_Message(
-                "SrFactionAssaultBegin".Translate(_faction.def.pawnsPlural.CapitalizeFirst(),
-                    _faction.Name, _targetFaction.Name), MessageTypeDefOf.ThreatBig, $"xxx-{_raidSeed}"));
+                "SrFactionAssaultBegin".Translate(faction.def.pawnsPlural.CapitalizeFirst(),
+                    faction.Name, targetFaction.Name), MessageTypeDefOf.ThreatBig, $"xxx-{_raidSeed}"));
             //唤醒成员
             transition.AddPostAction(new TransitionAction_WakeAll());
             stateGraph.AddTransition(transition);

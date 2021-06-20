@@ -23,7 +23,7 @@ namespace SR.ModRimWorld.FactionalWar
         {
         }
 
-        public LordJobAssaultFactionFirst(Faction targetFaction, Faction assaulterFaction)
+        public LordJobAssaultFactionFirst(Faction assaulterFaction, Faction targetFaction)
         {
             _targetFaction = targetFaction;
             _assaulterFaction = assaulterFaction;
@@ -58,16 +58,6 @@ namespace SR.ModRimWorld.FactionalWar
             //添加流程 清理战场
             var lordToilClearBattlefield = new LordToilClearBattlefield();
             stateGraph.AddToil(lordToilClearBattlefield);
-            //受到玩家攻击(被激怒) 攻击对方派系 转变为 攻击敌人
-            var transitionAssaultFactionFirstToAssaultEnemy =
-                new Transition(lordToilAssaultFactionFirst, lordToilAssaultEnemey);
-            var triggerGetDamageFromPlayer = new TriggetGetDamageFromPlayer();
-            transitionAssaultFactionFirstToAssaultEnemy.AddTrigger(triggerGetDamageFromPlayer);
-            transitionAssaultFactionFirstToAssaultEnemy.AddPreAction(new TransitionAction_Message(
-                "SrIrritateFaction".Translate(
-                    (NamedArgument) _assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
-                    (NamedArgument) _assaulterFaction.Name)));
-            stateGraph.AddTransition(transitionAssaultFactionFirstToAssaultEnemy);
             //没有除玩家外敌对派系（派系胜利离开）攻击对方派系 转变为 击杀敌对派系成员
             var transitionAssaultFactionFirstToKillHostileFactionMember =
                 new Transition(lordToilAssaultFactionFirst, lordToilKillHostileFactionMember);
@@ -99,6 +89,16 @@ namespace SR.ModRimWorld.FactionalWar
                     (NamedArgument) _assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
                     (NamedArgument) _assaulterFaction.Name)));
             stateGraph.AddTransition(transitionAssaultFactionFirstToClearBattlefield);
+            //受到玩家攻击(被激怒) 攻击对方派系 转变为 攻击敌人
+            var transitionAssaultFactionFirstToAssaultEnemy =
+                new Transition(lordToilAssaultFactionFirst, lordToilAssaultEnemey);
+            var triggerGetDamageFromPlayer = new TriggetGetDamageFromPlayer();
+            transitionAssaultFactionFirstToAssaultEnemy.AddTrigger(triggerGetDamageFromPlayer);
+            transitionAssaultFactionFirstToAssaultEnemy.AddPreAction(new TransitionAction_Message(
+                "SrIrritateFaction".Translate(
+                    (NamedArgument) _assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
+                    (NamedArgument) _assaulterFaction.Name)));
+            stateGraph.AddTransition(transitionAssaultFactionFirstToAssaultEnemy);
             //派系和好 攻击对方派系 转变为 离开地图
             var transitionAssaultFactionFirstToExitMap = new Transition(lordToilAssaultFactionFirst, lordToilExitMap);
             var triggerBecameNonHostileToFaction = new TriggerBecameNonHostileToFaction(_targetFaction);

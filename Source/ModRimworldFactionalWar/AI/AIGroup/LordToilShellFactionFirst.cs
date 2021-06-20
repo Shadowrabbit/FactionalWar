@@ -7,10 +7,21 @@
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
 
+using RimWorld;
+using Verse;
+
 namespace SR.ModRimWorld.FactionalWar
 {
-    public class LordToilShellFactionFirst
+    public class LordToilShellFactionFirst : LordToil_Siege
     {
-        
+        public LordToilShellFactionFirst(IntVec3 siegeCenter, float blueprintPoints) : base(siegeCenter,
+            blueprintPoints)
+        {
+        }
+
+        public override void Init()
+        {
+            base.Init();
+        }
     }
 }

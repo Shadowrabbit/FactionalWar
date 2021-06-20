@@ -32,7 +32,7 @@ namespace SR.ModRimWorld.FactionalWar
         {
             var stageLoc = RCellFinder.FindSiegePositionFrom_NewTemp(
                 parms.spawnCenter.IsValid ? parms.spawnCenter : pawns[0].PositionHeld, map);
-            return new LordJobStageThenAssaultFactionFirst(parms.faction, stageLoc, raidSeed, TempTargetFaction);
+            return new LordJobStageThenAssaultFactionFirst(parms.faction, TempTargetFaction, stageLoc, raidSeed);
         }
     }
 }

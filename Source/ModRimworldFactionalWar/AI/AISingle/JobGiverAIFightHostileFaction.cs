@@ -34,7 +34,7 @@ namespace SR.ModRimWorld.FactionalWar
 
             //获取集群AI
             var lordSeacher = pawn.GetLord();
-            if (!(lordSeacher.LordJob is LordJobStageThenAssaultFactionFirst lordJobSeacher))
+            if (!(lordSeacher.LordJob is LordJobFactionPairBase lordJobSeacher))
             {
                 return false;
             }

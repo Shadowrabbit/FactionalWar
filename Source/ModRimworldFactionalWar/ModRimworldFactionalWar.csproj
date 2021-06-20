@@ -48,6 +48,7 @@
     <ItemGroup>
         <Compile Include="AI\AIGroup\DutyDefOf.cs" />
         <Compile Include="AI\AIGroup\LordJobAssaultFactionFirst.cs" />
+        <Compile Include="AI\AIGroup\LordJobFactionPairBase.cs" />
         <Compile Include="AI\AIGroup\LordJobShellFactionFirst.cs" />
         <Compile Include="AI\AIGroup\LordJobStageThenAssaultFactionFirst.cs" />
         <Compile Include="AI\AIGroup\LordToilAssaultFactionFirst.cs" />

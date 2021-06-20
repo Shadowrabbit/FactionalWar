@@ -84,7 +84,7 @@ namespace SR.ModRimWorld.FactionalWar
 
             //获取集群AI
             var lordSeacher = seacher.GetLord();
-            if (!(lordSeacher.LordJob is LordJobStageThenAssaultFactionFirst lordJobSeacher))
+            if (!(lordSeacher.LordJob is LordJobFactionPairBase lordJobSeacher))
             {
                 item = null;
                 return false;
@@ -98,10 +98,12 @@ namespace SR.ModRimWorld.FactionalWar
                 return false;
             }
 
-            //验证器 搜索者不存在 或者搜索者可以预留当前物体 并且没有禁用 并且物体可以被偷 并且物体没在燃烧中 并且物品周围有敌对派系尸体
+            //验证器 搜索者不存在 或者搜索者可以预留当前物体 并且没有禁用 并且物体可以被偷 并且物体没在燃烧中 并且物品周围有敌对派系或自己派系尸体
             bool SpoilValidator(Thing t) => (seacher == null || seacher.CanReserve(t)) &&
                                             (disallowed == null || !disallowed.Contains(t)) && t.def.stealable &&
-                                            !t.IsBurning() && IsThingNearByCorpse(t, targetFaction) && !(t is Corpse);
+                                            !t.IsBurning() &&
+                                            (IsThingNearByCorpse(t, targetFaction) ||
+                                             IsThingNearByCorpse(t, seacher?.Faction)) && !(t is Corpse);
 
             item = GenClosest.ClosestThing_Regionwise_ReachablePrioritized(root, map,
                 ThingRequest.ForGroup(ThingRequestGroup.HaulableEverOrMinifiable), PathEndMode.ClosestTouch,
