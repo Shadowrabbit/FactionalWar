@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <SitePartDef>
+        <defName>SrFactionWarShelling</defName>
+        <label>派系炮击战</label>
+        <description>两个未知的派系正在此处进行激烈的炮击战。</description>
+        <workerClass>SR.ModRimWorld.FactionalWar.SitePartWorkerFactionWarShelling</workerClass>
+        <siteTexture>World/WorldObjects/Sites/Outpost</siteTexture>
+        <expandingIconTexture>World/WorldObjects/Expanding/Sites/Outpost</expandingIconTexture>
+        <applyFactionColorToSiteTexture>true</applyFactionColorToSiteTexture>
+        <showFactionInInspectString>true</showFactionInInspectString>
+        <requiresFaction>false</requiresFaction>
+        <arrivedLetter>部队已抵达战场。</arrivedLetter>
+        <arrivedLetterDef>NegativeEvent</arrivedLetterDef>
+        <wantsThreatPoints>true</wantsThreatPoints>
+        <minThreatPoints>2000</minThreatPoints>
+    </SitePartDef>
+</Defs>

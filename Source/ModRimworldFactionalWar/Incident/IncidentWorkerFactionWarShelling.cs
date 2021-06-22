@@ -59,7 +59,7 @@ namespace SR.ModRimWorld.FactionalWar
         /// <param name="groupKind"></param>
         public override void ResolveRaidStrategy(IncidentParms parms, PawnGroupKindDef groupKind)
         {
-            parms.raidStrategy = RaidStrategyDefOf.SrShellingFaction;
+            parms.raidStrategy = RaidStrategyDefOf.SrShellFactionFirst;
         }
         
     }

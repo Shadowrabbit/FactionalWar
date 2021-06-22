@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
     <SitePartDef ParentName="Outpost">
-        <defName>SrCampInWar</defName>
+        <defName>SrOutpost</defName>
         <label>战斗中的营地</label>
         <description>一个处于交战中的营地。</description>
         <tags Inherit="False">
@@ -9,14 +9,14 @@
         </tags>
     </SitePartDef>
     <GenStepDef>
-        <defName>BanditCamp</defName>
-        <linkWithSite>SrCampInWar</linkWithSite>
+        <defName>SrBanditCamp</defName>
+        <linkWithSite>SrOutpost</linkWithSite>
         <order>450</order>
         <genStep Class="GenStep_Outpost"/>
     </GenStepDef>
     <GenStepDef>
-        <defName>BanditCampPower</defName>
-        <linkWithSite>SrCampInWar</linkWithSite>
+        <defName>SrBanditCampPower</defName>
+        <linkWithSite>SrOutpost</linkWithSite>
         <order>451</order>
         <genStep Class="GenStep_Power"/>
     </GenStepDef>

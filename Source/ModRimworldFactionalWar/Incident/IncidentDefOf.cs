@@ -1,9 +1,9 @@
 ﻿// ******************************************************************
-//       /\ /|       @file       RaidStrategyDefOf.cs
-//       \ V/        @brief      袭击策略定义
+//       /\ /|       @file       IncidentDefOf.cs
+//       \ V/        @brief      
 //       | "")       @author     Shadowrabbit, yingtu0401@gmail.com
 //       /  |                    
-//      /  \\        @Modified   2021-06-12 20:32:02
+//      /  \\        @Modified   2021-06-22 23:54:07
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
 
@@ -13,9 +13,8 @@ using RimWorld;
 namespace SR.ModRimWorld.FactionalWar
 {
     [DefOf]
-    public static class RaidStrategyDefOf
+    public static class IncidentDefOf
     {
-        [UsedImplicitly] public static readonly RaidStrategyDef SrFactionFirst; //派系优先
-        [UsedImplicitly] public static readonly RaidStrategyDef SrShellFactionFirst; //派系炮击
+        [UsedImplicitly] public static readonly IncidentDef SrFactionWarShelling; //派系炮击
     }
 }

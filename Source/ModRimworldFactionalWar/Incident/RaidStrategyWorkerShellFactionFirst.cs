@@ -1,5 +1,5 @@
 ﻿// ******************************************************************
-//       /\ /|       @file       RaidStrategyWorkerShellingFactionFirst.cs
+//       /\ /|       @file       RaidStrategyWorkerShellFactionFirst.cs
 //       \ V/        @brief      炮击派系优先
 //       | "")       @author     Shadowrabbit, yingtu0401@gmail.com
 //       /  |                    
@@ -16,7 +16,7 @@ using Verse.AI.Group;
 namespace SR.ModRimWorld.FactionalWar
 {
     [UsedImplicitly]
-    public class RaidStrategyWorkerShellingFactionFirst : RaidStrategyWorkerFactionFirst
+    public class RaidStrategyWorkerShellFactionFirst : RaidStrategyWorkerFactionFirst
     {
         /// <summary>
         /// 创建集群AI

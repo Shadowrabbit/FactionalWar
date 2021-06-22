@@ -6,6 +6,7 @@
 //      /  \\        @Modified   2021-06-22 12:05:02
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
+
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using RimWorld;
@@ -17,15 +18,37 @@ namespace SR.ModRimWorld.FactionalWar
     [UsedImplicitly]
     public class IncidentWorkerFactionWarRaid : IncidentWorkerFactionWarShelling
     {
+        private const int MinDist = 4; //生成在玩家最近几格
+        private const int MaxDist = 7; //生成在玩家最远几格
+
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
-            var temp = new List<SitePartDef>();
-            temp.Add(SitePartDefOf.SrCampInWar);
-            TileFinder.TryFindNewSiteTile(out var tileId, 4, 7);
-            var site = SiteMaker.TryMakeSite(temp, tileId, false, null, true, 10000);
-            Find.WorldObjects.Add(site);
-            parms.target = site.Map;
-            base.TryExecuteWorker(parms);
+            var sitePartList = new List<SitePartDef> {SitePartDefOf.SrFactionWarShelling};
+            //找世界坐标对应的id
+            TileFinder.TryFindNewSiteTile(out var tileId, MinDist, MaxDist);
+            //生成默认部分场地参数
+            SiteMakerHelper.GenerateDefaultParams(parms.points, tileId, null, sitePartList,
+                out var sitePartDefsWithParams);
+            //场地
+            var siteFactionWarShelling = (SiteFactionWarShelling) WorldObjectMaker.MakeWorldObject(WorldObjectDefOf
+                .SrSiteFactionWarShelling);
+            siteFactionWarShelling.Tile = tileId;
+            siteFactionWarShelling.factionMustRemainHostile = false;
+            if (sitePartDefsWithParams != null)
+            {
+                foreach (var sitePart in sitePartDefsWithParams)
+                    siteFactionWarShelling.AddPart(new SitePart(siteFactionWarShelling, sitePart.def, sitePart.parms));
+            }
+
+            siteFactionWarShelling.desiredThreatPoints = siteFactionWarShelling.ActualThreatPoints;
+            Find.WorldObjects.Add(siteFactionWarShelling);
+            //中立信件通知
+            var letter = LetterMaker.MakeLetter("SrLabelFactionWarShelling".Translate(),
+                "SrDescFactionWarShelling".Translate(),
+                parms.customLetterDef ?? LetterDefOf.NeutralEvent,
+                siteFactionWarShelling,
+                parms.faction, parms.quest, parms.letterHyperlinkThingDefs);
+            Find.LetterStack.ReceiveLetter(letter);
             return true;
         }
     }

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <WorldObjectDef>
+        <defName>SrSiteFactionWarShelling</defName>
+        <worldObjectClass>SR.ModRimWorld.FactionalWar.SiteFactionWarShelling</worldObjectClass>
+        <expandingIcon>true</expandingIcon>
+        <expandingIconPriority>70</expandingIconPriority>
+        <comps>
+            <li Class="SR.ModRimWorld.FactionalWar.WorldObjectCompPropertiesFactionWarShelling" />
+        </comps>
+        <IncidentTargetTags>
+            <li>Map_Misc</li>
+        </IncidentTargetTags>
+    </WorldObjectDef>
+</Defs>

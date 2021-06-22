@@ -1,9 +1,9 @@
 ﻿// ******************************************************************
-//       /\ /|       @file       RaidStrategyDefOf.cs
-//       \ V/        @brief      袭击策略定义
+//       /\ /|       @file       SitePartWorkerFactionWarShelling.cs
+//       \ V/        @brief      部分场地运作 派系炮击战
 //       | "")       @author     Shadowrabbit, yingtu0401@gmail.com
 //       /  |                    
-//      /  \\        @Modified   2021-06-12 20:32:02
+//      /  \\        @Modified   2021-06-22 22:31:36
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
 
@@ -12,10 +12,9 @@ using RimWorld;
 
 namespace SR.ModRimWorld.FactionalWar
 {
-    [DefOf]
-    public static class RaidStrategyDefOf
+    [UsedImplicitly]
+    public class SitePartWorkerFactionWarShelling : SitePartWorker
     {
-        [UsedImplicitly] public static readonly RaidStrategyDef SrFactionFirst; //派系优先
-        [UsedImplicitly] public static readonly RaidStrategyDef SrShellFactionFirst; //派系炮击
+        
     }
 }

@@ -24,8 +24,8 @@
     </RaidStrategyDef>
     <!--派系炮击-->
     <RaidStrategyDef>
-        <defName>SrShellingFaction</defName>
-        <workerClass>SR.ModRimworld.FactionalWar.RaidStrategyWorkerShellingFactionFirst</workerClass>
+        <defName>SrShellFactionFirst</defName>
+        <workerClass>SR.ModRimworld.FactionalWar.RaidStrategyWorkerShellFactionFirst</workerClass>
         <selectionWeightPerPointsCurve>
             <points>
                 <li>(0,1.25)</li>
@@ -40,7 +40,5 @@
             <li>SrTwoFactionsEdgeWalkIn</li>
             <li>SrTwoFactionsEdgeDrop</li>
         </arriveModes>
-        <letterLabelEnemy>派系战争(炮击)</letterLabelEnemy>
-        <arrivalTextEnemy>来自{1}的{0}与来自{3}的{2}即将展开炮击战！小心被误伤。</arrivalTextEnemy>
     </RaidStrategyDef>
 </Defs>
