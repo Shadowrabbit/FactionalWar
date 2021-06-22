@@ -66,11 +66,13 @@
         <Compile Include="AI\AISingle\JobGiverKillHostileFactionMember.cs" />
         <Compile Include="AI\AISingle\JobGiverTakeSpoils.cs" />
         <Compile Include="Incident\IncidentWorkerFactionWar.cs" />
+        <Compile Include="Incident\IncidentWorkerFactionWarRaid.cs" />
         <Compile Include="Incident\IncidentWorkerFactionWarShelling.cs" />
         <Compile Include="Incident\RaidStrategyDefOf.cs" />
         <Compile Include="Incident\RaidStrategyWorkerFactionFirst.cs" />
         <Compile Include="Incident\RaidStrategyWorkerShellingFactionFirst.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Site\SitePartDefOf.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
