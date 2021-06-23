@@ -1,6 +1,6 @@
 ﻿// ******************************************************************
 //       /\ /|       @file       IncidentDefOf.cs
-//       \ V/        @brief      
+//       \ V/        @brief      事件定义
 //       | "")       @author     Shadowrabbit, yingtu0401@gmail.com
 //       /  |                    
 //      /  \\        @Modified   2021-06-22 23:54:07
@@ -15,6 +15,7 @@ namespace SR.ModRimWorld.FactionalWar
     [DefOf]
     public static class IncidentDefOf
     {
+        [UsedImplicitly] public static readonly IncidentDef SrFactionWarShellingSiteGenerate; //派系炮击场地生成
         [UsedImplicitly] public static readonly IncidentDef SrFactionWarShelling; //派系炮击
     }
 }

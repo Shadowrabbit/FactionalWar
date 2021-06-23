@@ -38,6 +38,10 @@ namespace SR.ModRimWorld.FactionalWar
             Scribe_Values.Look(ref _blueprintPoints, "_blueprintPoints");
         }
 
+        /// <summary>
+        /// 创建状态机
+        /// </summary>
+        /// <returns></returns>
         public override StateGraph CreateGraph()
         {
             var stateGraph = new StateGraph();

@@ -23,32 +23,6 @@ namespace SR.ModRimWorld.FactionalWar
 
         protected override bool TryExecuteWorker(IncidentParms parms)
         {
-            var sitePartList = new List<SitePartDef> {SitePartDefOf.SrFactionWarShelling};
-            //找世界坐标对应的id
-            TileFinder.TryFindNewSiteTile(out var tileId, MinDist, MaxDist);
-            //生成默认部分场地参数
-            SiteMakerHelper.GenerateDefaultParams(parms.points, tileId, null, sitePartList,
-                out var sitePartDefsWithParams);
-            //场地
-            var siteFactionWarShelling = (SiteFactionWarShelling) WorldObjectMaker.MakeWorldObject(WorldObjectDefOf
-                .SrSiteFactionWarShelling);
-            siteFactionWarShelling.Tile = tileId;
-            siteFactionWarShelling.factionMustRemainHostile = false;
-            if (sitePartDefsWithParams != null)
-            {
-                foreach (var sitePart in sitePartDefsWithParams)
-                    siteFactionWarShelling.AddPart(new SitePart(siteFactionWarShelling, sitePart.def, sitePart.parms));
-            }
-
-            siteFactionWarShelling.desiredThreatPoints = siteFactionWarShelling.ActualThreatPoints;
-            Find.WorldObjects.Add(siteFactionWarShelling);
-            //中立信件通知
-            var letter = LetterMaker.MakeLetter("SrLabelFactionWarShelling".Translate(),
-                "SrDescFactionWarShelling".Translate(),
-                parms.customLetterDef ?? LetterDefOf.NeutralEvent,
-                siteFactionWarShelling,
-                parms.faction, parms.quest, parms.letterHyperlinkThingDefs);
-            Find.LetterStack.ReceiveLetter(letter);
             return true;
         }
     }
