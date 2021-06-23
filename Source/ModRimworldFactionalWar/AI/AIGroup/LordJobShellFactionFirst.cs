@@ -56,17 +56,12 @@ namespace SR.ModRimWorld.FactionalWar
             var lordToilExitMap =
                 new LordToil_ExitMap(LocomotionUrgency.Jog, interruptCurrentJob: true) {useAvoidGrid = true};
             stateGraph.AddToil(lordToilExitMap);
-            //旅行转变为击杀
-            var lordToilKillHostileFactionMember = FindToilKillHostileFactionMember(subGraphAssaultFactionFirst);
-            if (lordToilKillHostileFactionMember == null)
-            {
-                Log.Error("can't find LordToilKillHostileFactionMember in subgraph.");
-                return stateGraph;
-            }
-
-            var transitionTravelToKillHostileFactionMember =
-                new Transition(lordToilTravel, lordToilKillHostileFactionMember);
+            //防卫转变为击杀
+            var lordToilDefendPoint = subGraphTravel.FindToil<LordToil_DefendPoint>();
+            var lordToilKillHostileFactionMember = subGraphAssaultFactionFirst.FindToil<LordToilKillHostileFactionMember>();
             var triggerFactionAssaultVictory = new TriggerFactionAssaultVictory(targetFaction);
+            var transitionTravelToKillHostileFactionMember =
+                new Transition(lordToilDefendPoint, lordToilKillHostileFactionMember);
             transitionTravelToKillHostileFactionMember.AddTrigger(triggerFactionAssaultVictory);
             transitionTravelToKillHostileFactionMember.AddPreAction(new TransitionAction_Message(
                 "SrAssaultFactionVictory".Translate(
@@ -114,24 +109,6 @@ namespace SR.ModRimWorld.FactionalWar
                     (NamedArgument) faction.Name)));
             stateGraph.AddTransition(transitionSiegeToExitMap);
             return stateGraph;
-        }
-
-        /// <summary>
-        /// 查找击杀敌对派系流程
-        /// </summary>
-        /// <param name="stateGraph"></param>
-        /// <returns></returns>
-        private static LordToilKillHostileFactionMember FindToilKillHostileFactionMember(StateGraph stateGraph)
-        {
-            foreach (var lordToil in stateGraph.lordToils)
-            {
-                if (lordToil is LordToilKillHostileFactionMember lordToilKillHostileFactionMember)
-                {
-                    return lordToilKillHostileFactionMember;
-                }
-            }
-
-            return null;
         }
     }
 }
