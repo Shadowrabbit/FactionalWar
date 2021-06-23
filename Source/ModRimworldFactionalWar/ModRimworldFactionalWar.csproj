@@ -82,9 +82,13 @@
         <Compile Include="WorldObject\Site\GenStepThreat.cs" />
         <Compile Include="WorldObject\Site\SiteFactionWarShelling.cs" />
         <Compile Include="WorldObject\Site\SitePartDefOf.cs" />
+        <Compile Include="WorldObject\Site\SitePartWorkerFactionWarShelling.cs" />
         <Compile Include="WorldObject\WorldObjectComp\WorldCompFactionWarShelling.cs" />
         <Compile Include="WorldObject\WorldObjectComp\WorldObjectCompPropertiesFactionWarShelling.cs" />
         <Compile Include="WorldObject\WorldObjectDefOf.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="WorldObject\Rule" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
