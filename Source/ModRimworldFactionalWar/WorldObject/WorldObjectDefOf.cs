@@ -16,5 +16,6 @@ namespace SR.ModRimWorld.FactionalWar
     public static class WorldObjectDefOf
     {
         [UsedImplicitly] public static readonly WorldObjectDef SrSiteFactionWarShelling; //炮击战地点
+        [UsedImplicitly] public static readonly WorldObjectDef SrSiteFactionWarContention; //派系争夺战
     }
 }

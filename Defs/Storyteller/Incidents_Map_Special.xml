@@ -60,4 +60,19 @@
         <pointsScaleable>true</pointsScaleable>
         <requireColonistsPresent>false</requireColonistsPresent>
     </IncidentDef>
+    <IncidentDef>
+        <defName>SrFactionWarContentionSiteGenerate</defName>
+        <label>派系争夺战</label>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+            <li>Map_TempIncident</li>
+            <li>Map_Misc</li>
+            <li>Map_RaidBeacon</li>
+        </targetTags>
+        <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerFactionWarContentionSiteGenerate</workerClass>
+        <category>ThreatBig</category>
+        <baseChance>4</baseChance>
+        <pointsScaleable>true</pointsScaleable>
+        <requireColonistsPresent>false</requireColonistsPresent>
+    </IncidentDef>
 </Defs>

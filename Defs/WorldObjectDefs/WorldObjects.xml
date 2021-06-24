@@ -12,4 +12,13 @@
             <li>Map_Misc</li>
         </IncidentTargetTags>
     </WorldObjectDef>
+    <WorldObjectDef>
+        <defName>SrSiteFactionWarContention</defName>
+        <worldObjectClass>SR.ModRimWorld.FactionalWar.SiteFactionWarContention</worldObjectClass>
+        <expandingIcon>true</expandingIcon>
+        <expandingIconPriority>70</expandingIconPriority>
+        <IncidentTargetTags>
+            <li>Map_Misc</li>
+        </IncidentTargetTags>
+    </WorldObjectDef>
 </Defs>

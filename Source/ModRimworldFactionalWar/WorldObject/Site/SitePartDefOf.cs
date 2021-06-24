@@ -15,7 +15,7 @@ namespace SR.ModRimWorld.FactionalWar
     [DefOf]
     public static class SitePartDefOf
     {
-        [UsedImplicitly] public static readonly SitePartDef SrOutpost; //处于战斗中的哨所
+        [UsedImplicitly] public static readonly SitePartDef SrFactionContention; //派系争夺战
         [UsedImplicitly] public static readonly SitePartDef SrFactionWarShelling; //派系炮击战
     }
 }

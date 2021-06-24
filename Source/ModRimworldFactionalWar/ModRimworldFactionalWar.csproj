@@ -69,6 +69,7 @@
         <Compile Include="AI\Extension\StateGraphExtention.cs" />
         <Compile Include="Incident\IncidentDefOf.cs" />
         <Compile Include="Incident\IncidentWorkerFactionWar.cs" />
+        <Compile Include="Incident\IncidentWorkerFactionWarContentionSiteGenerate.cs" />
         <Compile Include="Incident\IncidentWorkerFactionWarRaid.cs" />
         <Compile Include="Incident\IncidentWorkerFactionWarShelling.cs" />
         <Compile Include="Incident\IncidentWorkerFactionWarShellingSiteGenerate.cs" />
@@ -79,16 +80,13 @@
         <Compile Include="WorldObject\Site\GenStepAirdropResource.cs" />
         <Compile Include="WorldObject\Site\GenStepFactionContention.cs" />
         <Compile Include="WorldObject\Site\GenStepTempOutpost.cs" />
-        <Compile Include="WorldObject\Site\GenStepThreat.cs" />
+        <Compile Include="WorldObject\Site\SiteFactionWarContention.cs" />
         <Compile Include="WorldObject\Site\SiteFactionWarShelling.cs" />
         <Compile Include="WorldObject\Site\SitePartDefOf.cs" />
         <Compile Include="WorldObject\Site\SitePartWorkerFactionWarShelling.cs" />
         <Compile Include="WorldObject\WorldObjectComp\WorldCompFactionWarShelling.cs" />
         <Compile Include="WorldObject\WorldObjectComp\WorldObjectCompPropertiesFactionWarShelling.cs" />
         <Compile Include="WorldObject\WorldObjectDefOf.cs" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="WorldObject\Rule" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

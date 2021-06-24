@@ -8,9 +8,11 @@
 // ******************************************************************
 
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using RimWorld;
 using Verse;
+using Verse.AI.Group;
 
 namespace SR.ModRimWorld.FactionalWar
 {
@@ -18,6 +20,7 @@ namespace SR.ModRimWorld.FactionalWar
     public class GenStepAirdropResource : GenStep
     {
         public override int SeedPart => 546950704;
+        private const int ThreatPoints = 5000;
 
         /// <summary>
         /// 生成
@@ -40,6 +43,16 @@ namespace SR.ModRimWorld.FactionalWar
 
             //空投到中心
             DropPodUtility.DropThingsNear(map.Center, map, totalThingList);
+            var incidentParms = new IncidentParms {points = ThreatPoints, faction = Faction.OfMechanoids, target = map};
+            var pawnGroupMakerParms =
+                IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, incidentParms);
+            //生成失败 尝试用默认角色组生成器
+            var pawnList = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms).ToList();
+            //空投到中心
+            DropPodUtility.DropThingsNear(map.Center, map, pawnList);
+            var lordJob =
+                new LordJob_MechanoidsDefend(totalThingList, Faction.OfMechanoids, 5f, map.Center, false, false);
+            LordMaker.MakeNewLord(Faction.OfMechanoids, lordJob, map, pawnList);
         }
     }
 }

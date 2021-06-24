@@ -16,12 +16,6 @@
         <minThreatPoints>5000</minThreatPoints>
     </SitePartDef>
     <GenStepDef>
-        <defName>SrGenStepThreat</defName>
-        <linkWithSite>SrFactionContention</linkWithSite>
-        <order>450</order>
-        <genStep Class="SR.ModRimWorld.FactionalWar.GenStepThreat"/>
-    </GenStepDef>
-    <GenStepDef>
         <defName>SrGenStepAirdropResource</defName>
         <linkWithSite>SrFactionContention</linkWithSite>
         <order>451</order>
