@@ -72,4 +72,25 @@
             </subNodes>
         </thinkNode>
     </DutyDef>
+    <!--掠夺派系-->
+    <DutyDef>
+        <defName>SrPlunderFaction</defName>
+        <thinkNode Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="JobGiver_TakeWoundedGuest"/>
+                <li Class="SR.ModRimWorld.FactionalWar.JobGiverKidnapFaction"/>
+                <li Class="SR.ModRimWorld.FactionalWar.JobGiverTakeBestThing"/>
+                <li Class="JobGiver_AIDefendSelf">
+                    <targetAcquireRadius>35</targetAcquireRadius>
+                    <targetKeepRadius>40</targetKeepRadius>
+                </li>
+                <li Class="JobGiver_ExitMapBest">
+                    <defaultLocomotion>Jog</defaultLocomotion>
+                    <jobMaxDuration>500</jobMaxDuration>
+                    <forceCanDigIfAnyHostileActiveThreat>true</forceCanDigIfAnyHostileActiveThreat>
+                    <forceCanDigIfCantReachMapEdge>true</forceCanDigIfCantReachMapEdge>
+                </li>
+            </subNodes>
+        </thinkNode>
+    </DutyDef>
 </Defs>

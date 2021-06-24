@@ -26,7 +26,7 @@
         <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerFactionWarShelling</workerClass>
         <category>ThreatBig</category>
         <baseChance>4</baseChance>
-        <pointsScaleable>true</pointsScaleable>
+        <pointsScaleable>false</pointsScaleable>
         <requireColonistsPresent>false</requireColonistsPresent>
     </IncidentDef>
     <IncidentDef>
@@ -41,7 +41,7 @@
         <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerFactionWarShellingSiteGenerate</workerClass>
         <category>ThreatBig</category>
         <baseChance>4</baseChance>
-        <pointsScaleable>true</pointsScaleable>
+        <pointsScaleable>false</pointsScaleable>
         <requireColonistsPresent>false</requireColonistsPresent>
     </IncidentDef>
     <IncidentDef>
@@ -56,7 +56,7 @@
         <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerFactionWarTempCampSiteGenerate</workerClass>
         <category>ThreatBig</category>
         <baseChance>4</baseChance>
-        <pointsScaleable>true</pointsScaleable>
+        <pointsScaleable>false</pointsScaleable>
         <requireColonistsPresent>false</requireColonistsPresent>
     </IncidentDef>
     <IncidentDef>
@@ -71,7 +71,7 @@
         <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerFactionWarContentionSiteGenerate</workerClass>
         <category>ThreatBig</category>
         <baseChance>4</baseChance>
-        <pointsScaleable>true</pointsScaleable>
+        <pointsScaleable>false</pointsScaleable>
         <requireColonistsPresent>false</requireColonistsPresent>
     </IncidentDef>
 </Defs>

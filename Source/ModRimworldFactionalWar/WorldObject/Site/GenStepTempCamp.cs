@@ -19,9 +19,8 @@ namespace SR.ModRimWorld.FactionalWar
     public class GenStepTempCamp : GenStep
     {
         public override int SeedPart => 546950703;
-        private const int Size = 80;
+        private const int Size = 60;
         private FloatRange _defaultPawnGroupPointsRange = new FloatRange(5000f, 8000f);
-        private static readonly List<CellRect> PossibleRects = new List<CellRect>();
 
         /// <summary>
         /// 生成
@@ -41,6 +40,7 @@ namespace SR.ModRimWorld.FactionalWar
                 var2 = new List<CellRect>();
                 MapGenerator.SetVar("UsedRects", var2);
             }
+
             //派系
             var faction = map.ParentFaction == null || map.ParentFaction == Faction.OfPlayer
                 ? Find.FactionManager.RandomEnemyFaction()
@@ -49,7 +49,7 @@ namespace SR.ModRimWorld.FactionalWar
             {
                 rect = GetOutpostRect(cellCenter, var2, map),
                 faction = faction,
-                edgeDefenseWidth = 2,
+                edgeDefenseWidth = 4,
                 edgeDefenseTurretsCount = Rand.RangeInclusive(4, 8),
                 edgeDefenseMortarsCount = Rand.RangeInclusive(2, 4),
                 settlementPawnGroupPoints = points
@@ -57,9 +57,11 @@ namespace SR.ModRimWorld.FactionalWar
             //获取据点所在的矩形
             if (parms.sitePart != null)
             {
-                resolveParams.settlementPawnGroupSeed = OutpostSitePartUtility.GetPawnGroupMakerSeed(parms.sitePart.parms);
+                resolveParams.settlementPawnGroupSeed =
+                    OutpostSitePartUtility.GetPawnGroupMakerSeed(parms.sitePart.parms);
                 parms.sitePart.parms.threatPoints = points;
             }
+
             BaseGen.globalSettings.map = map;
             BaseGen.globalSettings.minBuildings = 1;
             BaseGen.globalSettings.minBarracks = 1;
@@ -69,14 +71,17 @@ namespace SR.ModRimWorld.FactionalWar
                 BaseGen.globalSettings.minThroneRooms = 1;
                 BaseGen.globalSettings.minLandingPads = 1;
             }
+
             BaseGen.Generate();
             if (faction != null && faction == Faction.Empire && BaseGen.globalSettings.landingPadsGenerated == 0)
             {
                 GenStep_Settlement.GenerateLandingPadNearby(resolveParams.rect, map, faction, out var usedRect);
                 var2.Add(usedRect);
             }
+
             var2.Add(resolveParams.rect);
         }
+
         private static CellRect GetOutpostRect(
             CellRect rectToDefend,
             ICollection<CellRect> usedRects,

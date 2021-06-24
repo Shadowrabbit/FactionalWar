@@ -1,9 +1,9 @@
 ﻿// ******************************************************************
-//       /\ /|       @file       LordJobAssaultFactionFirst.cs
-//       \ V/        @brief      集群AI 突击敌对派系优先
+//       /\ /|       @file       LordJobRaidFactionFirst.cs
+//       \ V/        @brief      集群AI 袭击派系优先
 //       | "")       @author     Shadowrabbit, yingtu0401@gmail.com
 //       /  |                    
-//      /  \\        @Modified   2021-06-13 08:34:28
+//      /  \\        @Modified   2021-06-24 23:07:53
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
 
@@ -14,16 +14,16 @@ using Verse.AI.Group;
 
 namespace SR.ModRimWorld.FactionalWar
 {
-    public class LordJobAssaultFactionFirst : LordJob
+    public class LordJobRaidFactionFirst : LordJob
     {
         private Faction _assaulterFaction; //突击者派系
         private Faction _targetFaction; //目标派系
 
-        public LordJobAssaultFactionFirst()
+        public LordJobRaidFactionFirst()
         {
         }
 
-        public LordJobAssaultFactionFirst(Faction assaulterFaction, Faction targetFaction)
+        public LordJobRaidFactionFirst(Faction assaulterFaction, Faction targetFaction)
         {
             _targetFaction = targetFaction;
             _assaulterFaction = assaulterFaction;
@@ -56,43 +56,21 @@ namespace SR.ModRimWorld.FactionalWar
             var lordToilExitMap =
                 new LordToil_ExitMap(LocomotionUrgency.Jog, interruptCurrentJob: true) {useAvoidGrid = true};
             stateGraph.AddToil(lordToilExitMap);
-            //添加流程 击杀敌对派系成员
-            var lordToilKillHostileFactionMember = new LordToilKillHostileFactionMember();
-            stateGraph.AddToil(lordToilKillHostileFactionMember);
-            //添加流程 清理战场
-            var lordToilClearBattlefield = new LordToilClearBattlefield();
-            stateGraph.AddToil(lordToilClearBattlefield);
-            //没有除玩家外敌对派系（派系胜利离开）攻击对方派系 转变为 击杀敌对派系成员
+            //添加流程 掠夺派系
+            var lordToilPlunderFaction = new LordToilPlunderFaction();
+            stateGraph.AddToil(lordToilPlunderFaction);
+            //没有除玩家外敌对派系（派系胜利离开）攻击对方派系 转变为 掠夺
             var transitionAssaultFactionFirstToKillHostileFactionMember =
-                new Transition(lordToilAssaultFactionFirst, lordToilKillHostileFactionMember);
+                new Transition(lordToilAssaultFactionFirst, lordToilPlunderFaction);
             var triggerFactionAssaultVictory = new TriggerFactionAssaultVictory(_targetFaction);
             transitionAssaultFactionFirstToKillHostileFactionMember.AddTrigger(triggerFactionAssaultVictory);
             transitionAssaultFactionFirstToKillHostileFactionMember.AddPreAction(new TransitionAction_Message(
-                "SrAssaultFactionVictory".Translate(
+                "SrClearBattlefiled".Translate(
                     (NamedArgument) _assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
                     (NamedArgument) _assaulterFaction.Name,
                     (NamedArgument) _targetFaction.def.pawnsPlural.CapitalizeFirst(),
                     (NamedArgument) _targetFaction.Name)));
             stateGraph.AddTransition(transitionAssaultFactionFirstToKillHostileFactionMember);
-            //敌对派系成员全部死亡 击杀敌对派系成员 转变为 清理战场离开
-            var transitionKillHostileFactionMemberToClearBattlefield =
-                new Transition(lordToilKillHostileFactionMember, lordToilClearBattlefield);
-            var triggerAllHostileFactionMembersDead = new TriggerAllHostileFactionMembersDead(_targetFaction);
-            transitionKillHostileFactionMemberToClearBattlefield.AddTrigger(triggerAllHostileFactionMembersDead);
-            transitionKillHostileFactionMemberToClearBattlefield.AddPreAction(new TransitionAction_Message(
-                "SrClearBattlefiled".Translate(
-                    (NamedArgument) _assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
-                    (NamedArgument) _assaulterFaction.Name)));
-            stateGraph.AddTransition(transitionKillHostileFactionMemberToClearBattlefield);
-            //没有敌对派系存活 (派系胜利并且没有敌对伤员) 攻击敌方派系转变为 清理战场离开
-            var transitionAssaultFactionFirstToClearBattlefield =
-                new Transition(lordToilAssaultFactionFirst, lordToilClearBattlefield);
-            transitionAssaultFactionFirstToClearBattlefield.AddTrigger(triggerAllHostileFactionMembersDead);
-            transitionAssaultFactionFirstToClearBattlefield.AddPreAction(new TransitionAction_Message(
-                "SrClearBattlefiled".Translate(
-                    (NamedArgument) _assaulterFaction.def.pawnsPlural.CapitalizeFirst(),
-                    (NamedArgument) _assaulterFaction.Name)));
-            stateGraph.AddTransition(transitionAssaultFactionFirstToClearBattlefield);
             //受到玩家攻击(被激怒) 攻击对方派系 转变为 攻击敌人
             var transitionAssaultFactionFirstToAssaultEnemy =
                 new Transition(lordToilAssaultFactionFirst, lordToilAssaultEnemey);

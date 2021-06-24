@@ -6,6 +6,7 @@
 //      /  \\        @Modified   2021-06-24 18:06:26
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
+
 using JetBrains.Annotations;
 using RimWorld;
 using RimWorld.BaseGen;
@@ -18,26 +19,31 @@ namespace SR.ModRimWorld.FactionalWar
     public class SymbolResolverTempCamp : SymbolResolver
     {
         private static readonly FloatRange DefaultPawnsPoints = new FloatRange(5000f, 8000f);
+        private const float WanderRadius = 30f;
+
         public override void Resolve(ResolveParams rp)
         {
             //全局缓存的地图
             var map = BaseGen.globalSettings.map;
             //解决方案中的派系 或者随机一个敌对派系
-            var faction = rp.faction ?? Find.FactionManager.RandomEnemyFaction(false, false, false, TechLevel.Industrial);
+            var faction = rp.faction ??
+                          Find.FactionManager.RandomEnemyFaction(false, false, false, TechLevel.Industrial);
             //边缘防卫宽度是否有值
             var dist = 0;
             if (rp.edgeDefenseWidth.HasValue)
             {
                 dist = rp.edgeDefenseWidth.Value;
             }
-            else if (rp.rect.Width >= 20 && rp.rect.Height >= 20 && (faction.def.techLevel >= TechLevel.Industrial || Rand.Bool))
+            else if (rp.rect.Width >= 20 && rp.rect.Height >= 20 &&
+                     (faction.def.techLevel >= TechLevel.Industrial || Rand.Bool))
             {
                 dist = Rand.Bool ? 2 : 4;
             }
-            var f = (float)(rp.rect.Area / 144.0 * 0.170000001788139);
-            BaseGen.globalSettings.minEmptyNodes = (double)f < 1.0 ? 0 : GenMath.RoundRandom(f);
+
+            var f = (float) (rp.rect.Area / 144.0 * 0.170000001788139);
+            BaseGen.globalSettings.minEmptyNodes = (double) f < 1.0 ? 0 : GenMath.RoundRandom(f);
             //集群AI防卫
-            var lordJobDefendPoint = new LordJob_DefendPoint(rp.rect.CenterCell);
+            var lordJobDefendPoint = new LordJob_DefendPoint(rp.rect.CenterCell, WanderRadius, false, false);
             var lord = rp.singlePawnLord ?? LordMaker.MakeNewLord(faction, lordJobDefendPoint, map);
             var lordToilDefendPoint = lord.Graph.FindToil<LordToil_DefendPoint>();
             if (!(lordToilDefendPoint.data is LordToilData_DefendPoint data))
@@ -45,7 +51,8 @@ namespace SR.ModRimWorld.FactionalWar
                 Log.Error("can't find LordToilData_DefendPoint");
                 return;
             }
-            data.defendRadius = 40;
+
+            data.defendRadius = 30;
             var traverseParms = TraverseParms.For(TraverseMode.PassDoors);
             var resolveParams1 = rp;
             resolveParams1.rect = rp.rect;
@@ -66,6 +73,7 @@ namespace SR.ModRimWorld.FactionalWar
                 resolveParams1.pawnGroupMakerParams.inhabitants = true;
                 resolveParams1.pawnGroupMakerParams.seed = rp.settlementPawnGroupSeed;
             }
+
             //生成角色
             BaseGen.symbolStack.Push("pawnGroup", resolveParams1);
             //生成灯
@@ -81,6 +89,7 @@ namespace SR.ModRimWorld.FactionalWar
                     BaseGen.symbolStack.Push("firefoamPopper", resolveParams2);
                 }
             }
+
             bool? nullable1;
             if (dist > 0)
             {
@@ -93,6 +102,7 @@ namespace SR.ModRimWorld.FactionalWar
                 local.edgeThingMustReachMapEdge = nullable2;
                 BaseGen.symbolStack.Push("edgeDefense", resolveParams2);
             }
+
             var resolveParams3 = rp;
             resolveParams3.rect = rp.rect.ContractedBy(dist);
             resolveParams3.faction = faction;
