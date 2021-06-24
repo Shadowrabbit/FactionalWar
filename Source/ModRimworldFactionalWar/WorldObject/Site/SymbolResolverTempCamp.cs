@@ -15,14 +15,15 @@ using Verse.AI.Group;
 namespace SR.ModRimWorld.FactionalWar
 {
     [UsedImplicitly]
-    public class SymbolResolverTempCamp : SymbolResolver_Settlement
+    public class SymbolResolverTempCamp : SymbolResolver
     {
+        private static readonly FloatRange DefaultPawnsPoints = new FloatRange(5000f, 8000f);
         public override void Resolve(ResolveParams rp)
         {
             //全局缓存的地图
             var map = BaseGen.globalSettings.map;
             //解决方案中的派系 或者随机一个敌对派系
-            var faction = rp.faction ?? Find.FactionManager.RandomEnemyFaction();
+            var faction = rp.faction ?? Find.FactionManager.RandomEnemyFaction(false, false, false, TechLevel.Industrial);
             //边缘防卫宽度是否有值
             var dist = 0;
             if (rp.edgeDefenseWidth.HasValue)
@@ -36,18 +37,23 @@ namespace SR.ModRimWorld.FactionalWar
             var f = (float)(rp.rect.Area / 144.0 * 0.170000001788139);
             BaseGen.globalSettings.minEmptyNodes = (double)f < 1.0 ? 0 : GenMath.RoundRandom(f);
             //集群AI防卫
-            var lord = rp.singlePawnLord ??
-                       LordMaker.MakeNewLord(faction, new LordJob_DefendPoint(rp.rect.CenterCell), map);
+            var lordJobDefendPoint = new LordJob_DefendPoint(rp.rect.CenterCell);
+            var lord = rp.singlePawnLord ?? LordMaker.MakeNewLord(faction, lordJobDefendPoint, map);
+            var lordToilDefendPoint = lord.Graph.FindToil<LordToil_DefendPoint>();
+            if (!(lordToilDefendPoint.data is LordToilData_DefendPoint data))
+            {
+                Log.Error("can't find LordToilData_DefendPoint");
+                return;
+            }
+            data.defendRadius = 40;
             var traverseParms = TraverseParms.For(TraverseMode.PassDoors);
             var resolveParams1 = rp;
             resolveParams1.rect = rp.rect;
             resolveParams1.faction = faction;
             resolveParams1.singlePawnLord = lord;
             resolveParams1.pawnGroupKindDef = rp.pawnGroupKindDef ?? PawnGroupKindDefOf.Combat;
-            resolveParams1.singlePawnSpawnCellExtraPredicate = rp.singlePawnSpawnCellExtraPredicate ??
-                                                               (x =>
-                                                                   map.reachability.CanReachMapEdge(x, traverseParms));
-            var groupMakerParams = resolveParams1.pawnGroupMakerParams;
+            resolveParams1.singlePawnSpawnCellExtraPredicate = rp.singlePawnSpawnCellExtraPredicate ?? (x =>
+                map.reachability.CanReachMapEdge(x, traverseParms));
             if (resolveParams1.pawnGroupMakerParams == null)
             {
                 resolveParams1.pawnGroupMakerParams = new PawnGroupMakerParms
@@ -55,11 +61,8 @@ namespace SR.ModRimWorld.FactionalWar
                     tile = map.Tile,
                     faction = faction
                 };
-                var settlementPawnGroupPoints = rp.settlementPawnGroupPoints;
-                var num = settlementPawnGroupPoints.HasValue
-                    ? (double)settlementPawnGroupPoints.GetValueOrDefault()
-                    : DefaultPawnsPoints.RandomInRange;
-                groupMakerParams.points = (float)num;
+                var groupMakerParams = resolveParams1.pawnGroupMakerParams;
+                groupMakerParams.points = DefaultPawnsPoints.RandomInRange;
                 resolveParams1.pawnGroupMakerParams.inhabitants = true;
                 resolveParams1.pawnGroupMakerParams.seed = rp.settlementPawnGroupSeed;
             }
@@ -70,7 +73,7 @@ namespace SR.ModRimWorld.FactionalWar
             //泡沫灭火器
             if (faction.def.techLevel >= TechLevel.Industrial)
             {
-                var num = Rand.Chance(0.75f) ? GenMath.RoundRandom((float)rp.rect.Area / 400f) : 0;
+                var num = Rand.Chance(0.75f) ? GenMath.RoundRandom(rp.rect.Area / 400f) : 0;
                 for (var index = 0; index < num; ++index)
                 {
                     var resolveParams2 = rp;

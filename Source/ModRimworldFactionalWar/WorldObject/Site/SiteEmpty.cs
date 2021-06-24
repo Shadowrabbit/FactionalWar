@@ -1,5 +1,5 @@
 ﻿// ******************************************************************
-//       /\ /|       @file       SiteFactionWarTempCamp.cs
+//       /\ /|       @file       SiteEmpty.cs
 //       \ V/        @brief      场地 临时营地
 //       | "")       @author     Shadowrabbit, yingtu0401@gmail.com
 //       /  |                    
@@ -12,7 +12,7 @@ using RimWorld.Planet;
 namespace SR.ModRimWorld.FactionalWar
 {
     [UsedImplicitly]
-    public class SiteFactionWarTempCamp : Site
+    public class SiteEmpty : Site
     {
         public override void PostMapGenerate()
         {

@@ -2,7 +2,7 @@
 <Defs>
     <IncidentDef>
         <defName>SrFactionWar</defName>
-        <label>派系战争</label>
+        <label>派系突击战</label>
         <targetTags>
             <li>Map_PlayerHome</li>
             <li>Map_TempIncident</li>
@@ -17,9 +17,8 @@
     </IncidentDef>
     <IncidentDef>
         <defName>SrFactionWarShelling</defName>
-        <label>派系战争(炮击)</label>
+        <label>派系炮击战</label>
         <targetTags>
-            <li>Map_PlayerHome</li>
             <li>Map_TempIncident</li>
             <li>Map_Misc</li>
             <li>Map_RaidBeacon</li>
@@ -32,7 +31,7 @@
     </IncidentDef>
     <IncidentDef>
         <defName>SrFactionWarShellingSiteGenerate</defName>
-        <label>派系战争(炮击)</label>
+        <label>派系炮击战</label>
         <targetTags>
             <li>Map_PlayerHome</li>
             <li>Map_TempIncident</li>
@@ -46,15 +45,15 @@
         <requireColonistsPresent>false</requireColonistsPresent>
     </IncidentDef>
     <IncidentDef>
-        <defName>SrFactionWarRaid</defName> 
-        <label>派系战争(袭击)</label>
+        <defName>SrFactionWarTempCampSiteGenerate</defName>
+        <label>派系防守战</label>
         <targetTags>
             <li>Map_PlayerHome</li>
             <li>Map_TempIncident</li>
             <li>Map_Misc</li>
             <li>Map_RaidBeacon</li>
         </targetTags>
-        <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerFactionWarRaid</workerClass>
+        <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerFactionWarTempCampSiteGenerate</workerClass>
         <category>ThreatBig</category>
         <baseChance>4</baseChance>
         <pointsScaleable>true</pointsScaleable>

@@ -5,7 +5,7 @@
         <symbol>srTempCamp</symbol>
         <resolvers>
             <li Class="SR.ModRimWorld.FactionalWar.SymbolResolverTempCamp">
-                <minRectSize>(80, 80)</minRectSize>
+                <minRectSize>(40, 40)</minRectSize>
             </li>
         </resolvers>
     </RuleDef>

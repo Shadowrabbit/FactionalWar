@@ -298,7 +298,7 @@ namespace SR.ModRimWorld.FactionalWar
             var points = parms.points; //袭击点数
             //全部派系
             var candidateFactionList = CandidateFactions(map).ToList();
-            FactionUtil.GetHostileFactionPair(points, PawnGroupKindDefOf.Combat, candidateFactionList, out faction1, out faction2);
+            FactionUtil.GetHostileFactionPair(out faction1, out faction2, points, PawnGroupKindDefOf.Combat, candidateFactionList);
         }
 
         /// <summary>

@@ -20,7 +20,7 @@
     </WorldObjectDef>
     <WorldObjectDef>
         <defName>SrSiteFactionWarTempCamp</defName>
-        <worldObjectClass>SR.ModRimWorld.FactionalWar.SiteFactionWarTempCamp</worldObjectClass>
+        <worldObjectClass>SR.ModRimWorld.FactionalWar.SiteEmpty</worldObjectClass>
         <expandingIcon>true</expandingIcon>
         <expandingIconPriority>70</expandingIconPriority>
         <IncidentTargetTags>

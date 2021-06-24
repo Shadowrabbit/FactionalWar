@@ -16,6 +16,7 @@ namespace SR.ModRimWorld.FactionalWar
     public static class IncidentDefOf
     {
         [UsedImplicitly] public static readonly IncidentDef SrFactionWarShellingSiteGenerate; //派系炮击场地生成
+        [UsedImplicitly] public static readonly IncidentDef SrFactionWarTempCampSiteGenerate; //派系临时营地生成
         [UsedImplicitly] public static readonly IncidentDef SrFactionWarContentionSiteGenerate; //派系争夺战场地生成
         [UsedImplicitly] public static readonly IncidentDef SrFactionWarShelling; //派系炮击
     }

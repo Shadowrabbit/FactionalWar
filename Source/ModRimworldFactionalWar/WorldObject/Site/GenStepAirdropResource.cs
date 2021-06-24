@@ -20,7 +20,7 @@ namespace SR.ModRimWorld.FactionalWar
     public class GenStepAirdropResource : GenStep
     {
         public override int SeedPart => 546950704;
-        private const int ThreatPoints = 5000;
+        private const int ThreatPoints = 1000;
 
         /// <summary>
         /// 生成
@@ -50,6 +50,12 @@ namespace SR.ModRimWorld.FactionalWar
             var pawnList = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms).ToList();
             var lordJob = new LordJob_DefendPoint(map.Center);
             LordMaker.MakeNewLord(Faction.OfMechanoids, lordJob, map, pawnList);
+            //生成机械族
+            foreach (var mechPawn in pawnList)
+            {
+                var loc = CellFinder.RandomClosewalkCellNear(map.Center, map, 5);
+                GenSpawn.Spawn(mechPawn, loc, map);
+            }
             //空投到中心
             DropPodUtility.DropThingsNear(map.Center, map, pawnList);
         }

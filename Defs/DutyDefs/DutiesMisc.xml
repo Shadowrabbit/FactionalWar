@@ -37,12 +37,12 @@
         <defName>SrClearBattlefield</defName>
         <thinkNode Class="ThinkNode_Priority">
             <subNodes>
+                <li Class="JobGiver_TakeWoundedGuest"/>
+                <li Class="SR.ModRimWorld.FactionalWar.JobGiverTakeSpoils"/>
                 <li Class="JobGiver_AIDefendSelf">
                     <targetAcquireRadius>35</targetAcquireRadius>
                     <targetKeepRadius>40</targetKeepRadius>
                 </li>
-                <li Class="JobGiver_TakeWoundedGuest"/>
-                <li Class="SR.ModRimWorld.FactionalWar.JobGiverTakeSpoils"/>
                 <li Class="JobGiver_ExitMapBest">
                     <defaultLocomotion>Jog</defaultLocomotion>
                     <jobMaxDuration>500</jobMaxDuration>
@@ -57,12 +57,12 @@
         <defName>SrRetreat</defName>
         <thinkNode Class="ThinkNode_Priority">
             <subNodes>
+                <li Class="JobGiver_TakeWoundedGuest"/>
+                <li Class="SR.ModRimWorld.FactionalWar.JobGiverTakeBestThing"/>
                 <li Class="JobGiver_AIDefendSelf">
                     <targetAcquireRadius>35</targetAcquireRadius>
                     <targetKeepRadius>40</targetKeepRadius>
                 </li>
-                <li Class="JobGiver_TakeWoundedGuest"/>
-                <li Class="SR.ModRimWorld.FactionalWar.JobGiverTakeBestThing"/>
                 <li Class="JobGiver_ExitMapBest">
                     <defaultLocomotion>Jog</defaultLocomotion>
                     <jobMaxDuration>500</jobMaxDuration>

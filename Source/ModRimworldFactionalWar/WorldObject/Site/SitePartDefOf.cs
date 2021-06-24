@@ -17,5 +17,6 @@ namespace SR.ModRimWorld.FactionalWar
     {
         [UsedImplicitly] public static readonly SitePartDef SrFactionContention; //派系争夺战
         [UsedImplicitly] public static readonly SitePartDef SrFactionWarShelling; //派系炮击战
+        [UsedImplicitly] public static readonly SitePartDef SrFactionTempCamp; //临时营地
     }
 }
