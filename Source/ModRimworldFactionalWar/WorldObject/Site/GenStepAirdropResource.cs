@@ -46,13 +46,12 @@ namespace SR.ModRimWorld.FactionalWar
             var incidentParms = new IncidentParms {points = ThreatPoints, faction = Faction.OfMechanoids, target = map};
             var pawnGroupMakerParms =
                 IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, incidentParms);
-            //生成失败 尝试用默认角色组生成器
+            //用默认角色组生成器
             var pawnList = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms).ToList();
+            var lordJob = new LordJob_DefendPoint(map.Center);
+            LordMaker.MakeNewLord(Faction.OfMechanoids, lordJob, map, pawnList);
             //空投到中心
             DropPodUtility.DropThingsNear(map.Center, map, pawnList);
-            var lordJob =
-                new LordJob_MechanoidsDefend(totalThingList, Faction.OfMechanoids, 5f, map.Center, false, false);
-            LordMaker.MakeNewLord(Faction.OfMechanoids, lordJob, map, pawnList);
         }
     }
 }

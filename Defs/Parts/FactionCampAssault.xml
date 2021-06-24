@@ -1,22 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-    <SitePartDef ParentName="Outpost">
-        <defName>SrOutpost</defName>
-        <label>战斗中的营地</label>
+    <SitePartDef>
+        <defName>SrFactionTempCamp</defName>
+        <label>交战中的营地</label>
         <description>一个处于交战中的营地。</description>
-        <tags Inherit="False">
-            <li>BanditCamp</li>
-        </tags>
+        <workerClass>SR.ModRimWorld.FactionalWar.SitePartWorkerEmpty</workerClass>
+        <siteTexture>World/WorldObjects/Sites/Outpost</siteTexture>
+        <expandingIconTexture>World/WorldObjects/Expanding/Sites/Outpost</expandingIconTexture>
+        <applyFactionColorToSiteTexture>true</applyFactionColorToSiteTexture>
+        <showFactionInInspectString>true</showFactionInInspectString>
+        <requiresFaction>false</requiresFaction>
+        <arrivedLetter>部队已抵达战场。</arrivedLetter>
+        <arrivedLetterDef>NegativeEvent</arrivedLetterDef>
+        <wantsThreatPoints>true</wantsThreatPoints>
+        <minThreatPoints>5000</minThreatPoints>
     </SitePartDef>
     <GenStepDef>
-        <defName>SrBanditCamp</defName>
-        <linkWithSite>SrOutpost</linkWithSite>
+        <defName>SrTempCamp</defName>
+        <linkWithSite>SrFactionCampInWar</linkWithSite>
         <order>450</order>
-        <genStep Class="GenStep_Outpost"/>
+        <genStep Class="SR.ModRimWorld.FactionalWar.GenStepTempCamp"/>
     </GenStepDef>
     <GenStepDef>
-        <defName>SrBanditCampPower</defName>
-        <linkWithSite>SrOutpost</linkWithSite>
+        <defName>SrCampPower</defName>
+        <linkWithSite>SrFactionCampInWar</linkWithSite>
         <order>451</order>
         <genStep Class="GenStep_Power"/>
     </GenStepDef>

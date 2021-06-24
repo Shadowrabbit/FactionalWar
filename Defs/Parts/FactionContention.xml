@@ -3,8 +3,8 @@
     <SitePartDef>
         <defName>SrFactionContention</defName>
         <label>派系争夺</label>
-        <description>一批珍贵的资源降落在附近，引起两个派系互相争夺。</description>
-        <workerClass>SR.ModRimWorld.FactionalWar.SitePartWorkerFactionWarShelling</workerClass>
+        <description>一批珍贵的资源降落在附近，引起两个派系赶来争夺。</description>
+        <workerClass>SR.ModRimWorld.FactionalWar.SitePartWorkerEmpty</workerClass>
         <siteTexture>World/WorldObjects/Sites/Outpost</siteTexture>
         <expandingIconTexture>World/WorldObjects/Expanding/Sites/Outpost</expandingIconTexture>
         <applyFactionColorToSiteTexture>false</applyFactionColorToSiteTexture>
@@ -21,4 +21,10 @@
         <order>451</order>
         <genStep Class="SR.ModRimWorld.FactionalWar.GenStepAirdropResource"/>
     </GenStepDef>
+<!--    <GenStepDef>-->
+<!--        <defName>SrGenStepFactionContention</defName>-->
+<!--        <linkWithSite>SrFactionContention</linkWithSite>-->
+<!--        <order>450</order>-->
+<!--        <genStep Class="SR.ModRimWorld.FactionalWar.GenStepFactionContention"/>-->
+<!--    </GenStepDef>-->
 </Defs>

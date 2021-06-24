@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <RuleDef>
+        <defName>SrTempCamp</defName>
+        <symbol>srTempCamp</symbol>
+        <resolvers>
+            <li Class="SR.ModRimWorld.FactionalWar.SymbolResolverTempCamp">
+                <minRectSize>(80, 80)</minRectSize>
+            </li>
+        </resolvers>
+    </RuleDef>
+</Defs>

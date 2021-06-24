@@ -1,9 +1,9 @@
 ﻿// ******************************************************************
-//       /\ /|       @file       WorldObjectCompPropertiesFactionWarShelling.cs
-//       \ V/        @brief      世界组件参数 派系炮击战
+//       /\ /|       @file       SitePartWorkerEmpty.cs
+//       \ V/        @brief      部分场地处理 空
 //       | "")       @author     Shadowrabbit, yingtu0401@gmail.com
 //       /  |                    
-//      /  \\        @Modified   2021-06-22 22:57:07
+//      /  \\        @Modified   2021-06-24 00:22:02
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
 
@@ -13,11 +13,7 @@ using RimWorld;
 namespace SR.ModRimWorld.FactionalWar
 {
     [UsedImplicitly]
-    public class WorldObjectCompPropertiesFactionWarShelling : WorldObjectCompProperties
+    public class SitePartWorkerEmpty : SitePartWorker
     {
-        public WorldObjectCompPropertiesFactionWarShelling()
-        {
-            compClass = typeof(WorldCompFactionWarShelling);
-        }
     }
 }

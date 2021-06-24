@@ -5,9 +5,6 @@
         <worldObjectClass>SR.ModRimWorld.FactionalWar.SiteFactionWarShelling</worldObjectClass>
         <expandingIcon>true</expandingIcon>
         <expandingIconPriority>70</expandingIconPriority>
-        <comps>
-            <li Class="SR.ModRimWorld.FactionalWar.WorldObjectCompPropertiesFactionWarShelling" />
-        </comps>
         <IncidentTargetTags>
             <li>Map_Misc</li>
         </IncidentTargetTags>
@@ -15,6 +12,15 @@
     <WorldObjectDef>
         <defName>SrSiteFactionWarContention</defName>
         <worldObjectClass>SR.ModRimWorld.FactionalWar.SiteFactionWarContention</worldObjectClass>
+        <expandingIcon>true</expandingIcon>
+        <expandingIconPriority>70</expandingIconPriority>
+        <IncidentTargetTags>
+            <li>Map_Misc</li>
+        </IncidentTargetTags>
+    </WorldObjectDef>
+    <WorldObjectDef>
+        <defName>SrSiteFactionWarTempCamp</defName>
+        <worldObjectClass>SR.ModRimWorld.FactionalWar.SiteFactionWarTempCamp</worldObjectClass>
         <expandingIcon>true</expandingIcon>
         <expandingIconPriority>70</expandingIconPriority>
         <IncidentTargetTags>

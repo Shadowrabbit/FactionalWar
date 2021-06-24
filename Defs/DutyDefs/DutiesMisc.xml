@@ -37,12 +37,12 @@
         <defName>SrClearBattlefield</defName>
         <thinkNode Class="ThinkNode_Priority">
             <subNodes>
-                <li Class="JobGiver_TakeWoundedGuest"/>
-                <li Class="SR.ModRimWorld.FactionalWar.JobGiverTakeSpoils"/>
                 <li Class="JobGiver_AIDefendSelf">
                     <targetAcquireRadius>35</targetAcquireRadius>
                     <targetKeepRadius>40</targetKeepRadius>
                 </li>
+                <li Class="JobGiver_TakeWoundedGuest"/>
+                <li Class="SR.ModRimWorld.FactionalWar.JobGiverTakeSpoils"/>
                 <li Class="JobGiver_ExitMapBest">
                     <defaultLocomotion>Jog</defaultLocomotion>
                     <jobMaxDuration>500</jobMaxDuration>
@@ -52,15 +52,22 @@
             </subNodes>
         </thinkNode>
     </DutyDef>
-    <!--炮击派系优先-->
+    <!--撤退-->
     <DutyDef>
-        <defName>SrShellingFactionsPriority</defName>
+        <defName>SrRetreat</defName>
         <thinkNode Class="ThinkNode_Priority">
             <subNodes>
-                <!--                炮击相关-->
                 <li Class="JobGiver_AIDefendSelf">
                     <targetAcquireRadius>35</targetAcquireRadius>
                     <targetKeepRadius>40</targetKeepRadius>
+                </li>
+                <li Class="JobGiver_TakeWoundedGuest"/>
+                <li Class="SR.ModRimWorld.FactionalWar.JobGiverTakeBestThing"/>
+                <li Class="JobGiver_ExitMapBest">
+                    <defaultLocomotion>Jog</defaultLocomotion>
+                    <jobMaxDuration>500</jobMaxDuration>
+                    <forceCanDigIfAnyHostileActiveThreat>true</forceCanDigIfAnyHostileActiveThreat>
+                    <forceCanDigIfCantReachMapEdge>true</forceCanDigIfCantReachMapEdge>
                 </li>
             </subNodes>
         </thinkNode>

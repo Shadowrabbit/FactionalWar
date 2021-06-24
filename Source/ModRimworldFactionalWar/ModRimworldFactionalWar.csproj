@@ -55,7 +55,7 @@
         <Compile Include="AI\AIGroup\LordToilAssaultFactionFirst.cs" />
         <Compile Include="AI\AIGroup\LordToilClearBattlefield.cs" />
         <Compile Include="AI\AIGroup\LordToilKillHostileFactionMember.cs" />
-        <Compile Include="AI\AIGroup\LordToilShellFactionFirst.cs" />
+        <Compile Include="AI\AIGroup\LordToilRetreat.cs" />
         <Compile Include="AI\AIGroup\TriggerAllHostileFactionMembersDead.cs" />
         <Compile Include="AI\AIGroup\TriggerBecameNonHostileToFaction.cs" />
         <Compile Include="AI\AIGroup\TriggerFactionAssaultVictory.cs" />
@@ -65,8 +65,11 @@
         <Compile Include="AI\AISingle\JobGiverAIFightHostileFaction.cs" />
         <Compile Include="AI\AISingle\JobGiverAIGotoNearestHostileFactionMember.cs" />
         <Compile Include="AI\AISingle\JobGiverKillHostileFactionMember.cs" />
+        <Compile Include="AI\AISingle\JobGiverTakeBestThing.cs" />
         <Compile Include="AI\AISingle\JobGiverTakeSpoils.cs" />
         <Compile Include="AI\Extension\StateGraphExtention.cs" />
+        <Compile Include="Faction\FactionExtension.cs" />
+        <Compile Include="Faction\FactionUtil.cs" />
         <Compile Include="Incident\IncidentDefOf.cs" />
         <Compile Include="Incident\IncidentWorkerFactionWar.cs" />
         <Compile Include="Incident\IncidentWorkerFactionWarContentionSiteGenerate.cs" />
@@ -79,13 +82,13 @@
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="WorldObject\Site\GenStepAirdropResource.cs" />
         <Compile Include="WorldObject\Site\GenStepFactionContention.cs" />
-        <Compile Include="WorldObject\Site\GenStepTempOutpost.cs" />
+        <Compile Include="WorldObject\Site\GenStepTempCamp.cs" />
         <Compile Include="WorldObject\Site\SiteFactionWarContention.cs" />
         <Compile Include="WorldObject\Site\SiteFactionWarShelling.cs" />
+        <Compile Include="WorldObject\Site\SiteFactionWarTempCamp.cs" />
         <Compile Include="WorldObject\Site\SitePartDefOf.cs" />
-        <Compile Include="WorldObject\Site\SitePartWorkerFactionWarShelling.cs" />
-        <Compile Include="WorldObject\WorldObjectComp\WorldCompFactionWarShelling.cs" />
-        <Compile Include="WorldObject\WorldObjectComp\WorldObjectCompPropertiesFactionWarShelling.cs" />
+        <Compile Include="WorldObject\Site\SitePartWorkerEmpty.cs" />
+        <Compile Include="WorldObject\Site\SymbolResolverTempCamp.cs" />
         <Compile Include="WorldObject\WorldObjectDefOf.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

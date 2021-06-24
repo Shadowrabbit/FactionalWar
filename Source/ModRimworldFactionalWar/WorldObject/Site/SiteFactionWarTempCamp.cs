@@ -1,18 +1,21 @@
 ﻿// ******************************************************************
-//       /\ /|       @file       WorldCompFactionWarShelling.cs
-//       \ V/        @brief      世界组件 派系炮击战
+//       /\ /|       @file       SiteFactionWarTempCamp.cs
+//       \ V/        @brief      场地 临时营地
 //       | "")       @author     Shadowrabbit, yingtu0401@gmail.com
 //       /  |                    
-//      /  \\        @Modified   2021-06-22 22:54:30
+//      /  \\        @Modified   2021-06-24 18:08:09
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
-
+using JetBrains.Annotations;
 using RimWorld.Planet;
 
 namespace SR.ModRimWorld.FactionalWar
 {
-    public class WorldCompFactionWarShelling : WorldObjectComp
+    [UsedImplicitly]
+    public class SiteFactionWarTempCamp : Site
     {
-        
+        public override void PostMapGenerate()
+        {
+        }
     }
 }

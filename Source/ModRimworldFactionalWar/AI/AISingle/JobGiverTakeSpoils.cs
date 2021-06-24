@@ -21,7 +21,7 @@ namespace SR.ModRimWorld.FactionalWar
     [UsedImplicitly]
     public class JobGiverTakeSpoils : ThinkNode_JobGiver
     {
-        private const float MaxSearchDistence = 30f; //最大触发距离
+        private const float MaxSearchDistence = 50f; //最大触发距离
         private const int MinRegions = 0xF;
         private const int MaxRegions = 0xF;
 

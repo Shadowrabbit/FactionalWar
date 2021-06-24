@@ -4,7 +4,7 @@
         <defName>SrFactionWarShelling</defName>
         <label>派系炮击战</label>
         <description>两个未知的派系正在此处进行激烈的炮击战。</description>
-        <workerClass>SR.ModRimWorld.FactionalWar.SitePartWorkerFactionWarShelling</workerClass>
+        <workerClass>SR.ModRimWorld.FactionalWar.SitePartWorkerEmpty</workerClass>
         <siteTexture>World/WorldObjects/Sites/Outpost</siteTexture>
         <expandingIconTexture>World/WorldObjects/Expanding/Sites/Outpost</expandingIconTexture>
         <applyFactionColorToSiteTexture>true</applyFactionColorToSiteTexture>
