@@ -31,13 +31,14 @@ namespace SR.ModRimWorld.FactionalWar
                 out var sitePartDefsWithParams);
             //场地
             var site = WorldObjectMaker.MakeWorldObject(WorldObjectDefOf.SrSiteFactionWarTempCamp);
-            if (!(site is SiteEmpty siteFactionWarTempCamp))
+            if (!(site is SiteTempCamp siteFactionWarTempCamp))
             {
-                Log.Error("site is not type of SiteEmpty");
+                Log.Error("site is not type of SiteTempCamp");
                 return false;
             }
             siteFactionWarTempCamp.Tile = tileId;
             siteFactionWarTempCamp.factionMustRemainHostile = false;
+            siteFactionWarTempCamp.SetFaction(Find.FactionManager.RandomEnemyFaction());
             if (sitePartDefsWithParams != null)
             {
                 foreach (var sitePart in sitePartDefsWithParams)

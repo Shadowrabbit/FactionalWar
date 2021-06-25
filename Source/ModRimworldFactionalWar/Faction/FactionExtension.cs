@@ -6,8 +6,10 @@
 //      /  \\        @Modified   2021-06-24 13:27:48
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
+using System;
 using System.Linq;
 using RimWorld;
+using Verse;
 
 namespace SR.ModRimWorld.FactionalWar
 {
@@ -54,6 +56,15 @@ namespace SR.ModRimWorld.FactionalWar
 
             //袭击点数不足以生成组
             return points >= faction.def.MinPointsToGeneratePawnGroup(pawnGroupKindDef);
+        }
+
+        /// <summary>
+        /// 寻找敌对派系
+        /// </summary>
+        /// <returns></returns>
+        public static Faction FindHostileFaction(this Faction faction, Predicate<Faction> validator = null)
+        {
+            return Find.FactionManager.AllFactions.Where(f => validator == null || validator(f)).FirstOrDefault(f => f.HostileTo(faction));
         }
     }
 }
