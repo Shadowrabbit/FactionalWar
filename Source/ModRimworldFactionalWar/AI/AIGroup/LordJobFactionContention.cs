@@ -6,7 +6,7 @@
 //      /  \\        @Modified   2021-06-23 18:20:20
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
-using RimWorld;
+
 using Verse;
 using Verse.AI.Group;
 
@@ -43,14 +43,14 @@ namespace SR.ModRimWorld.FactionalWar
             //集群AI流程状态机
             var stateGraph = new StateGraph();
             //防卫状态
-            var lordToilDefendPoint = new LordToil_DefendPoint(_occupyLocation);
+            var lordToilDefendPoint = new LordToilDefendPoint(_occupyLocation);
             stateGraph.AddToil(lordToilDefendPoint);
             //撤离状态 带走队友 带走地图上价值最高的物品 离开地图
             var lordToilRetreat = new LordToilRetreat();
             stateGraph.AddToil(lordToilRetreat);
             //防卫状态转变为撤退状态
             var transitionDefendPointToRetreat = new Transition(lordToilDefendPoint, lordToilRetreat);
-            transitionDefendPointToRetreat.AddTrigger(new Trigger_HighValueThingsAround());
+            transitionDefendPointToRetreat.AddTrigger(new Trigger_TicksPassedWithoutHarmOrMemos(600));
             stateGraph.AddTransition(transitionDefendPointToRetreat);
             return stateGraph;
         }

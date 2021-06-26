@@ -52,6 +52,37 @@
             </subNodes>
         </thinkNode>
     </DutyDef>
+    <!--防守据点-->
+    <DutyDef>
+        <defName>SrDefend</defName>
+        <alwaysShowWeapon>true</alwaysShowWeapon>
+        <thinkNode Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="JobGiver_TakeCombatEnhancingDrug">
+                    <onlyIfInDanger>true</onlyIfInDanger>
+                </li>
+                <li Class="JobGiver_AIDefendPoint">
+                    <targetAcquireRadius>65</targetAcquireRadius>
+                    <targetKeepRadius>72</targetKeepRadius>
+                </li>
+                <li Class="JobGiver_FightFiresNearPoint">
+                    <maxDistFromPoint>35</maxDistFromPoint>
+                </li>
+                <li Class="ThinkNode_ForbidOutsideFlagRadius">
+                    <maxDistToSquadFlag>16</maxDistToSquadFlag>
+                    <subNodes>
+                        <li Class="ThinkNode_Subtree">
+                            <treeDef>SatisfyBasicNeedsAndWork</treeDef>
+                        </li>
+                    </subNodes>
+                </li>
+                <li Class="JobGiver_SelfTend"/>
+                <li Class="JobGiver_WanderNearDutyLocation">
+                    <wanderRadius>8</wanderRadius>
+                </li>
+            </subNodes>
+        </thinkNode>
+    </DutyDef>
     <!--撤退-->
     <DutyDef>
         <defName>SrRetreat</defName>

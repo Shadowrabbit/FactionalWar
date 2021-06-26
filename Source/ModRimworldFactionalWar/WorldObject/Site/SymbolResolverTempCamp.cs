@@ -19,7 +19,7 @@ namespace SR.ModRimWorld.FactionalWar
     public class SymbolResolverTempCamp : SymbolResolver
     {
         private static readonly FloatRange DefaultPawnsPoints = new FloatRange(5000f, 8000f);
-        private const float WanderRadius = 35f;
+        private const float WanderRadius = 10f;
 
         public override void Resolve(ResolveParams rp)
         {
@@ -43,9 +43,9 @@ namespace SR.ModRimWorld.FactionalWar
             var f = (float) (rp.rect.Area / 144.0 * 0.170000001788139);
             BaseGen.globalSettings.minEmptyNodes = (double) f < 1.0 ? 0 : GenMath.RoundRandom(f);
             //集群AI防卫
-            var lordJobDefendPoint = new LordJob_DefendPoint(rp.rect.CenterCell, WanderRadius, false, false);
+            var lordJobDefendPoint = new LordJobDefendPoint(rp.rect.CenterCell, WanderRadius);
             var lord = rp.singlePawnLord ?? LordMaker.MakeNewLord(faction, lordJobDefendPoint, map);
-            var lordToilDefendPoint = lord.Graph.FindToil<LordToil_DefendPoint>();
+            var lordToilDefendPoint = lord.Graph.FindToil<LordToilDefendPoint>();
             if (!(lordToilDefendPoint.data is LordToilData_DefendPoint data))
             {
                 Log.Error("can't find LordToilData_DefendPoint");

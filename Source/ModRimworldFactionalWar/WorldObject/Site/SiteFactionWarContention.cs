@@ -7,7 +7,6 @@
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
 
-using System;
 using System.Linq;
 using JetBrains.Annotations;
 using RimWorld;
@@ -27,16 +26,21 @@ namespace SR.ModRimWorld.FactionalWar
         /// </summary>
         public override void PostMapGenerate()
         {
-            bool Validator(Faction faction) => (faction.def.techLevel >= TechLevel.Industrial);
+            bool Validator(Faction faction) =>
+                (faction.def.techLevel >= TechLevel.Industrial && faction.HostileTo(Faction.OfPlayer));
+
             //生成两个相互敌对的派系 设置集群AI互相攻击并争夺资源
-            FactionUtil.GetHostileFactionPair(out var faction1, out var faction2, _factionPoints.min, PawnGroupKindDefOf.Combat,
+            FactionUtil.GetHostileFactionPair(out var faction1, out var faction2, _factionPoints.min,
+                PawnGroupKindDefOf.Combat,
                 Find.FactionManager.AllFactionsVisible.ToList(), Validator);
             if (faction1 == null || faction2 == null)
             {
                 return;
             }
+
             //创建派系1的角色 空投到地图中心
-            var incidentParms1 = new IncidentParms {points = _factionPoints.RandomInRange, faction = faction1, target = Map};
+            var incidentParms1 = new IncidentParms
+                {points = _factionPoints.RandomInRange, faction = faction1, target = Map};
             var pawnGroupMakerParms1 =
                 IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, incidentParms1);
             var pawnList1 = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms1).ToList();
@@ -44,7 +48,8 @@ namespace SR.ModRimWorld.FactionalWar
             LordMaker.MakeNewLord(faction1, lordJob1, Map, pawnList1);
             DropPodUtility.DropThingsNear(Map.Center, Map, pawnList1);
             //创建派系2的角色 空投到地图中心
-            var incidentParms2 = new IncidentParms {points = _factionPoints.RandomInRange, faction = faction2, target = Map};
+            var incidentParms2 = new IncidentParms
+                {points = 2 * _factionPoints.RandomInRange, faction = faction2, target = Map};
             var pawnGroupMakerParms2 =
                 IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, incidentParms2);
             var pawnList2 = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms2).ToList();

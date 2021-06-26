@@ -7,6 +7,7 @@
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
 
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using RimWorld;
@@ -19,7 +20,7 @@ namespace SR.ModRimWorld.FactionalWar
     [UsedImplicitly]
     public class SiteTempCamp : Site
     {
-        private static readonly IntRange ThreatPoints = new IntRange(3000, 5000);
+        private static readonly IntRange ThreatPoints = new IntRange(5000, 8000);
         private const int Radius = 10;
 
         /// <summary>
@@ -27,40 +28,59 @@ namespace SR.ModRimWorld.FactionalWar
         /// </summary>
         public override void PostMapGenerate()
         {
-            // var points = ThreatPoints.RandomInRange;
-            //
-            // //创建袭击者
-            // bool Validator(Faction faction) => (faction.IsFactionEffective(points, PawnGroupKindDefOf.Combat));
-            // var raidFaction = Faction.FindHostileFaction(Validator);
-            // var incidentParms = new IncidentParms {points = points, faction = raidFaction, target = Map};
-            // var pawnGroupMakerParms =
-            //     IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, incidentParms);
-            // //用默认角色组生成器
-            // var pawnList = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms).ToList();
-            // var lordJob = new LordJobRaidFactionFirst(raidFaction, Faction);
-            // LordMaker.MakeNewLord(raidFaction, lordJob, Map, pawnList);
-            // // //生成袭击者
-            // // foreach (var pawn in pawnList)
-            // // {
-            // //     var loc = CellFinder.RandomClosewalkCellNear(Map.Center, Map, Radius);
-            // //     GenSpawn.Spawn(pawn, loc, Map);
-            // // }
-            // //空投到中心
-            // DropPodUtility.DropThingsNear(Map.Center, Map, pawnList);
-            // //第2,3队
-            // for (var i = 0; i < 2; i++)
-            // {
-            //     var pawnList2 = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms).ToList();
-            //     var lordJob2 = new LordJobRaidFactionFirst(raidFaction, Faction);
-            //     LordMaker.MakeNewLord(raidFaction, lordJob2, Map, pawnList2);
-            //     var near = DropCellFinder.FindRaidDropCenterDistant_NewTemp(Map);
-            //     // foreach (var pawn in pawnList2)
-            //     // {
-            //     //     var loc = CellFinder.RandomClosewalkCellNear(Map.Center, Map, Radius);
-            //     //     GenSpawn.Spawn(pawn, loc, Map);
-            //     // }
-            //     DropPodUtility.DropThingsNear(near, Map, pawnList2);
-            // }
+            SpawnRaider();
+        }
+
+        /// <summary>
+        /// 生成袭击者
+        /// </summary>
+        private void SpawnRaider()
+        {
+            var points = ThreatPoints.RandomInRange;
+
+            //创建袭击者
+            bool Validator(Faction faction) => (faction.IsFactionEffective(points, PawnGroupKindDefOf.Combat));
+            var raidFaction = Faction.FindHostileFaction(Validator);
+            var incidentParms = new IncidentParms {points = points, faction = raidFaction, target = Map};
+            var pawnGroupMakerParms =
+                IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, incidentParms);
+            //用默认角色组生成器
+            var pawnList = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms).ToList();
+            ResolveArrive(pawnList, incidentParms);
+            ResolveLordJob(pawnList, raidFaction, Faction);
+        }
+
+        /// <summary>
+        /// 创建集群AI
+        /// </summary>
+        /// <param name="pawns"></param>
+        /// <param name="assaultFaction"></param>
+        /// <param name="targetFaction"></param>
+        /// <returns></returns>
+        private void ResolveLordJob(IEnumerable<Pawn> pawns, Faction assaultFaction,
+            Faction targetFaction)
+        {
+            var lordJobShellFactionFirst = new LordJobRaidFactionFirst(assaultFaction, targetFaction);
+            LordMaker.MakeNewLord(assaultFaction, lordJobShellFactionFirst, Map, pawns);
+        }
+
+        /// <summary>
+        /// 解决入场
+        /// </summary>
+        private void ResolveArrive(IEnumerable<Pawn> pawns, IncidentParms incidentParms)
+        {
+            if (!RCellFinder.TryFindRandomPawnEntryCell(out incidentParms.spawnCenter, Map,
+                CellFinder.EdgeRoadChance_Hostile))
+            {
+                return;
+            }
+
+            var spawnRotation = Rot4.FromAngleFlat((Map.Center - incidentParms.spawnCenter).AngleFlat);
+            foreach (var pawn in pawns)
+            {
+                var loc = CellFinder.RandomClosewalkCellNear(incidentParms.spawnCenter, Map, Radius);
+                GenSpawn.Spawn(pawn, loc, Map, spawnRotation);
+            }
         }
     }
 }

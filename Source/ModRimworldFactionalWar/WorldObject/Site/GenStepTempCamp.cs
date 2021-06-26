@@ -20,7 +20,7 @@ namespace SR.ModRimWorld.FactionalWar
     {
         public override int SeedPart => 546950703;
         private const int Size = 70;
-        private FloatRange _defaultPawnGroupPointsRange = new FloatRange(5000f, 8000f);
+        private FloatRange _defaultPawnGroupPointsRange = new FloatRange(7000f, 10000f);
 
         /// <summary>
         /// 生成
@@ -47,7 +47,7 @@ namespace SR.ModRimWorld.FactionalWar
                 : map.ParentFaction;
             var resolveParams = new ResolveParams
             {
-                rect = GetOutpostRect(cellCenter, var2, map),
+                rect = GetOutpostRect(cellCenter, var2),
                 faction = faction,
                 edgeDefenseWidth = 4,
                 edgeDefenseTurretsCount = Rand.RangeInclusive(3, 6),
@@ -84,8 +84,7 @@ namespace SR.ModRimWorld.FactionalWar
 
         private static CellRect GetOutpostRect(
             CellRect rectToDefend,
-            ICollection<CellRect> usedRects,
-            Map map)
+            ICollection<CellRect> usedRects)
         {
             var cellRect = new CellRect(rectToDefend.minX - 1 - Size / 2, rectToDefend.minZ - 1 - Size / 2, Size, Size);
             usedRects.Add(cellRect);

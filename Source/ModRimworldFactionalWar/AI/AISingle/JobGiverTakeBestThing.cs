@@ -17,7 +17,7 @@ namespace SR.ModRimWorld.FactionalWar
     [UsedImplicitly]
     public class JobGiverTakeBestThing : ThinkNode_JobGiver
     {
-        private const float ItemsSearchRadiusOngoing = 50f;
+        private const float ItemsSearchRadiusOngoing = 99f;
 
         protected override Job TryGiveJob(Pawn pawn)
         {
