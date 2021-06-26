@@ -19,7 +19,7 @@ namespace SR.ModRimWorld.FactionalWar
     public class GenStepTempCamp : GenStep
     {
         public override int SeedPart => 546950703;
-        private const int Size = 60;
+        private const int Size = 70;
         private FloatRange _defaultPawnGroupPointsRange = new FloatRange(5000f, 8000f);
 
         /// <summary>
@@ -50,8 +50,8 @@ namespace SR.ModRimWorld.FactionalWar
                 rect = GetOutpostRect(cellCenter, var2, map),
                 faction = faction,
                 edgeDefenseWidth = 4,
-                edgeDefenseTurretsCount = Rand.RangeInclusive(4, 8),
-                edgeDefenseMortarsCount = Rand.RangeInclusive(2, 4),
+                edgeDefenseTurretsCount = Rand.RangeInclusive(3, 6),
+                edgeDefenseMortarsCount = Rand.RangeInclusive(1, 2),
                 settlementPawnGroupPoints = points
             };
             //获取据点所在的矩形

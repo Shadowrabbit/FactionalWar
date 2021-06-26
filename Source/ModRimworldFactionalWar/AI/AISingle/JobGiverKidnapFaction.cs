@@ -17,11 +17,8 @@ namespace SR.ModRimWorld.FactionalWar
     [UsedImplicitly]
     public class JobGiverKidnapFaction : ThinkNode_JobGiver
     {
-        public const float VictimSearchRadiusInitial = 8f;
         private const float VictimSearchRadiusOngoing = 18f;
-
-
-        // Token: 0x06004B93 RID: 19347 RVA: 0x001A60D8 File Offset: 0x001A42D8
+        
         protected override Job TryGiveJob(Pawn pawn)
         {
             if (!RCellFinder.TryFindBestExitSpot(pawn, out var c))
@@ -29,7 +26,7 @@ namespace SR.ModRimWorld.FactionalWar
                 return null;
             }
 
-            if (!KidnapAIUtil.TryFindGoodKidnapVictim(pawn, 18f, out var t) ||
+            if (!KidnapAIUtil.TryFindGoodKidnapVictim(pawn, VictimSearchRadiusOngoing, out var t) ||
                 GenAI.InDangerousCombat(pawn))
             {
                 return null;

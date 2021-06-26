@@ -56,8 +56,6 @@ namespace SR.ModRimWorld.FactionalWar
                 var loc = CellFinder.RandomClosewalkCellNear(map.Center, map, 5);
                 GenSpawn.Spawn(mechPawn, loc, map);
             }
-            //空投到中心
-            DropPodUtility.DropThingsNear(map.Center, map, pawnList);
         }
     }
 }

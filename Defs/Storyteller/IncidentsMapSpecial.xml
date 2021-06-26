@@ -16,20 +16,6 @@
         <requireColonistsPresent>false</requireColonistsPresent>
     </IncidentDef>
     <IncidentDef>
-        <defName>SrFactionWarShelling</defName>
-        <label>派系炮击战</label>
-        <targetTags>
-            <li>Map_TempIncident</li>
-            <li>Map_Misc</li>
-            <li>Map_RaidBeacon</li>
-        </targetTags>
-        <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerFactionWarShelling</workerClass>
-        <category>ThreatBig</category>
-        <baseChance>4</baseChance>
-        <pointsScaleable>false</pointsScaleable>
-        <requireColonistsPresent>false</requireColonistsPresent>
-    </IncidentDef>
-    <IncidentDef>
         <defName>SrFactionWarShellingSiteGenerate</defName>
         <label>派系炮击战</label>
         <targetTags>
