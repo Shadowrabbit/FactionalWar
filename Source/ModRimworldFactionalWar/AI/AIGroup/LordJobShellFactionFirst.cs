@@ -54,7 +54,7 @@ namespace SR.ModRimWorld.FactionalWar
             var subGraphAssaultFactionFirst = stateGraph.AttachSubgraph(lordJobAssaultFactionFirst);
             var lordToilAssaultFactionFirst = subGraphAssaultFactionFirst.StartingToil;
             //添加流程 派系炮击
-            var lordToilSiege = new LordToil_Siege(stageLoc, _blueprintPoints);
+            var lordToilSiege = new LordToilShell(stageLoc, _blueprintPoints);
             stateGraph.AddToil(lordToilSiege);
             //添加流程 离开地图
             var lordToilExitMap =

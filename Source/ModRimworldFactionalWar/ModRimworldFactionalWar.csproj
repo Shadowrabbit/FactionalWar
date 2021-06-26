@@ -59,6 +59,7 @@
         <Compile Include="AI\AIGroup\LordToilKillHostileFactionMember.cs" />
         <Compile Include="AI\AIGroup\LordToilPlunderFaction.cs" />
         <Compile Include="AI\AIGroup\LordToilRetreat.cs" />
+        <Compile Include="AI\AIGroup\LordToilShell.cs" />
         <Compile Include="AI\AIGroup\TriggerAllHostileFactionMembersDead.cs" />
         <Compile Include="AI\AIGroup\TriggerBecameNonHostileToFaction.cs" />
         <Compile Include="AI\AIGroup\TriggerFactionAssaultVictory.cs" />
