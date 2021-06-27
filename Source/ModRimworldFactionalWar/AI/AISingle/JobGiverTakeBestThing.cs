@@ -78,7 +78,7 @@ namespace SR.ModRimWorld.FactionalWar
                 return false;
             }
 
-            //验证器 搜索者不存在 或者搜索者可以预留当前物体 并且没有禁用 并且物体可以被偷 并且物体没在燃烧中 并且物品周围有敌对派系或自己派系尸体
+            //验证器 搜索者不存在 或者搜索者可以预留当前物体 并且没有禁用 并且物体可以被偷 并且物体没在燃烧中
             bool SpoilValidator(Thing t) => (seacher == null || seacher.CanReserve(t)) &&
                                             (disallowed == null || !disallowed.Contains(t)) && t.def.stealable &&
                                             !t.IsBurning();

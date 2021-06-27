@@ -5,8 +5,8 @@
         <label>派系争夺战</label>
         <description>一批珍贵的资源降落在附近，引起两个派系赶来争夺。</description>
         <workerClass>SR.ModRimWorld.FactionalWar.SitePartWorkerEmpty</workerClass>
-        <siteTexture>World/WorldObjects/Sites/Outpost</siteTexture>
-        <expandingIconTexture>World/WorldObjects/Expanding/Sites/Outpost</expandingIconTexture>
+        <siteTexture>World/WorldObjects/Sites/FactionWarContention</siteTexture>
+        <expandingIconTexture>World/WorldObjects/Sites/FactionWarContentionExpand</expandingIconTexture>
         <applyFactionColorToSiteTexture>false</applyFactionColorToSiteTexture>
         <showFactionInInspectString>false</showFactionInInspectString>
         <requiresFaction>false</requiresFaction>

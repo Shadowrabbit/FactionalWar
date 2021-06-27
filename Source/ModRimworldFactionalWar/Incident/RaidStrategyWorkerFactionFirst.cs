@@ -18,6 +18,17 @@ namespace SR.ModRimWorld.FactionalWar
     [UsedImplicitly]
     public class RaidStrategyWorkerFactionFirst : RaidStrategyWorker_StageThenAttack
     {
+        /// <summary>
+        /// 是否可以使用 不可以通过权重方式选中
+        /// </summary>
+        /// <param name="parms"></param>
+        /// <param name="groupKind"></param>
+        /// <returns></returns>
+        public override bool CanUseWith(IncidentParms parms, PawnGroupKindDef groupKind)
+        {
+            return false;
+        }
+
         public Faction TempTargetFaction { get; set; } //目标派系
 
         /// <summary>

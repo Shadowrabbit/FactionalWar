@@ -12,7 +12,7 @@
                     <targetKeepRadius>72</targetKeepRadius>
                 </li>
                 <li Class="SR.ModRimWorld.FactionalWar.JobGiverAIGotoNearestHostileFactionMember"/>
-                <li Class="JobGiver_AISapper">
+                <li Class="SR.ModRimWorld.FactionalWar.JobGiverAISapper">
                     <canMineNonMineables>false</canMineNonMineables>
                 </li>
             </subNodes>

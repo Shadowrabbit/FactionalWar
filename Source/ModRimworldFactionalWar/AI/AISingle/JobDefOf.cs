@@ -16,5 +16,6 @@ namespace SR.ModRimWorld.FactionalWar
     public static class JobDefOf
     {
         [UsedImplicitly] public static readonly JobDef SrKillMelee; //近战杀死敌人
+        public static JobDef Goto { get; set; }
     }
 }

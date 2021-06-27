@@ -5,11 +5,11 @@
         <label>派系防守战</label>
         <description>一个处于交战中的营地。</description>
         <workerClass>SR.ModRimWorld.FactionalWar.SitePartWorkerEmpty</workerClass>
-        <siteTexture>World/WorldObjects/Sites/Outpost</siteTexture>
-        <expandingIconTexture>World/WorldObjects/Expanding/Sites/Outpost</expandingIconTexture>
-        <applyFactionColorToSiteTexture>true</applyFactionColorToSiteTexture>
+        <siteTexture>World/WorldObjects/Sites/FactionTempCamp</siteTexture>
+        <expandingIconTexture>World/WorldObjects/Sites/FactionTempCampExpand</expandingIconTexture>
+        <applyFactionColorToSiteTexture>false</applyFactionColorToSiteTexture>
         <showFactionInInspectString>true</showFactionInInspectString>
-        <requiresFaction>false</requiresFaction>
+        <requiresFaction>true</requiresFaction>
         <arrivedLetter>部队已抵达战场。</arrivedLetter>
         <arrivedLetterDef>NegativeEvent</arrivedLetterDef>
         <wantsThreatPoints>false</wantsThreatPoints>
