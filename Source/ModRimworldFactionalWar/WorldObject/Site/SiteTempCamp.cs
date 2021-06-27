@@ -20,7 +20,7 @@ namespace SR.ModRimWorld.FactionalWar
     [UsedImplicitly]
     public class SiteTempCamp : Site
     {
-        private static readonly IntRange ThreatPoints = new IntRange(5000, 8000);
+        private static readonly IntRange ThreatPoints = new IntRange(3000, 8000);
         private const int Radius = 10;
 
         /// <summary>

@@ -108,6 +108,7 @@
         <defName>SrPlunderFaction</defName>
         <thinkNode Class="ThinkNode_Priority">
             <subNodes>
+                <li Class="SR.ModRimWorld.FactionalWar.JobGiverDestroyDoor"/>
                 <li Class="JobGiver_TakeWoundedGuest"/>
                 <li Class="SR.ModRimWorld.FactionalWar.JobGiverKidnapFaction"/>
                 <li Class="SR.ModRimWorld.FactionalWar.JobGiverTakeBestThing"/>

@@ -20,7 +20,7 @@ namespace SR.ModRimWorld.FactionalWar
     {
         public override int SeedPart => 546950703;
         private const int Size = 70;
-        private FloatRange _defaultPawnGroupPointsRange = new FloatRange(7000f, 10000f);
+        private FloatRange _defaultPawnGroupPointsRange = new FloatRange(5000, 10000);
 
         /// <summary>
         /// 生成

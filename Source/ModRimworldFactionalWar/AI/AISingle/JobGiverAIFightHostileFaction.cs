@@ -26,12 +26,6 @@ namespace SR.ModRimWorld.FactionalWar
         /// <returns></returns>
         protected override bool ExtraTargetValidator(Pawn pawn, Thing target)
         {
-            //目标不是角色
-            if (!(target is Pawn targetPawn))
-            {
-                return false;
-            }
-
             //获取集群AI
             var lordSeacher = pawn.GetLord();
             if (!(lordSeacher.LordJob is LordJobFactionPairBase lordJobSeacher))
@@ -40,7 +34,7 @@ namespace SR.ModRimWorld.FactionalWar
             }
 
             //目标派系是冲突派系
-            return targetPawn.Faction == lordJobSeacher.TargetFaction;
+            return target.Faction == lordJobSeacher.TargetFaction;
         }
 
         /// <summary>

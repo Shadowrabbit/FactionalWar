@@ -6,6 +6,7 @@
 //      /  \\        @Modified   2021-06-24 13:27:48
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
+
 using System;
 using System.Linq;
 using RimWorld;
@@ -64,7 +65,10 @@ namespace SR.ModRimWorld.FactionalWar
         /// <returns></returns>
         public static Faction FindHostileFaction(this Faction faction, Predicate<Faction> validator = null)
         {
-            return Find.FactionManager.AllFactions.Where(f => validator == null || validator(f)).FirstOrDefault(f => f.HostileTo(faction));
+            var factionList = Find.FactionManager.AllFactionsVisible.ToList();
+            factionList.Shuffle();
+            return factionList.Where(raidFaction => validator == null || validator(raidFaction))
+                .FirstOrDefault(raidFaction => raidFaction.HostileTo(faction));
         }
     }
 }

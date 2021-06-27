@@ -16,6 +16,8 @@ namespace SR.ModRimWorld.FactionalWar
 {
     public class LordJobRaidFactionFirst : LordJobFactionPairBase
     {
+        public override bool AddFleeToil => false;
+
         public LordJobRaidFactionFirst()
         {
         }

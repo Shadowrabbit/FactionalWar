@@ -5,6 +5,9 @@
         <worldObjectClass>SR.ModRimWorld.FactionalWar.SiteFactionWarShelling</worldObjectClass>
         <expandingIcon>true</expandingIcon>
         <expandingIconPriority>70</expandingIconPriority>
+        <comps>
+            <li Class="WorldObjectCompProperties_FormCaravan" />
+        </comps>
         <IncidentTargetTags>
             <li>Map_Misc</li>
         </IncidentTargetTags>
@@ -14,6 +17,9 @@
         <worldObjectClass>SR.ModRimWorld.FactionalWar.SiteFactionWarContention</worldObjectClass>
         <expandingIcon>true</expandingIcon>
         <expandingIconPriority>70</expandingIconPriority>
+        <comps>
+            <li Class="WorldObjectCompProperties_FormCaravan" />
+        </comps>
         <IncidentTargetTags>
             <li>Map_Misc</li>
         </IncidentTargetTags>
@@ -23,6 +29,9 @@
         <worldObjectClass>SR.ModRimWorld.FactionalWar.SiteTempCamp</worldObjectClass>
         <expandingIcon>true</expandingIcon>
         <expandingIconPriority>70</expandingIconPriority>
+        <comps>
+            <li Class="WorldObjectCompProperties_FormCaravan" />
+        </comps>
         <IncidentTargetTags>
             <li>Map_Misc</li>
         </IncidentTargetTags>

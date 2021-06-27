@@ -70,6 +70,7 @@
         <Compile Include="AI\AISingle\JobDriverKillMelee.cs" />
         <Compile Include="AI\AISingle\JobGiverAIFightHostileFaction.cs" />
         <Compile Include="AI\AISingle\JobGiverAIGotoNearestHostileFactionMember.cs" />
+        <Compile Include="AI\AISingle\JobGiverDestroyDoor.cs" />
         <Compile Include="AI\AISingle\JobGiverKidnapFaction.cs" />
         <Compile Include="AI\AISingle\JobGiverKillHostileFactionMember.cs" />
         <Compile Include="AI\AISingle\JobGiverTakeBestThing.cs" />
