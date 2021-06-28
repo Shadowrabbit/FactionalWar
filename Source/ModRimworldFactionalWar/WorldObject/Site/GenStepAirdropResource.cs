@@ -34,7 +34,7 @@ namespace SR.ModRimWorld.FactionalWar
             thingSetMakerParams.qualityGenerator = QualityGenerator.Reward;
             thingSetMakerParams.makingFaction = Find.FactionManager.AllFactionsListForReading.RandomElement();
             var totalThingList = new List<Thing>();
-            for (var i = 0; i < 5; i++)
+            for (var i = 0; i < 3; i++)
             {
                 var betrayalRewardThings =
                     ThingSetMakerDefOf.MapGen_AncientTempleContents.root.Generate(thingSetMakerParams);

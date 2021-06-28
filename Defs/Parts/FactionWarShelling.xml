@@ -13,6 +13,5 @@
         <arrivedLetter>部队已抵达战场。</arrivedLetter>
         <arrivedLetterDef>NegativeEvent</arrivedLetterDef>
         <wantsThreatPoints>true</wantsThreatPoints>
-        <minThreatPoints>1000</minThreatPoints>
     </SitePartDef>
 </Defs>

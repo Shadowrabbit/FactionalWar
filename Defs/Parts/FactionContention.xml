@@ -13,7 +13,6 @@
         <arrivedLetter>部队已抵达战场。</arrivedLetter>
         <arrivedLetterDef>NegativeEvent</arrivedLetterDef>
         <wantsThreatPoints>false</wantsThreatPoints>
-        <minThreatPoints>5000</minThreatPoints>
     </SitePartDef>
     <GenStepDef>
         <defName>SrGenStepAirdropResource</defName>

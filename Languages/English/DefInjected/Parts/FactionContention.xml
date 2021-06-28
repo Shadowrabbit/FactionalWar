@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <SrFactionContention.label>Faction Contention</SrFactionContention.label>
+    <SrFactionContention.description>A batch of precious resources landed nearby, causing two factions to compete.</SrFactionContention.description>
+    <SrFactionContention.arrivedLetter>The troop have arrived on the battlefield.</SrFactionContention.arrivedLetter>
+</LanguageData>

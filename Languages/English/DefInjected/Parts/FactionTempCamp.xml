@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <SrFactionTempCamp.label>Faction Defense</SrFactionTempCamp.label>
+    <SrFactionTempCamp.description>A camp at war.</SrFactionTempCamp.description>
+    <SrFactionTempCamp.arrivedLetter>The troop have arrived on the battlefield.</SrFactionTempCamp.arrivedLetter>
+</LanguageData>

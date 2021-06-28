@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <SrFactionFirst.letterLabelEnemy>Faction Assault</SrFactionFirst.letterLabelEnemy>
+    <SrFactionFirst.arrivalTextEnemy>{0} from {1} and {2} from {3} are about to fight fiercely! Their target is not you.</SrFactionFirst.arrivalTextEnemy>
+</LanguageData>
