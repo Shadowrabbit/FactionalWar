@@ -7,6 +7,7 @@
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
 
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using RimWorld;
@@ -20,6 +21,7 @@ namespace SR.ModRimWorld.FactionalWar
     public class SiteFactionWarContention : Site
     {
         private readonly IntRange _factionPoints = new IntRange(3000, 5000);
+        private const int Radius = 8;
 
         /// <summary>
         /// 生成地图后回调
@@ -44,18 +46,46 @@ namespace SR.ModRimWorld.FactionalWar
             var pawnGroupMakerParms1 =
                 IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, incidentParms1);
             var pawnList1 = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms1).ToList();
-            var lordJob1 = new LordJobFactionContention(Map.Center);
-            LordMaker.MakeNewLord(faction1, lordJob1, Map, pawnList1);
-            DropPodUtility.DropThingsNear(Map.Center, Map, pawnList1);
+            ResolveArrive(pawnList1, incidentParms1);
+            ResolveLordJob(pawnList1, faction1);
             //创建派系2的角色 空投到地图中心
             var incidentParms2 = new IncidentParms
                 {points = 2 * _factionPoints.RandomInRange, faction = faction2, target = Map};
             var pawnGroupMakerParms2 =
                 IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, incidentParms2);
             var pawnList2 = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms2).ToList();
-            var lordJob2 = new LordJobFactionContention(Map.Center);
-            LordMaker.MakeNewLord(faction2, lordJob2, Map, pawnList2);
-            DropPodUtility.DropThingsNear(Map.Center, Map, pawnList2);
+            ResolveArrive(pawnList2, incidentParms2);
+            ResolveLordJob(pawnList2, faction2);
+        }
+
+        /// <summary>
+        /// 解决入场
+        /// </summary>
+        private void ResolveArrive(IEnumerable<Pawn> pawns, IncidentParms incidentParms)
+        {
+            if (!RCellFinder.TryFindRandomPawnEntryCell(out incidentParms.spawnCenter, Map,
+                CellFinder.EdgeRoadChance_Hostile))
+            {
+                return;
+            }
+
+            var spawnRotation = Rot4.FromAngleFlat((Map.Center - incidentParms.spawnCenter).AngleFlat);
+            foreach (var pawn in pawns)
+            {
+                var loc = CellFinder.RandomClosewalkCellNear(incidentParms.spawnCenter, Map, Radius);
+                GenSpawn.Spawn(pawn, loc, Map, spawnRotation);
+            }
+        }
+
+        /// <summary>
+        /// 创建集群AI
+        /// </summary>
+        /// <param name="pawns"></param>
+        /// <param name="faction"></param>
+        private void ResolveLordJob(IEnumerable<Pawn> pawns, Faction faction)
+        {
+            var lordJobFactionContention = new LordJobFactionContention(Map.Center);
+            LordMaker.MakeNewLord(faction, lordJobFactionContention, Map, pawns);
         }
     }
 }

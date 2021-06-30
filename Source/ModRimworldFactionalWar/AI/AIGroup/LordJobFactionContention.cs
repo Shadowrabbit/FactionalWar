@@ -50,7 +50,7 @@ namespace SR.ModRimWorld.FactionalWar
             stateGraph.AddToil(lordToilRetreat);
             //防卫状态转变为撤退状态
             var transitionDefendPointToRetreat = new Transition(lordToilDefendPoint, lordToilRetreat);
-            transitionDefendPointToRetreat.AddTrigger(new Trigger_TicksPassedWithoutHarmOrMemos(600));
+            transitionDefendPointToRetreat.AddTrigger(new Trigger_TicksPassedWithoutHarmOrMemos(1500));
             stateGraph.AddTransition(transitionDefendPointToRetreat);
             return stateGraph;
         }

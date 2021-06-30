@@ -7,6 +7,7 @@
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
 
+using RimWorld;
 using Verse;
 using Verse.AI.Group;
 
@@ -36,7 +37,17 @@ namespace SR.ModRimWorld.FactionalWar
         public override StateGraph CreateGraph()
         {
             var stateGraph = new StateGraph();
-            stateGraph.AddToil(new LordToilDefendPoint(_point, wanderRadius: _wanderRadius));
+            var lordToilDefendPoint = new LordToilDefendPoint(_point, wanderRadius: _wanderRadius);
+            stateGraph.AddToil(lordToilDefendPoint);
+            //添加流程 攻击敌人
+            var lordToilAssaultEnemey = new LordToil_AssaultColony();
+            stateGraph.AddToil(lordToilAssaultEnemey);
+            //受到玩家攻击(被激怒) 攻击对方派系 转变为 攻击敌人
+            var transitionDefendPointToAssaultEnemy =
+                new Transition(lordToilDefendPoint, lordToilAssaultEnemey);
+            var triggerGetDamageFromPlayer = new TriggetGetDamageFromPlayer();
+            transitionDefendPointToAssaultEnemy.AddTrigger(triggerGetDamageFromPlayer);
+            stateGraph.AddTransition(transitionDefendPointToAssaultEnemy);
             return stateGraph;
         }
 
