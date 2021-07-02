@@ -10,11 +10,6 @@
         <li>Ludeon.RimWorld</li>
         <li>Ludeon.RimWorld.Royalty</li>
     </loadAfter>
-    <description>This Mod adds 4 types of incidents. In these incidents, you are not the protagonist, and you are not at
-        the center of the war. You are just a bystander, and you have the right to choose whether to be involved in the
-        incident.
-        The enemy's AI will have some more detailed performances, such as self-treat, killing enemy wounded, rescuing
-        friendly wounded, destroying enemy factions and plundering loot, assaulting enemy faction camps, destroying
-        enemy faction rooms to find loot, kidnapping members of hositle factions, and so on.
+    <description>This Mod adds 4 types of incidents.\n\nIn these incidents, you are not the protagonist, and you are not at the center of the war. You are just a bystander, and you have the right to choose whether to be involved in the incident.\n\nThe enemy's AI will have some more detailed performances, such as self-treat, killing enemy wounded, rescuing friendly wounded, destroying enemy factions and plundering loot, assaulting enemy faction camps, destroying enemy faction rooms to find loot, kidnapping members of hositle factions, and so on.
     </description>
 </ModMetaData>
