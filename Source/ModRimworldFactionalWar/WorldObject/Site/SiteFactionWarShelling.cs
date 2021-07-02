@@ -22,7 +22,23 @@ namespace SR.ModRimWorld.FactionalWar
     {
         private static readonly IntRange ThreatPoints = new IntRange(3000, 9999);
         private const float MinBlueprintPoints = 60f; //最小蓝图点数
+        private const int TimeOutTick = 90000;
 
+        /// <summary>
+        /// 生成时回调
+        /// </summary>
+        public override void SpawnSetup()
+        {
+            base.SpawnSetup();
+            var comp = GetComponent<TimeoutComp>();
+            if (comp == null)
+            {
+                Log.Error("can't find TimeoutComp in SiteFactionWarShelling");
+                return;
+            }
+            comp.StartTimeout(TimeOutTick);
+        }
+        
         /// <summary>
         /// 生成地图后回调
         /// </summary>
@@ -44,11 +60,11 @@ namespace SR.ModRimWorld.FactionalWar
             var incidentParms1 = new IncidentParms {points = points, faction = faction1, target = Map};
             var pawnGroupMakerParms1 =
                 IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, incidentParms1);
-            var pawnList1 = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms1).ToList();
+            var pawnList1 = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms1);
             var incidentParms2 = new IncidentParms {points = points, faction = faction2, target = Map};
             var pawnGroupMakerParms2 =
                 IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, incidentParms2);
-            var pawnList2 = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms2).ToList();
+            var pawnList2 = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms2);
             //边缘入场
             ResolveArrive(pawnList1, incidentParms1);
             ResolveArrive(pawnList2, incidentParms2);
@@ -56,7 +72,7 @@ namespace SR.ModRimWorld.FactionalWar
             ResolveLordJob(points, incidentParms1.spawnCenter, pawnList1, faction1, faction2);
             ResolveLordJob(points, incidentParms2.spawnCenter, pawnList2, faction2, faction1);
         }
-
+        
         /// <summary>
         /// 创建集群AI
         /// </summary>

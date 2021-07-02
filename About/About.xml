@@ -10,64 +10,11 @@
         <li>Ludeon.RimWorld</li>
         <li>Ludeon.RimWorld.Royalty</li>
     </loadAfter>
-    <description>[h1]描述[/h1]
-        这个Mod添加了4种事件。在这些事件中，你不是主角，你不处于战争的中心。你只是一个旁观者，并且拥有选择是否卷入事件中的权利。
-        在这些事件中，敌人的AI被改写，使得敌人的优先目标并不是你，而是他的敌对派系。但是如果你主动攻击敌人，敌人会将你也列入攻击目标。
-        敌人的AI会有一些更细节的表现，比如自我包扎、杀害敌对伤员、营救己方伤员、消灭敌对派系并掠夺战利品、突击敌对派系营地、破坏敌对派系房间来寻找战利品、绑架敌对派系成员等等。
-
-        [h1]派系突击战[/h1]
-        两个互相敌对的派系将会在你的地图里大打出手。不用担心，即便你离敌人更近，敌人也不会主动走向你。对他们来说杀死敌对派系成员才是最重要的！
-
-        [h1]派系炮击战[/h1]
-        两个互相敌对的派系会在附近的地图开展一场炮击战。这是一个发战争财的好机会！
-
-        [h1]派系争夺战[/h1]
-        一批珍贵的货物坠落在一个含有机械族的区域。两个派系因为抢夺资源而大打出手。如果你可以在合适的时机出手，那这批货物就是你的了！
-
-        [h1]派系防守战[/h1]
-        这个事件非常危险，奖励也非常丰富，请务必做好充足的准备再来参战。
-        你的一个敌对派系遭到了袭击。也许你可以趁乱带走些什么。
-
-        [h1]兼容性[/h1]
-        很难造成不兼容。想玩CE还是其他的什么都没问题。
-
-        封面作者 金兔子拉面
-        图标设计 3HST有限公司
-
-        I don't need any financial support. If this mod bring you fun , please give me a like and share it with more
-        players. Your support is all my creative motivation.
-        I don't need any financial support. If this mod bring you fun , please give me a like and share it with more
-        players. Your support is all my creative motivation.
-        I don't need any financial support. If this mod bring you fun , please give me a like and share it with more
-        players. Your support is all my creative motivation.
-
-        [h1]Description[/h1]
+    <description>This Mod adds 4 types of incidents. In these incidents, you are not the protagonist, and you are not at
+        the center of the war. You are just a bystander, and you have the right to choose whether to be involved in the
+        incident.
         The enemy's AI will have some more detailed performances, such as self-treat, killing enemy wounded, rescuing
         friendly wounded, destroying enemy factions and plundering loot, assaulting enemy faction camps, destroying
         enemy faction rooms to find loot, kidnapping members of hositle factions, and so on.
-
-        [h1]Faction Assault[/h1]
-        Two rival factions will fight each other on your map. Don't worry, even if you are closer to the enemy, the
-        enemy will not take the initiative to approach you. For them, killing the members of the rival faction is the
-        most important thing!
-
-        [h1]Faction Bombardment[/h1]
-        Two rival factions will launch an artillery battle on a nearby map. This is a good opportunity to make war
-        fortune!
-
-        [h1]Faction Contention[/h1]
-        A batch of precious cargo fell on an area containing a mechanical clan. The two factions fought for resources.
-        If you can make a deal at the right time, then this shipment is yours!
-
-        [h1]Faction Defense[/h1]
-        This event is very dangerous and the rewards are also very rich. Please make sure to make sufficient
-        preparations before you come to the war.
-        One of your rival factions has been attacked. Maybe you can take advantage of the chaos and take away something.
-
-        [h1]Compatibility[/h1]
-        It is difficult to cause incompatibility. Want to play CE or anything else is fine.
-
-        Preview image is created by 金兔子拉面.
-        Icon design by 3HST有限公司.
     </description>
 </ModMetaData>

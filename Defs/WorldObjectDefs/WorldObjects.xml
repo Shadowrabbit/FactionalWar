@@ -7,6 +7,7 @@
         <expandingIconPriority>70</expandingIconPriority>
         <comps>
             <li Class="WorldObjectCompProperties_FormCaravan" />
+            <li Class="WorldObjectCompProperties_Timeout" />
         </comps>
         <IncidentTargetTags>
             <li>Map_Misc</li>
@@ -19,6 +20,7 @@
         <expandingIconPriority>70</expandingIconPriority>
         <comps>
             <li Class="WorldObjectCompProperties_FormCaravan" />
+            <li Class="WorldObjectCompProperties_Timeout" />
         </comps>
         <IncidentTargetTags>
             <li>Map_Misc</li>
@@ -31,6 +33,7 @@
         <expandingIconPriority>70</expandingIconPriority>
         <comps>
             <li Class="WorldObjectCompProperties_FormCaravan" />
+            <li Class="WorldObjectCompProperties_Timeout" />
         </comps>
         <IncidentTargetTags>
             <li>Map_Misc</li>

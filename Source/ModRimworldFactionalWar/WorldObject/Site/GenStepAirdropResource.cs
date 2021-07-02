@@ -47,7 +47,7 @@ namespace SR.ModRimWorld.FactionalWar
             var pawnGroupMakerParms =
                 IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, incidentParms);
             //用默认角色组生成器
-            var pawnList = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms).ToList();
+            var pawnList = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms);
             var lordJob = new LordJob_DefendPoint(map.Center);
             LordMaker.MakeNewLord(Faction.OfMechanoids, lordJob, map, pawnList);
             //生成机械族

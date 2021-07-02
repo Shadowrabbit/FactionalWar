@@ -8,7 +8,6 @@
 // ******************************************************************
 
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using RimWorld;
 using RimWorld.Planet;
@@ -22,6 +21,22 @@ namespace SR.ModRimWorld.FactionalWar
     {
         private static readonly IntRange ThreatPoints = new IntRange(3000, 8000);
         private const int Radius = 10;
+        private const int TimeOutTick = 90000;
+
+        /// <summary>
+        /// 生成时回调
+        /// </summary>
+        public override void SpawnSetup()
+        {
+            base.SpawnSetup();
+            var comp = GetComponent<TimeoutComp>();
+            if (comp == null)
+            {
+                Log.Error("can't find TimeoutComp in SiteTempCamp");
+                return;
+            }
+            comp.StartTimeout(TimeOutTick);
+        }
 
         /// <summary>
         /// 地图生成后回调
@@ -45,7 +60,7 @@ namespace SR.ModRimWorld.FactionalWar
             var pawnGroupMakerParms =
                 IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, incidentParms);
             //用默认角色组生成器
-            var pawnList = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms).ToList();
+            var pawnList = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms);
             ResolveArrive(pawnList, incidentParms);
             ResolveLordJob(pawnList, raidFaction, Faction);
         }

@@ -316,7 +316,7 @@ namespace SR.ModRimWorld.FactionalWar
             var pawnGroupMakerParms =
                 IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, parms);
             //生成失败 尝试用默认角色组生成器
-            pawnList = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms).ToList();
+            pawnList = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms);
             if (pawnList.Count == 0)
             {
                 Log.Error($"Got no pawns spawning raid from parms {parms}");

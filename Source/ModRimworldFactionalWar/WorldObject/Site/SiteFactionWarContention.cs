@@ -21,7 +21,23 @@ namespace SR.ModRimWorld.FactionalWar
     public class SiteFactionWarContention : Site
     {
         private readonly IntRange _factionPoints = new IntRange(3000, 5000);
+        private const int TimeOutTick = 90000;
         private const int Radius = 8;
+
+        /// <summary>
+        /// 生成时回调
+        /// </summary>
+        public override void SpawnSetup()
+        {
+            base.SpawnSetup();
+            var comp = GetComponent<TimeoutComp>();
+            if (comp == null)
+            {
+                Log.Error("can't find TimeoutComp in SiteFactionWarContention");
+                return;
+            }
+            comp.StartTimeout(TimeOutTick);
+        }
 
         /// <summary>
         /// 生成地图后回调
@@ -45,7 +61,7 @@ namespace SR.ModRimWorld.FactionalWar
                 {points = _factionPoints.RandomInRange, faction = faction1, target = Map};
             var pawnGroupMakerParms1 =
                 IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, incidentParms1);
-            var pawnList1 = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms1).ToList();
+            var pawnList1 = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms1);
             ResolveArrive(pawnList1, incidentParms1);
             ResolveLordJob(pawnList1, faction1);
             //创建派系2的角色 空投到地图中心
@@ -53,7 +69,7 @@ namespace SR.ModRimWorld.FactionalWar
                 {points = 2 * _factionPoints.RandomInRange, faction = faction2, target = Map};
             var pawnGroupMakerParms2 =
                 IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, incidentParms2);
-            var pawnList2 = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms2).ToList();
+            var pawnList2 = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms2);
             ResolveArrive(pawnList2, incidentParms2);
             ResolveLordJob(pawnList2, faction2);
         }
