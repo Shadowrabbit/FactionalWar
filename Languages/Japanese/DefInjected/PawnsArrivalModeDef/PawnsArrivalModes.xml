@@ -1,11 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
   <SrTwoFactionsEdgeWalkIn.textEnemy>{1}から来た{0}集団と{3}から来た{2}集団が近くに到着しました.</SrTwoFactionsEdgeWalkIn.textEnemy>
   <SrTwoFactionsEdgeWalkIn.textFriendly>{1}から来た{0}集団と{3}から来た{2}集団が近くに到着しました.</SrTwoFactionsEdgeWalkIn.textFriendly>
   <SrTwoFactionsEdgeWalkIn.textWillArrive>{1}から来た{0}集団と{3}から来た{2}集団が近くに到着しました.</SrTwoFactionsEdgeWalkIn.textWillArrive>
   <SrTwoFactionsEdgeDrop.textEnemy>{1}から来た{0}集団と{3}から来た{2}集団が近くに降下しました.</SrTwoFactionsEdgeDrop.textEnemy>
   <SrTwoFactionsEdgeDrop.textFriendly>{1}から来た{0}集団と{3}から来た{2}集団が近くに降下しました.</SrTwoFactionsEdgeDrop.textFriendly>
   <SrTwoFactionsEdgeDrop.textWillArrive>{1}から来た{0}集団と{3}から来た{2}集団が近くに降下しました.</SrTwoFactionsEdgeDrop.textWillArrive>
-
 </LanguageData>

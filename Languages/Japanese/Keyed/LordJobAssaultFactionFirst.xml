@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  <SrIrritateFaction>あなたの攻撃は{1}の{0}を怒らせました,そのため彼らは今やあなたたちも彼らの攻撃目標としてリストに入れました！</SrIrritateFaction>
-  <SrAssaultFactionVictory>{1}の{0}たちは,{3}の{2}たちの残党を虐殺する準備をしています.</SrAssaultFactionVictory>
-  <SrClearBattlefiled>{1}の{0}は,戦利品を集めて,満足したら立ち去っていきます.</SrClearBattlefiled>
+    <SrIrritateFaction>あなたの攻撃は{1}の{0}を怒らせました,そのため彼らは今やあなたたちも彼らの攻撃目標としてリストに入れました！</SrIrritateFaction>
+    <SrAssaultFactionVictory>{1}の{0}たちは,{3}の{2}たちの残党を虐殺する準備をしています.</SrAssaultFactionVictory>
+    <SrClearBattlefiled>{1}の{0}は,戦利品を集めて,満足したら立ち去っていきます.</SrClearBattlefiled>
 </LanguageData>

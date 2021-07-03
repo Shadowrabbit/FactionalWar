@@ -1,8 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
   <SrFactionTempCamp.label>派閥-防衛戦</SrFactionTempCamp.label>
   <SrFactionTempCamp.description>前線キャンプの防衛と攻撃です.</SrFactionTempCamp.description>
   <SrFactionTempCamp.arrivedLetter>襲撃側の軍が戦場に到着しました.</SrFactionTempCamp.arrivedLetter>
-
 </LanguageData>

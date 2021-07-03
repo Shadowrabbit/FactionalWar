@@ -1,9 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
   <SrFactionWar.label>派閥襲撃</SrFactionWar.label>
   <SrFactionWarShellingSiteGenerate.label>派閥-砲撃戦</SrFactionWarShellingSiteGenerate.label>
   <SrFactionWarTempCampSiteGenerate.label>派閥-防衛戦</SrFactionWarTempCampSiteGenerate.label>
   <SrFactionWarContentionSiteGenerate.label>派閥-争奪戦</SrFactionWarContentionSiteGenerate.label>
-
 </LanguageData>

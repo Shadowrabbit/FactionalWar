@@ -1,8 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
   <SrFactionWarShelling.label>派閥-砲撃戦</SrFactionWarShelling.label>
   <SrFactionWarShelling.description>この場所では,2つの未知の派閥が激しい砲撃戦をしています.</SrFactionWarShelling.description>
   <SrFactionWarShelling.arrivedLetter>派閥軍が戦場に到着しました.</SrFactionWarShelling.arrivedLetter>
-
 </LanguageData>
