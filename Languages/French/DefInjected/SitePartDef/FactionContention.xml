@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <SrFactionContention.label>Conflit de faction</SrFactionContention.label>
+    <SrFactionContention.description>Un lot de ressources précieuses a atterri à proximité, faisant s'affronter deux factions.</SrFactionContention.description>
+    <SrFactionContention.arrivedLetter>La troupe est arrivée sur le champ de bataille.</SrFactionContention.arrivedLetter>
+</LanguageData>

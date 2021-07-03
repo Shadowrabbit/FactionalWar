@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <SrIrritateFaction>Votre attaque a provoqué la colère de {0} de {1}, et ils vous listent désormais comme cible!</SrIrritateFaction>
+    <SrAssaultFactionVictory>Le {0} de {1} se prépare à abattre les blessés de {2} de {3}.</SrAssaultFactionVictory>
+    <SrClearBattlefiled>Le {0} de {1} collectionne les trophées et repart avec contentement.</SrClearBattlefiled>
+</LanguageData>
