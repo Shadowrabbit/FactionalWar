@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{F06AB588-7206-482F-8FB9-5EAD7DAFAE2D}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>SR.ModRimWorld.FactionalWar</RootNamespace>
+        <AssemblyName>ModRimWorldFactionalWar</AssemblyName>
+        <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>..\..\Assemblies\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <OutputPath>..\..\Assemblies\</OutputPath>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="Assembly-CSharp, Version=1.2.7705.25110, Culture=neutral, PublicKeyToken=null">
+            <HintPath>Lib\Assembly-CSharp.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Xml" />
+        <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+            <HintPath>Lib\UnityEngine.CoreModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="AI\AIGroup\DutyDefOf.cs" />
+        <Compile Include="AI\AIGroup\KidnapAIUtil.cs" />
+        <Compile Include="AI\AIGroup\LordJobAssaultFactionFirst.cs" />
+        <Compile Include="AI\AIGroup\LordJobDefendPoint.cs" />
+        <Compile Include="AI\AIGroup\LordJobFactionContention.cs" />
+        <Compile Include="AI\AIGroup\LordJobFactionPairBase.cs" />
+        <Compile Include="AI\AIGroup\LordJobRaidFactionFirst.cs" />
+        <Compile Include="AI\AIGroup\LordJobShellFactionFirst.cs" />
+        <Compile Include="AI\AIGroup\LordJobStageThenAssaultFactionFirst.cs" />
+        <Compile Include="AI\AIGroup\LordToilAssaultFactionFirst.cs" />
+        <Compile Include="AI\AIGroup\LordToilClearBattlefield.cs" />
+        <Compile Include="AI\AIGroup\LordToilDefendPoint.cs" />
+        <Compile Include="AI\AIGroup\LordToilKillHostileFactionMember.cs" />
+        <Compile Include="AI\AIGroup\LordToilPlunderFaction.cs" />
+        <Compile Include="AI\AIGroup\LordToilRetreat.cs" />
+        <Compile Include="AI\AIGroup\LordToilShell.cs" />
+        <Compile Include="AI\AIGroup\TriggerAllHostileFactionMembersDead.cs" />
+        <Compile Include="AI\AIGroup\TriggerBecameNonHostileToFaction.cs" />
+        <Compile Include="AI\AIGroup\TriggerFactionAssaultVictory.cs" />
+        <Compile Include="AI\AIGroup\TriggetGetDamageFromPlayer.cs" />
+        <Compile Include="AI\AISingle\JobDefOf.cs" />
+        <Compile Include="AI\AISingle\JobDriverKillMelee.cs" />
+        <Compile Include="AI\AISingle\JobGiverAIFightHostileFaction.cs" />
+        <Compile Include="AI\AISingle\JobGiverAIGotoNearestHostileFactionMember.cs" />
+        <Compile Include="AI\AISingle\JobGiverAISapper.cs" />
+        <Compile Include="AI\AISingle\JobGiverDestroyDoor.cs" />
+        <Compile Include="AI\AISingle\JobGiverKidnapFaction.cs" />
+        <Compile Include="AI\AISingle\JobGiverKillHostileFactionMember.cs" />
+        <Compile Include="AI\AISingle\JobGiverTakeBestThing.cs" />
+        <Compile Include="AI\AISingle\JobGiverTakeSpoils.cs" />
+        <Compile Include="AI\Extension\StateGraphExtention.cs" />
+        <Compile Include="Base\BaseSingleTon.cs" />
+        <Compile Include="Faction\FactionExtension.cs" />
+        <Compile Include="Faction\FactionUtil.cs" />
+        <Compile Include="Incident\IncidentDefOf.cs" />
+        <Compile Include="Incident\IncidentWorkerFactionWar.cs" />
+        <Compile Include="Incident\IncidentWorkerFactionWarContentionSiteGenerate.cs" />
+        <Compile Include="Incident\IncidentWorkerFactionWarShellingSiteGenerate.cs" />
+        <Compile Include="Incident\IncidentWorkerFactionWarTempCampSiteGenerate.cs" />
+        <Compile Include="Incident\RaidStrategyDefOf.cs" />
+        <Compile Include="Incident\RaidStrategyWorkerFactionFirst.cs" />
+        <Compile Include="Pawn\PawnGroupMakerUtility.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="WorldObject\Site\GenStepTempCamp.cs" />
+        <Compile Include="WorldObject\Site\GenStepAirdropResource.cs" />
+        <Compile Include="WorldObject\Site\SiteFactionWarContention.cs" />
+        <Compile Include="WorldObject\Site\SiteFactionWarShelling.cs" />
+        <Compile Include="WorldObject\Site\SiteTempCamp.cs" />
+        <Compile Include="WorldObject\Site\SitePartDefOf.cs" />
+        <Compile Include="WorldObject\Site\SitePartWorkerEmpty.cs" />
+        <Compile Include="WorldObject\Site\SymbolResolverTempCamp.cs" />
+        <Compile Include="WorldObject\WorldObject\WorldObjectDefOf.cs" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+
+</Project>

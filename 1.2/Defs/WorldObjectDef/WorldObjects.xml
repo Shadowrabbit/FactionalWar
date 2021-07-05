@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <WorldObjectDef>
+        <defName>SrSiteFactionWarShelling</defName>
+        <worldObjectClass>SR.ModRimWorld.FactionalWar.SiteFactionWarShelling</worldObjectClass>
+        <expandingIcon>true</expandingIcon>
+        <expandingIconPriority>70</expandingIconPriority>
+        <comps>
+            <li Class="WorldObjectCompProperties_FormCaravan" />
+            <li Class="WorldObjectCompProperties_Timeout" />
+        </comps>
+        <IncidentTargetTags>
+            <li>Map_Misc</li>
+        </IncidentTargetTags>
+    </WorldObjectDef>
+    <WorldObjectDef>
+        <defName>SrSiteFactionWarContention</defName>
+        <worldObjectClass>SR.ModRimWorld.FactionalWar.SiteFactionWarContention</worldObjectClass>
+        <expandingIcon>true</expandingIcon>
+        <expandingIconPriority>70</expandingIconPriority>
+        <comps>
+            <li Class="WorldObjectCompProperties_FormCaravan" />
+            <li Class="WorldObjectCompProperties_Timeout" />
+        </comps>
+        <IncidentTargetTags>
+            <li>Map_Misc</li>
+        </IncidentTargetTags>
+    </WorldObjectDef>
+    <WorldObjectDef>
+        <defName>SrSiteFactionWarTempCamp</defName>
+        <worldObjectClass>SR.ModRimWorld.FactionalWar.SiteTempCamp</worldObjectClass>
+        <expandingIcon>true</expandingIcon>
+        <expandingIconPriority>70</expandingIconPriority>
+        <comps>
+            <li Class="WorldObjectCompProperties_FormCaravan" />
+            <li Class="WorldObjectCompProperties_Timeout" />
+        </comps>
+        <IncidentTargetTags>
+            <li>Map_Misc</li>
+        </IncidentTargetTags>
+    </WorldObjectDef>
+</Defs>

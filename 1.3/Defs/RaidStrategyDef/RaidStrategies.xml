@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!--派系战争-->
+    <RaidStrategyDef>
+        <defName>SrFactionFirst</defName>
+        <workerClass>SR.ModRimworld.FactionalWar.RaidStrategyWorkerFactionFirst</workerClass>
+        <selectionWeightPerPointsCurve>
+            <points>
+                <li>(100,0.75)</li>
+                <li>(700,0.25)</li>
+            </points>
+        </selectionWeightPerPointsCurve>
+        <pointsFactorCurve>
+            <points>
+                <li>0, 1</li>
+            </points>
+        </pointsFactorCurve>
+        <arriveModes>
+            <li>SrTwoFactionsEdgeWalkIn</li>
+            <li>SrTwoFactionsEdgeDrop</li>
+        </arriveModes>
+        <letterLabelEnemy>派系战争</letterLabelEnemy>
+        <arrivalTextEnemy>来自{1}的{0}与来自{3}的{2}即将激烈交战!他们的目标并不是你。</arrivalTextEnemy>
+    </RaidStrategyDef>
+</Defs>

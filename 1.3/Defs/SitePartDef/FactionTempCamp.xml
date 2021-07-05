@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <SitePartDef>
+        <defName>SrFactionTempCamp</defName>
+        <label>派系防守战</label>
+        <description>一个处于交战中的营地。</description>
+        <workerClass>SR.ModRimWorld.FactionalWar.SitePartWorkerEmpty</workerClass>
+        <siteTexture>World/WorldObjects/Sites/FactionTempCamp</siteTexture>
+        <expandingIconTexture>World/WorldObjects/Sites/FactionTempCampExpand</expandingIconTexture>
+        <applyFactionColorToSiteTexture>false</applyFactionColorToSiteTexture>
+        <showFactionInInspectString>true</showFactionInInspectString>
+        <requiresFaction>true</requiresFaction>
+        <arrivedLetter>部队已抵达战场。</arrivedLetter>
+        <arrivedLetterDef>NegativeEvent</arrivedLetterDef>
+        <wantsThreatPoints>false</wantsThreatPoints>
+    </SitePartDef>
+    <GenStepDef>
+        <defName>SrTempCamp</defName>
+        <linkWithSite>SrFactionTempCamp</linkWithSite>
+        <order>450</order>
+        <genStep Class="SR.ModRimWorld.FactionalWar.GenStepTempCamp"/>
+    </GenStepDef>
+    <GenStepDef>
+        <defName>SrCampPower</defName>
+        <linkWithSite>SrFactionTempCamp</linkWithSite>
+        <order>451</order>
+        <genStep Class="GenStep_Power"/>
+    </GenStepDef>
+</Defs>
