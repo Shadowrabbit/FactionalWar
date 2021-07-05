@@ -85,7 +85,7 @@ namespace SR.ModRimWorld.FactionalWar
         private void ResolveLordJob(int points, IntVec3 loc, IEnumerable<Pawn> pawns, Faction assaultFaction,
             Faction targetFaction)
         {
-            var siegeSpot = RCellFinder.FindSiegePositionFrom_NewTemp(loc, Map);
+            var siegeSpot = RCellFinder.FindSiegePositionFrom(loc, Map);
             //蓝图点数
             var blueprintPoints = points * Rand.Range(0.2f, 0.3f);
             if (blueprintPoints < MinBlueprintPoints)

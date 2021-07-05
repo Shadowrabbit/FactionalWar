@@ -32,17 +32,17 @@
         <OutputPath>..\..\Assemblies\</OutputPath>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="Assembly-CSharp, Version=1.2.7705.25110, Culture=neutral, PublicKeyToken=null">
-            <HintPath>Lib\Assembly-CSharp.dll</HintPath>
-            <Private>False</Private>
+        <Reference Include="Assembly-CSharp, Version=1.3.7855.21063, Culture=neutral, PublicKeyToken=null">
+          <HintPath>Lib\Assembly-CSharp.dll</HintPath>
+          <Private>False</Private>
         </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
         <Reference Include="System.Xml" />
         <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-            <HintPath>Lib\UnityEngine.CoreModule.dll</HintPath>
-            <Private>False</Private>
+          <HintPath>Lib\UnityEngine.CoreModule.dll</HintPath>
+          <Private>False</Private>
         </Reference>
     </ItemGroup>
     <ItemGroup>

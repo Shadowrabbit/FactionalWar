@@ -41,7 +41,7 @@ namespace SR.ModRimWorld.FactionalWar
         /// <returns></returns>
         protected override LordJob MakeLordJob(IncidentParms parms, Map map, List<Pawn> pawns, int raidSeed)
         {
-            var stageLoc = RCellFinder.FindSiegePositionFrom_NewTemp(
+            var stageLoc = RCellFinder.FindSiegePositionFrom(
                 parms.spawnCenter.IsValid ? parms.spawnCenter : pawns[0].PositionHeld, map);
             return new LordJobStageThenAssaultFactionFirst(parms.faction, TempTargetFaction, stageLoc, raidSeed);
         }
