@@ -15,7 +15,7 @@ namespace SR.ModRimWorld.FactionalWar
 {
     public class LordJobStageThenAssaultFactionFirst : LordJobFactionPairBase
     {
-        private const int TickLimit = 0xBB8; //等待tick
+        private const int TickLimit = 4000; //等待tick
         private int _raidSeed; //袭击种子
 
         public LordJobStageThenAssaultFactionFirst()

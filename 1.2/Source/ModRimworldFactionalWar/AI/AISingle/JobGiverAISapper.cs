@@ -50,7 +50,7 @@ namespace SR.ModRimWorld.FactionalWar
                 var blocker = path.FirstBlockingBuilding(out var cellBefore, pawn);
                 if (blocker == null)
                 {
-                    return JobMaker.MakeJob(JobDefOf.Goto, intVec3, 500, true);
+                    return JobMaker.MakeJob(RimWorld.JobDefOf.Goto, intVec3, 500, true);
                 }
 
                 var job = DigUtility.PassBlockerJob(pawn, blocker, cellBefore, true, true);
@@ -58,7 +58,7 @@ namespace SR.ModRimWorld.FactionalWar
                     return job;
             }
 
-            return JobMaker.MakeJob(JobDefOf.Goto, intVec3, 500, true);
+            return JobMaker.MakeJob(RimWorld.JobDefOf.Goto, intVec3, 500, true);
         }
     }
 }
