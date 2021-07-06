@@ -46,6 +46,7 @@ namespace SR.ModRimWorld.FactionalWar
             var stateGraph = new StateGraph();
             //添加流程 集结
             var lordToilStage = new LordToil_Stage(stageLoc);
+            stateGraph.AddToil(lordToilStage);
             //复制子状态机 突击派系
             var stateGraphAssaultFactionFirst =
                 new LordJobAssaultFactionFirst(faction, targetFaction).CreateGraph();

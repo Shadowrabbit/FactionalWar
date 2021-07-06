@@ -17,6 +17,11 @@
                 </li>
             </subNodes>
         </thinkNode>
+        <constantThinkNode Class="ThinkNode_ConditionalCanPickupOpportunisticWeapon">
+            <subNodes>
+                <li Class="JobGiver_PickUpOpportunisticWeapon"/>
+            </subNodes>
+        </constantThinkNode>
     </DutyDef>
     <!--击杀敌对派系成员-->
     <DutyDef>
