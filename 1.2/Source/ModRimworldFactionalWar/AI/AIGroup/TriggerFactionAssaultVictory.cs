@@ -44,7 +44,7 @@ namespace SR.ModRimWorld.FactionalWar
 
             //目标派系全部成员倒地
             return !lord.Map.mapPawns
-                .SpawnedPawnsInFaction(_targetFaction).Any(pawn => !pawn.Downed && !pawn.Dead);
+                .SpawnedPawnsInFaction(_targetFaction).Any(pawn => !pawn.Downed && !pawn.Dead && !pawn.IsPrisoner);
         }
     }
 }
