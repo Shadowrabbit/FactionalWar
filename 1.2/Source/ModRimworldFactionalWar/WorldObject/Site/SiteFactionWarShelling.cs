@@ -38,7 +38,7 @@ namespace SR.ModRimWorld.FactionalWar
             }
             comp.StartTimeout(TimeOutTick);
         }
-        
+
         /// <summary>
         /// 生成地图后回调
         /// </summary>
@@ -72,7 +72,7 @@ namespace SR.ModRimWorld.FactionalWar
             ResolveLordJob(points, incidentParms1.spawnCenter, pawnList1, faction1, faction2);
             ResolveLordJob(points, incidentParms2.spawnCenter, pawnList2, faction2, faction1);
         }
-        
+
         /// <summary>
         /// 创建集群AI
         /// </summary>
