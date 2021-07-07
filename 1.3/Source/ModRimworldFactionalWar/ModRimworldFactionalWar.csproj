@@ -97,6 +97,9 @@
         <Compile Include="WorldObject\Site\SitePartDefOf.cs" />
         <Compile Include="WorldObject\Site\SitePartWorkerEmpty.cs" />
         <Compile Include="WorldObject\Site\SymbolResolverTempCamp.cs" />
+        <Compile Include="WorldObject\WorldObject\MapExtension.cs" />
+        <Compile Include="WorldObject\WorldObject\WorldCompFormCaravanAfterAllyExit.cs" />
+        <Compile Include="WorldObject\WorldObject\WorldObjectCompPropertiesFormCaravanAfterAllyExit.cs" />
         <Compile Include="WorldObject\WorldObject\WorldObjectDefOf.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

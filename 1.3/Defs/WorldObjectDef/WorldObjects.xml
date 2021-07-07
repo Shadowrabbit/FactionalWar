@@ -6,20 +6,20 @@
         <expandingIcon>true</expandingIcon>
         <expandingIconPriority>70</expandingIconPriority>
         <comps>
-            <li Class="WorldObjectCompProperties_FormCaravan" />
+            <li Class="SR.ModRimWorld.FactionalWar.WorldObjectCompPropertiesFormCaravanAfterAllyExit" />
             <li Class="WorldObjectCompProperties_Timeout" />
         </comps>
         <IncidentTargetTags>
             <li>Map_Misc</li>
         </IncidentTargetTags>
-    </WorldObjectDef>
+    </WorldObjectDef>WorldObjectCompProperties_FormCaravan
     <WorldObjectDef>
         <defName>SrSiteFactionWarContention</defName>
         <worldObjectClass>SR.ModRimWorld.FactionalWar.SiteFactionWarContention</worldObjectClass>
         <expandingIcon>true</expandingIcon>
         <expandingIconPriority>70</expandingIconPriority>
         <comps>
-            <li Class="WorldObjectCompProperties_FormCaravan" />
+            <li Class="SR.ModRimWorld.FactionalWar.WorldObjectCompPropertiesFormCaravanAfterAllyExit" />
             <li Class="WorldObjectCompProperties_Timeout" />
         </comps>
         <IncidentTargetTags>
@@ -32,7 +32,7 @@
         <expandingIcon>true</expandingIcon>
         <expandingIconPriority>70</expandingIconPriority>
         <comps>
-            <li Class="WorldObjectCompProperties_FormCaravan" />
+            <li Class="SR.ModRimWorld.FactionalWar.WorldObjectCompPropertiesFormCaravanAfterAllyExit" />
             <li Class="WorldObjectCompProperties_Timeout" />
         </comps>
         <IncidentTargetTags>
