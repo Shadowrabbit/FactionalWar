@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <SrIrritateFaction>Twoje działania sprowokowały {0} z {1} i teraz obrali cię za swój cel!</SrIrritateFaction>
+    <SrAssaultFactionVictory>{0} z {1} zamierzają dobić {2} z {3}.</SrAssaultFactionVictory>
+    <SrClearBattlefiled>{0} z {1} zabierają łupy i opuszczają pole bitwy.</SrClearBattlefiled>
+</LanguageData>
