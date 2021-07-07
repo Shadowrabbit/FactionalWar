@@ -38,7 +38,7 @@ namespace SR.ModRimWorld.FactionalWar
                 where !pawn.IsColonist
                 select pawn.GetLord()
                 into lord
-                where lord.LordJob != null
+                where lord?.LordJob != null
                 select lord).All(lord =>
                 !(lord.LordJob is LordJobFactionPairBase) && !(lord.LordJob is LordJobFactionContention));
         }
