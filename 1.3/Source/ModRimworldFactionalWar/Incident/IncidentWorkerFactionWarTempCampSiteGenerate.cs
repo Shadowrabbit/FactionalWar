@@ -33,7 +33,7 @@ namespace SR.ModRimWorld.FactionalWar
             var site = WorldObjectMaker.MakeWorldObject(WorldObjectDefOf.SrSiteFactionWarTempCamp);
             if (!(site is SiteTempCamp siteFactionWarTempCamp))
             {
-                Log.Error("site is not type of SiteTempCamp");
+                Log.Error("[SR.ModRimWorld.FactionalWar]site is not type of SiteTempCamp");
                 return false;
             }
             siteFactionWarTempCamp.Tile = tileId;

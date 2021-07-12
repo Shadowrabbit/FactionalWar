@@ -32,7 +32,7 @@ namespace SR.ModRimWorld.FactionalWar
             var comp = GetComponent<TimeoutComp>();
             if (comp == null)
             {
-                Log.Error("can't find TimeoutComp in SiteTempCamp");
+                Log.Error("[SR.ModRimWorld.FactionalWar]can't find TimeoutComp in SiteTempCamp");
                 return;
             }
             comp.StartTimeout(TimeOutTick);

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <SrFactionWar.label>Fraktionsüberfall</SrFactionWar.label>
+    <SrFactionWarShellingSiteGenerate.label>Fraktionsbombardierung</SrFactionWarShellingSiteGenerate.label>
+    <SrFactionWarContentionSiteGenerate.label>Fraktionskampf</SrFactionWarContentionSiteGenerate.label>
+    <SrFactionWarTempCampSiteGenerate.label>Fraktionsverteidigung</SrFactionWarTempCampSiteGenerate.label>
+</LanguageData>

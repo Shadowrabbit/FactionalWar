@@ -22,7 +22,7 @@ namespace SR.ModRimWorld.FactionalWar
                     return targetToil;
                 }
             }
-            Log.Error($"cant't find type {typeof(T)}");
+            Log.Error($"[SR.ModRimWorld.FactionalWar]cant't find type {typeof(T)}");
             return default;
         }
     }

@@ -48,7 +48,7 @@ namespace SR.ModRimWorld.FactionalWar
             var lordToilDefendPoint = lord.Graph.FindToil<LordToilDefendPoint>();
             if (!(lordToilDefendPoint.data is LordToilData_DefendPoint data))
             {
-                Log.Error("can't find LordToilData_DefendPoint");
+                Log.Error("[SR.ModRimWorld.FactionalWar]can't find LordToilData_DefendPoint");
                 return;
             }
 

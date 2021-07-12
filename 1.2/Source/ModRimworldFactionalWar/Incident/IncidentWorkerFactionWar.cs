@@ -22,7 +22,8 @@ namespace SR.ModRimWorld.FactionalWar
     {
         private Faction _faction1;
         private Faction _faction2;
-
+        private const int MaxRaidPoints = 10000; //最大袭击点数
+        
         /// <summary>
         /// 是否可以生成事件
         /// </summary>
@@ -32,7 +33,7 @@ namespace SR.ModRimWorld.FactionalWar
         {
             if (!(parms.target is Map map))
             {
-                Log.Error("target must be a map.");
+                Log.Error("[SR.ModRimWorld.FactionalWar]target must be a map.");
                 return false;
             }
 
@@ -70,7 +71,7 @@ namespace SR.ModRimWorld.FactionalWar
             //处理袭击派系
             if (!TryResolveRaidFactions(parms, out _faction1, out _faction2))
             {
-                Log.Warning("cant find raid factions");
+                Log.Warning("[SR.ModRimWorld.FactionalWar]cant find raid factions");
                 return false;
             }
 
@@ -92,13 +93,13 @@ namespace SR.ModRimWorld.FactionalWar
             //尝试解决袭击召唤中心
             if (!parms.raidArrivalMode.Worker.TryResolveRaidSpawnCenter(parms))
             {
-                Log.Warning($"cant resolve raid spawn center: {parms}");
+                Log.Warning($"[SR.ModRimWorld.FactionalWar]cant resolve raid spawn center: {parms}");
                 return false;
             }
 
             if (!parms2.raidArrivalMode.Worker.TryResolveRaidSpawnCenter(parms2))
             {
-                Log.Warning($"cant resolve raid spawn center: {parms2}");
+                Log.Warning($"[SR.ModRimWorld.FactionalWar]cant resolve raid spawn center: {parms2}");
                 return false;
             }
 
@@ -121,7 +122,7 @@ namespace SR.ModRimWorld.FactionalWar
             //根据分组生成集群AI
             if (!(parms.raidStrategy.Worker is RaidStrategyWorkerFactionFirst raidStrategyWorkerFactionFirst))
             {
-                Log.Error("strategy must be RaidStrategyWorkerFactionFirst");
+                Log.Error("[SR.ModRimWorld.FactionalWar]strategy must be RaidStrategyWorkerFactionFirst");
                 return false;
             }
 
@@ -201,12 +202,18 @@ namespace SR.ModRimWorld.FactionalWar
         /// <param name="parms"></param>
         protected override void ResolveRaidPoints(IncidentParms parms)
         {
+            if (parms.points > MaxRaidPoints)
+            {
+                parms.points = MaxRaidPoints;
+                return;
+            }
+            
             if (!(parms.points <= 0f))
             {
                 return;
             }
             Log.Error(
-                "RaidEnemy is resolving raid points. They should always be set before initiating the incident.");
+                "[SR.ModRimWorld.FactionalWar]RaidEnemy is resolving raid points. They should always be set before initiating the incident.");
             parms.points = StorytellerUtility.DefaultThreatPointsNow(parms.target);
         }
 
@@ -319,7 +326,7 @@ namespace SR.ModRimWorld.FactionalWar
             pawnList = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms);
             if (pawnList.Count == 0)
             {
-                Log.Error($"Got no pawns spawning raid from parms {parms}");
+                Log.Error($"[SR.ModRimWorld.FactionalWar]Got no pawns spawning raid from parms {parms}");
                 return;
             }
 

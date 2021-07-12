@@ -98,6 +98,7 @@ namespace SR.ModRimWorld.FactionalWar
             transitionSiegeToAssault.AddTrigger(new Trigger_Memo("NoBuilders"));
             transitionSiegeToAssault.AddTrigger(new Trigger_Memo("NoArtillery"));
             transitionSiegeToAssault.AddTrigger(new Trigger_PawnHarmed(0.005f));
+            transitionSiegeToAssault.AddTrigger(new Trigger_TicksPassed(15000));
             transitionSiegeToAssault.AddPreAction(new TransitionAction_Message(
                 "SrFactionAssaultBegin".Translate(faction.def.pawnsPlural.CapitalizeFirst(),
                     faction.Name, targetFaction.Name), MessageTypeDefOf.ThreatBig));
