@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <SrIrritateFaction>Tu ataque enojo a {0} de {1}, y ahora te incluyen en su lista de objetivos!</SrIrritateFaction>
+    <SrAssaultFactionVictory>El {0} de {1} preparándose para masacrar a los restos de {2} de {3}.</SrAssaultFactionVictory>
+    <SrClearBattlefiled>El {0} de {1} está recogiendo trofeos y se va contento.</SrClearBattlefiled>
+</LanguageData>

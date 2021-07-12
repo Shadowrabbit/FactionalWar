@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <SrTwoFactionsEdgeWalkIn.textEnemy>Un grupo de {0} de {1} y un grupo de {2} de {3} llegó a las inmediaciones.</SrTwoFactionsEdgeWalkIn.textEnemy>
+    <SrTwoFactionsEdgeWalkIn.textFriendly>Un grupo de {0} de {1} y un grupo de {2} de {3} llegó a las inmediaciones.</SrTwoFactionsEdgeWalkIn.textFriendly>
+    <SrTwoFactionsEdgeWalkIn.textWillArrive>Un grupo de {0} de {1} y un grupo de {2} de {3} llegó a las inmediaciones.</SrTwoFactionsEdgeWalkIn.textWillArrive>
+    <SrTwoFactionsEdgeDrop.textEnemy>Un grupo de {0} de {1} y un grupo de {2} de {3} aterrizó en las inmediaciones.</SrTwoFactionsEdgeDrop.textEnemy>
+    <SrTwoFactionsEdgeDrop.textFriendly>Un grupo de {0} de {1} y un grupo de {2} de {3} aterrizó en las inmediaciones.</SrTwoFactionsEdgeDrop.textFriendly>
+    <SrTwoFactionsEdgeDrop.textWillArrive>Un grupo de {0} de {1} y un grupo de {2} de {3} aterrizó en las inmediaciones.</SrTwoFactionsEdgeDrop.textWillArrive>
+</LanguageData>

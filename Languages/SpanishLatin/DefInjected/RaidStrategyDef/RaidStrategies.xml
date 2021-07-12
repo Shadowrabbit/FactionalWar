@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <SrFactionFirst.letterLabelEnemy>Asalto de Facciones</SrFactionFirst.letterLabelEnemy>
+    <SrFactionFirst.arrivalTextEnemy>{0} de {1} y {2} de {3} están por luchar ferozmente! Tú no eres el objetivo.</SrFactionFirst.arrivalTextEnemy>
+</LanguageData>
