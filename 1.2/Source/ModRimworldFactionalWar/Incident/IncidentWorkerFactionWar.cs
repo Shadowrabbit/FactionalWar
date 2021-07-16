@@ -23,7 +23,7 @@ namespace SR.ModRimWorld.FactionalWar
         private Faction _faction1;
         private Faction _faction2;
         private const int MaxRaidPoints = 5000; //最大袭击点数
-        
+
         /// <summary>
         /// 是否可以生成事件
         /// </summary>
@@ -207,13 +207,12 @@ namespace SR.ModRimWorld.FactionalWar
                 parms.points = MaxRaidPoints;
                 return;
             }
-            
+
             if (!(parms.points <= 0f))
             {
                 return;
             }
-            Log.Error(
-                "[SR.ModRimWorld.FactionalWar]RaidEnemy is resolving raid points. They should always be set before initiating the incident.");
+
             parms.points = StorytellerUtility.DefaultThreatPointsNow(parms.target);
         }
 
@@ -302,10 +301,12 @@ namespace SR.ModRimWorld.FactionalWar
                 Log.Error("target must be a map");
                 return;
             }
+
             var points = parms.points; //袭击点数
             //全部派系
             var candidateFactionList = CandidateFactions(map).ToList();
-            FactionUtil.GetHostileFactionPair(out faction1, out faction2, points, PawnGroupKindDefOf.Combat, candidateFactionList);
+            FactionUtil.GetHostileFactionPair(out faction1, out faction2, points, PawnGroupKindDefOf.Combat,
+                candidateFactionList);
         }
 
         /// <summary>

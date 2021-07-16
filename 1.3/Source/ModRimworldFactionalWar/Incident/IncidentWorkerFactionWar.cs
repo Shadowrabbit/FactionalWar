@@ -212,8 +212,7 @@ namespace SR.ModRimWorld.FactionalWar
             {
                 return;
             }
-            Log.Error(
-                "[SR.ModRimWorld.FactionalWar]RaidEnemy is resolving raid points. They should always be set before initiating the incident.");
+
             parms.points = StorytellerUtility.DefaultThreatPointsNow(parms.target);
         }
 
@@ -302,10 +301,12 @@ namespace SR.ModRimWorld.FactionalWar
                 Log.Error("[SR.ModRimWorld.FactionalWar]target must be a map");
                 return;
             }
+
             var points = parms.points; //袭击点数
             //全部派系
             var candidateFactionList = CandidateFactions(map).ToList();
-            FactionUtil.GetHostileFactionPair(out faction1, out faction2, points, PawnGroupKindDefOf.Combat, candidateFactionList);
+            FactionUtil.GetHostileFactionPair(out faction1, out faction2, points, PawnGroupKindDefOf.Combat,
+                candidateFactionList);
         }
 
         /// <summary>
