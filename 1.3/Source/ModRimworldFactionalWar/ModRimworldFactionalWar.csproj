@@ -89,6 +89,7 @@
         <Compile Include="Incident\RaidStrategyWorkerFactionFirst.cs" />
         <Compile Include="Pawn\PawnGroupMakerUtility.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Util\PawnSpawnUtil.cs" />
         <Compile Include="WorldObject\Site\GenStepTempCamp.cs" />
         <Compile Include="WorldObject\Site\GenStepAirdropResource.cs" />
         <Compile Include="WorldObject\Site\SiteFactionWarContention.cs" />

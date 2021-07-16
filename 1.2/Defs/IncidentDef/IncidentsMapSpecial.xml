@@ -10,8 +10,8 @@
             <li>Map_RaidBeacon</li>
         </targetTags>
         <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerFactionWar</workerClass>
-        <category>ThreatBig</category>
-        <baseChance>4</baseChance>
+        <category>Misc</category>
+        <baseChance>1</baseChance>
         <pointsScaleable>true</pointsScaleable>
         <requireColonistsPresent>false</requireColonistsPresent>
     </IncidentDef>
@@ -25,8 +25,8 @@
             <li>Map_RaidBeacon</li>
         </targetTags>
         <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerFactionWarShellingSiteGenerate</workerClass>
-        <category>ThreatBig</category>
-        <baseChance>4</baseChance>
+        <category>Misc</category>
+        <baseChance>1</baseChance>
         <pointsScaleable>true</pointsScaleable>
         <requireColonistsPresent>false</requireColonistsPresent>
     </IncidentDef>
@@ -40,8 +40,8 @@
             <li>Map_RaidBeacon</li>
         </targetTags>
         <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerFactionWarTempCampSiteGenerate</workerClass>
-        <category>ThreatBig</category>
-        <baseChance>4</baseChance>
+        <category>Misc</category>
+        <baseChance>1</baseChance>
         <pointsScaleable>true</pointsScaleable>
         <requireColonistsPresent>false</requireColonistsPresent>
     </IncidentDef>
@@ -55,8 +55,8 @@
             <li>Map_RaidBeacon</li>
         </targetTags>
         <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerFactionWarContentionSiteGenerate</workerClass>
-        <category>ThreatBig</category>
-        <baseChance>4</baseChance>
+        <category>Misc</category>
+        <baseChance>1</baseChance>
         <pointsScaleable>true</pointsScaleable>
         <requireColonistsPresent>false</requireColonistsPresent>
     </IncidentDef>

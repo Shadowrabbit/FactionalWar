@@ -19,7 +19,7 @@ namespace SR.ModRimWorld.FactionalWar
     [UsedImplicitly]
     public class SiteTempCamp : Site
     {
-        private static readonly IntRange ThreatPoints = new IntRange(3000, 8000);
+        private static readonly IntRange ThreatPoints = new IntRange(2000, 5000);
         private const int Radius = 10;
         private const int TimeOutTick = 90000;
 
@@ -35,6 +35,7 @@ namespace SR.ModRimWorld.FactionalWar
                 Log.Error("[SR.ModRimWorld.FactionalWar]can't find TimeoutComp in SiteTempCamp");
                 return;
             }
+
             comp.StartTimeout(TimeOutTick);
         }
 
@@ -61,7 +62,7 @@ namespace SR.ModRimWorld.FactionalWar
                 IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, incidentParms);
             //用默认角色组生成器
             var pawnList = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms);
-            ResolveArrive(pawnList, incidentParms);
+            PawnSpawnUtil.SpawnPawns(pawnList, incidentParms, Map, Radius);
             ResolveLordJob(pawnList, raidFaction, Faction);
         }
 
@@ -77,25 +78,6 @@ namespace SR.ModRimWorld.FactionalWar
         {
             var lordJobShellFactionFirst = new LordJobRaidFactionFirst(assaultFaction, targetFaction);
             LordMaker.MakeNewLord(assaultFaction, lordJobShellFactionFirst, Map, pawns);
-        }
-
-        /// <summary>
-        /// 解决入场
-        /// </summary>
-        private void ResolveArrive(IEnumerable<Pawn> pawns, IncidentParms incidentParms)
-        {
-            if (!RCellFinder.TryFindRandomPawnEntryCell(out incidentParms.spawnCenter, Map,
-                CellFinder.EdgeRoadChance_Hostile))
-            {
-                return;
-            }
-
-            var spawnRotation = Rot4.FromAngleFlat((Map.Center - incidentParms.spawnCenter).AngleFlat);
-            foreach (var pawn in pawns)
-            {
-                var loc = CellFinder.RandomClosewalkCellNear(incidentParms.spawnCenter, Map, Radius);
-                GenSpawn.Spawn(pawn, loc, Map, spawnRotation);
-            }
         }
     }
 }

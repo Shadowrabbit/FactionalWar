@@ -22,7 +22,7 @@ namespace SR.ModRimWorld.FactionalWar
     {
         private Faction _faction1;
         private Faction _faction2;
-        private const int MaxRaidPoints = 10000; //最大袭击点数
+        private const int MaxRaidPoints = 5000; //最大袭击点数
 
         /// <summary>
         /// 是否可以生成事件

@@ -14,18 +14,4 @@
         <textWillArrive>来自{1}的一群{0}与来自{3}的一群{2}到达附近。</textWillArrive>
         <walkIn>true</walkIn>
     </PawnsArrivalModeDef>
-    <PawnsArrivalModeDef>
-        <defName>SrTwoFactionsEdgeDrop</defName>
-        <workerClass>PawnsArrivalModeWorker_EdgeDrop</workerClass>
-        <selectionWeightCurve>
-            <points>
-                <li>(300, 0)</li>
-                <li>(700, 0.30)</li>
-            </points>
-        </selectionWeightCurve>
-        <minTechLevel>Industrial</minTechLevel>
-        <textEnemy>来自{1}的一群{0}与来自{3}的一群{2}空降到附近。</textEnemy>
-        <textFriendly>来自{1}的一群{0}与来自{3}的一群{2}空降到附近。</textFriendly>
-        <textWillArrive>来自{1}的一群{0}与来自{3}的一群{2}空降到附近。</textWillArrive>
-    </PawnsArrivalModeDef>
 </Defs>

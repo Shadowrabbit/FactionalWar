@@ -36,6 +36,7 @@ namespace SR.ModRimWorld.FactionalWar
                 Log.Error("[SR.ModRimWorld.FactionalWar]can't find TimeoutComp in SiteFactionWarContention");
                 return;
             }
+
             comp.StartTimeout(TimeOutTick);
         }
 
@@ -62,7 +63,7 @@ namespace SR.ModRimWorld.FactionalWar
             var pawnGroupMakerParms1 =
                 IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, incidentParms1);
             var pawnList1 = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms1);
-            ResolveArrive(pawnList1, incidentParms1);
+            PawnSpawnUtil.SpawnPawns(pawnList1, incidentParms1, Map, Radius);
             ResolveLordJob(pawnList1, faction1);
             //创建派系2的角色 空投到地图中心
             var incidentParms2 = new IncidentParms
@@ -70,27 +71,8 @@ namespace SR.ModRimWorld.FactionalWar
             var pawnGroupMakerParms2 =
                 IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, incidentParms2);
             var pawnList2 = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms2);
-            ResolveArrive(pawnList2, incidentParms2);
+            PawnSpawnUtil.SpawnPawns(pawnList2, incidentParms2, Map, Radius);
             ResolveLordJob(pawnList2, faction2);
-        }
-
-        /// <summary>
-        /// 解决入场
-        /// </summary>
-        private void ResolveArrive(IEnumerable<Pawn> pawns, IncidentParms incidentParms)
-        {
-            if (!RCellFinder.TryFindRandomPawnEntryCell(out incidentParms.spawnCenter, Map,
-                CellFinder.EdgeRoadChance_Hostile))
-            {
-                return;
-            }
-
-            var spawnRotation = Rot4.FromAngleFlat((Map.Center - incidentParms.spawnCenter).AngleFlat);
-            foreach (var pawn in pawns)
-            {
-                var loc = CellFinder.RandomClosewalkCellNear(incidentParms.spawnCenter, Map, Radius);
-                GenSpawn.Spawn(pawn, loc, Map, spawnRotation);
-            }
         }
 
         /// <summary>

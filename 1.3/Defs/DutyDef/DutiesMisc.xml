@@ -67,11 +67,11 @@
                     <onlyIfInDanger>true</onlyIfInDanger>
                 </li>
                 <li Class="JobGiver_AIDefendPoint">
-                    <targetAcquireRadius>65</targetAcquireRadius>
-                    <targetKeepRadius>72</targetKeepRadius>
+                    <targetAcquireRadius>80</targetAcquireRadius>
+                    <targetKeepRadius>80</targetKeepRadius>
                 </li>
                 <li Class="JobGiver_FightFiresNearPoint">
-                    <maxDistFromPoint>35</maxDistFromPoint>
+                    <maxDistFromPoint>40</maxDistFromPoint>
                 </li>
                 <li Class="ThinkNode_ForbidOutsideFlagRadius">
                     <maxDistToSquadFlag>16</maxDistToSquadFlag>

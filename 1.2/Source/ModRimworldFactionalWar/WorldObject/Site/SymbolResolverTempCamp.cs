@@ -19,7 +19,7 @@ namespace SR.ModRimWorld.FactionalWar
     public class SymbolResolverTempCamp : SymbolResolver
     {
         private static readonly FloatRange DefaultPawnsPoints = new FloatRange(3000, 10000);
-        private const float WanderRadius = 10f;
+        private const float WanderRadius = 50f;
 
         public override void Resolve(ResolveParams rp)
         {

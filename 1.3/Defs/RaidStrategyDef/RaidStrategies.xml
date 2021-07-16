@@ -17,7 +17,6 @@
         </pointsFactorCurve>
         <arriveModes>
             <li>SrTwoFactionsEdgeWalkIn</li>
-            <li>SrTwoFactionsEdgeDrop</li>
         </arriveModes>
         <letterLabelEnemy>派系战争</letterLabelEnemy>
         <arrivalTextEnemy>来自{1}的{0}与来自{3}的{2}即将激烈交战!他们的目标并不是你。</arrivalTextEnemy>

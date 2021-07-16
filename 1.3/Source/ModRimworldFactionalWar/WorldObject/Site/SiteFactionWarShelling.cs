@@ -23,6 +23,7 @@ namespace SR.ModRimWorld.FactionalWar
         private static readonly IntRange ThreatPoints = new IntRange(3000, 9999);
         private const float MinBlueprintPoints = 60f; //最小蓝图点数
         private const int TimeOutTick = 90000;
+        private const int Radius = 8; //召唤半径
 
         /// <summary>
         /// 生成时回调
@@ -36,9 +37,10 @@ namespace SR.ModRimWorld.FactionalWar
                 Log.Error("[SR.ModRimWorld.FactionalWar]can't find TimeoutComp in SiteFactionWarShelling");
                 return;
             }
+
             comp.StartTimeout(TimeOutTick);
         }
-        
+
         /// <summary>
         /// 生成地图后回调
         /// </summary>
@@ -66,13 +68,13 @@ namespace SR.ModRimWorld.FactionalWar
                 IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, incidentParms2);
             var pawnList2 = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms2);
             //边缘入场
-            ResolveArrive(pawnList1, incidentParms1);
-            ResolveArrive(pawnList2, incidentParms2);
+            PawnSpawnUtil.SpawnPawns(pawnList1, incidentParms1, Map, Radius);
+            PawnSpawnUtil.SpawnPawns(pawnList2, incidentParms2, Map, Radius);
             //设置集群AI
             ResolveLordJob(points, incidentParms1.spawnCenter, pawnList1, faction1, faction2);
             ResolveLordJob(points, incidentParms2.spawnCenter, pawnList2, faction2, faction1);
         }
-        
+
         /// <summary>
         /// 创建集群AI
         /// </summary>
@@ -96,25 +98,6 @@ namespace SR.ModRimWorld.FactionalWar
             var lordJobShellFactionFirst =
                 new LordJobShellFactionFirst(assaultFaction, targetFaction, siegeSpot, blueprintPoints);
             LordMaker.MakeNewLord(assaultFaction, lordJobShellFactionFirst, Map, pawns);
-        }
-
-        /// <summary>
-        /// 解决入场
-        /// </summary>
-        private void ResolveArrive(IEnumerable<Pawn> pawns, IncidentParms incidentParms)
-        {
-            if (!RCellFinder.TryFindRandomPawnEntryCell(out incidentParms.spawnCenter, Map,
-                CellFinder.EdgeRoadChance_Hostile))
-            {
-                return;
-            }
-
-            var spawnRotation = Rot4.FromAngleFlat((Map.Center - incidentParms.spawnCenter).AngleFlat);
-            foreach (var pawn in pawns)
-            {
-                var loc = CellFinder.RandomClosewalkCellNear(incidentParms.spawnCenter, Map, 8);
-                GenSpawn.Spawn(pawn, loc, Map, spawnRotation);
-            }
         }
     }
 }
