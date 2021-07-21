@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <SrTwoFactionsEdgeWalkIn.textEnemy>來自{1}的一群{0}與來自{3}的一群{2}到達附近</SrTwoFactionsEdgeWalkIn.textEnemy>
+    <SrTwoFactionsEdgeWalkIn.textFriendly>來自{1}的一群{0}與來自{3}的一群{2}到達附近</SrTwoFactionsEdgeWalkIn.textFriendly>
+    <SrTwoFactionsEdgeWalkIn.textWillArrive>來自{1}的一群{0}與來自{3}的一群{2}到達附近</SrTwoFactionsEdgeWalkIn.textWillArrive>
+</LanguageData>

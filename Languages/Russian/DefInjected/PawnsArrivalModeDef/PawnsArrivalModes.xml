@@ -3,7 +3,4 @@
     <SrTwoFactionsEdgeWalkIn.textEnemy>Група {0} из {1} и група {2} из {3} прибыли поблизости.</SrTwoFactionsEdgeWalkIn.textEnemy>
     <SrTwoFactionsEdgeWalkIn.textFriendly>Група {0} из {1} и група {2} из {3} прибыли поблизости.</SrTwoFactionsEdgeWalkIn.textFriendly>
     <SrTwoFactionsEdgeWalkIn.textWillArrive>Група {0} из {1} и група {2} из {3} прибыли поблизости.</SrTwoFactionsEdgeWalkIn.textWillArrive>
-    <SrTwoFactionsEdgeDrop.textEnemy>Група {0} из {1} и група {2} из {3} высадились поблизости.</SrTwoFactionsEdgeDrop.textEnemy>
-    <SrTwoFactionsEdgeDrop.textFriendly>Група {0} из {1} и група {2} из {3} высадились поблизости.</SrTwoFactionsEdgeDrop.textFriendly>
-    <SrTwoFactionsEdgeDrop.textWillArrive>Група {0} из {1} и група {2} из {3} высадились поблизости.</SrTwoFactionsEdgeDrop.textWillArrive>
 </LanguageData>

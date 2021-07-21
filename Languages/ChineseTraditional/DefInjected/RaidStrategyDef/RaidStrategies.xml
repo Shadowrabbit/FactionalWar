@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <SrFactionFirst.letterLabelEnemy>派系戰爭</SrFactionFirst.letterLabelEnemy>
+    <SrFactionFirst.arrivalTextEnemy>來自{1}的{0}與來自{3}的{2}即將激烈交戰!他們的目標並不是你</SrFactionFirst.arrivalTextEnemy>
+</LanguageData>

@@ -3,7 +3,4 @@
     <SrTwoFactionsEdgeWalkIn.textEnemy>A group of {0} from {1} and a group of {2} from {3} arrived nearby.</SrTwoFactionsEdgeWalkIn.textEnemy>
     <SrTwoFactionsEdgeWalkIn.textFriendly>A group of {0} from {1} and a group of {2} from {3} arrived nearby.</SrTwoFactionsEdgeWalkIn.textFriendly>
     <SrTwoFactionsEdgeWalkIn.textWillArrive>A group of {0} from {1} and a group of {2} from {3} arrived nearby.</SrTwoFactionsEdgeWalkIn.textWillArrive>
-    <SrTwoFactionsEdgeDrop.textEnemy>A group of {0} from {1} and a group of {2} from {3} landed nearby.</SrTwoFactionsEdgeDrop.textEnemy>
-    <SrTwoFactionsEdgeDrop.textFriendly>A group of {0} from {1} and a group of {2} from {3} landed nearby.</SrTwoFactionsEdgeDrop.textFriendly>
-    <SrTwoFactionsEdgeDrop.textWillArrive>A group of {0} from {1} and a group of {2} from {3} landed nearby.</SrTwoFactionsEdgeDrop.textWillArrive>
 </LanguageData>

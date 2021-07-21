@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <SrIrritateFaction>你的攻擊惹怒了{1}的{0}，他們現在將你也列為攻擊目標！</SrIrritateFaction>
+    <SrAssaultFactionVictory>{1}的{0}準備屠殺殘餘的{3}的{2}。</SrAssaultFactionVictory>
+    <SrClearBattlefiled>{1}的{0}正在收集戰利品，心滿意足的離開。</SrClearBattlefiled>
+</LanguageData>
