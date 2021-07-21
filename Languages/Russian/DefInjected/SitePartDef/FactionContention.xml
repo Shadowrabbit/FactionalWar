@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <SrFactionContention.label>Борьба за ресурсы</SrFactionContention.label>
+    <SrFactionContention.description>Рядом приземлилась партия драгоценных ресурсов, заставив две фракции сражаться за них.</SrFactionContention.description>
+    <SrFactionContention.arrivedLetter>Войска прибыли на поле боя.</SrFactionContention.arrivedLetter>
+</LanguageData>

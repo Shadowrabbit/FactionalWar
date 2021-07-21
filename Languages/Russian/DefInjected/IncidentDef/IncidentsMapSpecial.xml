@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <SrFactionWar.label>Фракционная стычка</SrFactionWar.label>
+    <SrFactionWarShellingSiteGenerate.label>Фракционная бомбардировка</SrFactionWarShellingSiteGenerate.label>
+    <SrFactionWarContentionSiteGenerate.label>Борьба за ресурсы</SrFactionWarContentionSiteGenerate.label>
+    <SrFactionWarTempCampSiteGenerate.label>Защита фракции</SrFactionWarTempCampSiteGenerate.label>
+</LanguageData>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <SrIrritateFaction>Ваша атака разозлила {0} из {1}, и теперь вы ихняя цель!</SrIrritateFaction>
+    <SrAssaultFactionVictory>{0} из {1} готовятся к забою остатков {2} из {3}.</SrAssaultFactionVictory>
+    <SrClearBattlefiled>{0} из {1} собирают трофеи и довольно уходят.</SrClearBattlefiled>
+</LanguageData>

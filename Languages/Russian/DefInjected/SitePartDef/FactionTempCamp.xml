@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <SrFactionTempCamp.label>Защита фракции</SrFactionTempCamp.label>
+    <SrFactionTempCamp.description>Временный лагерь вражеской фракции подвергся нападению.</SrFactionTempCamp.description>
+    <SrFactionTempCamp.arrivedLetter>Войска прибыли на поле боя.</SrFactionTempCamp.arrivedLetter>
+</LanguageData>

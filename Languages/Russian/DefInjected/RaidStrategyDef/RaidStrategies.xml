@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <SrFactionFirst.letterLabelEnemy>Фракционная стычка</SrFactionFirst.letterLabelEnemy>
+    <SrFactionFirst.arrivalTextEnemy>{0} из {1} и {2} из {3} собираются яростно сражаться! Их цель - не вы.</SrFactionFirst.arrivalTextEnemy>
+</LanguageData>
