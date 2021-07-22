@@ -2,15 +2,15 @@
 <Defs>
     <SitePartDef>
         <defName>SrFactionTempCamp</defName>
-        <label>派系防守战</label>
-        <description>一个处于交战中的营地。</description>
+        <label>Faction Defense</label>
+        <description>A camp at war.</description>
         <workerClass>SR.ModRimWorld.FactionalWar.SitePartWorkerEmpty</workerClass>
         <siteTexture>World/WorldObjects/Sites/FactionTempCamp</siteTexture>
         <expandingIconTexture>World/WorldObjects/Sites/FactionTempCampExpand</expandingIconTexture>
         <applyFactionColorToSiteTexture>false</applyFactionColorToSiteTexture>
         <showFactionInInspectString>true</showFactionInInspectString>
         <requiresFaction>true</requiresFaction>
-        <arrivedLetter>部队已抵达战场。</arrivedLetter>
+        <arrivedLetter>The troop have arrived on the battlefield.</arrivedLetter>
         <arrivedLetterDef>NegativeEvent</arrivedLetterDef>
         <wantsThreatPoints>false</wantsThreatPoints>
     </SitePartDef>

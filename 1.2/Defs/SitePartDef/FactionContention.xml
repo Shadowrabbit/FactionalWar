@@ -2,15 +2,15 @@
 <Defs>
     <SitePartDef>
         <defName>SrFactionContention</defName>
-        <label>派系争夺战</label>
-        <description>一批珍贵的资源降落在附近，引起两个派系赶来争夺。</description>
+        <label>Faction Contention</label>
+        <description>A batch of precious resources landed nearby, causing two factions to compete.</description>
         <workerClass>SR.ModRimWorld.FactionalWar.SitePartWorkerEmpty</workerClass>
         <siteTexture>World/WorldObjects/Sites/FactionWarContention</siteTexture>
         <expandingIconTexture>World/WorldObjects/Sites/FactionWarContentionExpand</expandingIconTexture>
         <applyFactionColorToSiteTexture>false</applyFactionColorToSiteTexture>
         <showFactionInInspectString>false</showFactionInInspectString>
         <requiresFaction>false</requiresFaction>
-        <arrivedLetter>部队已抵达战场。</arrivedLetter>
+        <arrivedLetter>The troop have arrived on the battlefield.</arrivedLetter>
         <arrivedLetterDef>NegativeEvent</arrivedLetterDef>
         <wantsThreatPoints>false</wantsThreatPoints>
     </SitePartDef>

@@ -2,15 +2,15 @@
 <Defs>
     <SitePartDef>
         <defName>SrFactionWarShelling</defName>
-        <label>派系炮击战</label>
-        <description>两个未知的派系正在此处进行激烈的炮击战。</description>
+        <label>Faction Bombardment</label>
+        <description>Two unknown factions are engaged in a fierce shelling battle here.</description>
         <workerClass>SR.ModRimWorld.FactionalWar.SitePartWorkerEmpty</workerClass>
         <siteTexture>World/WorldObjects/Sites/FactionWarShelling</siteTexture>
         <expandingIconTexture>World/WorldObjects/Sites/FactionWarShellingExpand</expandingIconTexture>
         <applyFactionColorToSiteTexture>false</applyFactionColorToSiteTexture>
         <showFactionInInspectString>false</showFactionInInspectString>
         <requiresFaction>false</requiresFaction>
-        <arrivedLetter>部队已抵达战场。</arrivedLetter>
+        <arrivedLetter>The troop have arrived on the battlefield.</arrivedLetter>
         <arrivedLetterDef>NegativeEvent</arrivedLetterDef>
         <wantsThreatPoints>true</wantsThreatPoints>
     </SitePartDef>

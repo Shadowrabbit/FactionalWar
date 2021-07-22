@@ -18,7 +18,7 @@
         <arriveModes>
             <li>SrTwoFactionsEdgeWalkIn</li>
         </arriveModes>
-        <letterLabelEnemy>派系战争</letterLabelEnemy>
-        <arrivalTextEnemy>来自{1}的{0}与来自{3}的{2}即将激烈交战!他们的目标并不是你。</arrivalTextEnemy>
+        <letterLabelEnemy>Faction Assault</letterLabelEnemy>
+        <arrivalTextEnemy>{0} from {1} and {2} from {3} are about to fight fiercely! Their target is not you.</arrivalTextEnemy>
     </RaidStrategyDef>
 </Defs>

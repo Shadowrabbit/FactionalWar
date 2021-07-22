@@ -9,9 +9,9 @@
                 <li>(700, 0.4)</li>
             </points>
         </selectionWeightCurve>
-        <textEnemy>来自{1}的一群{0}与来自{3}的一群{2}到达附近。</textEnemy>
-        <textFriendly>来自{1}的一群{0}与来自{3}的一群{2}到达附近。</textFriendly>
-        <textWillArrive>来自{1}的一群{0}与来自{3}的一群{2}到达附近。</textWillArrive>
+        <textEnemy>A group of {0} from {1} and a group of {2} from {3} arrived nearby.</textEnemy>
+        <textFriendly>A group of {0} from {1} and a group of {2} from {3} arrived nearby.</textFriendly>
+        <textWillArrive>A group of {0} from {1} and a group of {2} from {3} arrived nearby.</textWillArrive>
         <walkIn>true</walkIn>
     </PawnsArrivalModeDef>
 </Defs>
