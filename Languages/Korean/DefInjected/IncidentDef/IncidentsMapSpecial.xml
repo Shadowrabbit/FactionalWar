@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <SrFactionWar.label>세력 간 공격</SrFactionWar.label>
+    <SrFactionWarShellingSiteGenerate.label>세력 간 포격전</SrFactionWarShellingSiteGenerate.label>
+    <SrFactionWarContentionSiteGenerate.label>세력 간 쟁탈전</SrFactionWarContentionSiteGenerate.label>
+    <SrFactionWarTempCampSiteGenerate.label>세력 간 방어전</SrFactionWarTempCampSiteGenerate.label>
+</LanguageData>

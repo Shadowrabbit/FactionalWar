@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <SrFactionContention.label>세력 간 쟁탈전</SrFactionContention.label>
+    <SrFactionContention.description>귀중한 자원 무더기가 근처에 떨어져, 두 세력을 서로 경쟁하게 하고 있습니다.</SrFactionContention.description>
+    <SrFactionContention.arrivedLetter>전장에 병력이 도착했습니다.</SrFactionContention.arrivedLetter>
+</LanguageData>
