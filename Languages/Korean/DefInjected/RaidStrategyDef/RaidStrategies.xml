@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <SrFactionFirst.letterLabelEnemy>세력 간 공격</SrFactionFirst.letterLabelEnemy>
+    <SrFactionFirst.arrivalTextEnemy>{1}에서 온 {0}와(과) {3}에서 온 {2}이(가) 맹렬히 싸우려 하고 있습니다! 그들의 목표는 당신이 아닙니다.</SrFactionFirst.arrivalTextEnemy>
+</LanguageData>

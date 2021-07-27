@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <SrFactionWarShelling.label>세력 간 포격전</SrFactionWarShelling.label>
+    <SrFactionWarShelling.description>알 수 없는 두 세력이 이곳에서 맹렬하게 포격전을 벌이고 있습니다.</SrFactionWarShelling.description>
+    <SrFactionWarShelling.arrivedLetter>전장에 병력이 도착했습니다.</SrFactionWarShelling.arrivedLetter>
+</LanguageData>

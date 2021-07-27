@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <SrFactionTempCamp.label>세력 간 방어전</SrFactionTempCamp.label>
+    <SrFactionTempCamp.description>전쟁 중인 거점입니다.</SrFactionTempCamp.description>
+    <SrFactionTempCamp.arrivedLetter>전장에 병력이 도착했습니다.</SrFactionTempCamp.arrivedLetter>
+</LanguageData>

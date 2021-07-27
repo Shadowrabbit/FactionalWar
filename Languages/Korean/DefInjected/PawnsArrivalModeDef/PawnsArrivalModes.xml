@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <SrTwoFactionsEdgeWalkIn.textEnemy>{1}에서 온 {0}와(과) {3}에서 온 {2}이(가) 근처에 도착했습니다.</SrTwoFactionsEdgeWalkIn.textEnemy>
+    <SrTwoFactionsEdgeWalkIn.textFriendly>{1}에서 온 {0}와(과) {3}에서 온 {2}이(가) 근처에 도착했습니다.</SrTwoFactionsEdgeWalkIn.textFriendly>
+    <SrTwoFactionsEdgeWalkIn.textWillArrive>{1}에서 온 {0}와(과) {3}에서 온 {2}이(가) 근처에 도착했습니다.</SrTwoFactionsEdgeWalkIn.textWillArrive>
+</LanguageData>
