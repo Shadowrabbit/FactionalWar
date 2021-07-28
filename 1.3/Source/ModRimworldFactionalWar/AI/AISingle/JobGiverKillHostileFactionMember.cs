@@ -70,6 +70,16 @@ namespace SR.ModRimWorld.FactionalWar
                 return false;
             }
 
+            if (pawn.IsPrisoner)
+            {
+                return false;
+            }
+
+            if (pawn.IsSlave)
+            {
+                return false;
+            }
+
             return !pawn.Dead;
         }
     }

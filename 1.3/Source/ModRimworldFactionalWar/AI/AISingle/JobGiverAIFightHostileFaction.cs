@@ -33,6 +33,21 @@ namespace SR.ModRimWorld.FactionalWar
                 return false;
             }
 
+            if (!(target is Pawn targetPawn))
+            {
+                return false;
+            }
+
+            if (targetPawn.IsPrisoner)
+            {
+                return false;
+            }
+
+            if (targetPawn.IsSlave)
+            {
+                return false;
+            }
+
             //目标派系是冲突派系
             return target.Faction == lordJobSeacher.TargetFaction;
         }
@@ -44,7 +59,7 @@ namespace SR.ModRimWorld.FactionalWar
         /// <returns></returns>
         public override ThinkNode DeepCopy(bool resolve = true)
         {
-            var jobGiverAIFightHostileFaction = (JobGiverAIFightHostileFaction) base.DeepCopy(resolve);
+            var jobGiverAIFightHostileFaction = (JobGiverAIFightHostileFaction)base.DeepCopy(resolve);
             return jobGiverAIFightHostileFaction;
         }
     }

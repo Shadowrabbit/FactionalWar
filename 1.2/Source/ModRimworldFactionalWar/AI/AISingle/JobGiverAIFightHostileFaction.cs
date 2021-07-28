@@ -33,6 +33,16 @@ namespace SR.ModRimWorld.FactionalWar
                 return false;
             }
 
+            if (!(target is Pawn targetPawn))
+            {
+                return false;
+            }
+
+            if (targetPawn.IsPrisoner)
+            {
+                return false;
+            }
+
             //目标派系是冲突派系
             return target.Faction == lordJobSeacher.TargetFaction;
         }

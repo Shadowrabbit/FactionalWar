@@ -31,7 +31,7 @@ namespace SR.ModRimWorld.FactionalWar
             var targetFaction = lordJob.TargetFaction;
             //保底目标
             var num = float.MaxValue;
-            var targetThing = (Thing) null;
+            var targetThing = (Thing)null;
             var potentialTargetsFor =
                 pawn.Map.attackTargetsCache.GetPotentialTargetsFor(pawn);
             foreach (var target in potentialTargetsFor)
@@ -41,21 +41,32 @@ namespace SR.ModRimWorld.FactionalWar
                     continue;
                 }
 
-                //目标不是当前敌对派系
-                var tempTargetThing = (Thing) target;
-                if (tempTargetThing.Faction != targetFaction)
+                //目标不是角色
+                if (!(target is Pawn targetPawn))
                 {
                     continue;
                 }
 
-                var squared = tempTargetThing.Position.DistanceToSquared(pawn.Position);
-                if (!(squared < num) || !pawn.CanReach(tempTargetThing, PathEndMode.OnCell, Danger.Deadly))
+                //目标不是当前敌对派系
+                if (targetPawn.Faction != targetFaction)
+                {
+                    continue;
+                }
+
+                //目标是囚犯
+                if (targetPawn.IsPrisoner)
+                {
+                    continue;
+                }
+
+                var squared = targetPawn.Position.DistanceToSquared(pawn.Position);
+                if (!(squared < num) || !pawn.CanReach(targetPawn, PathEndMode.OnCell, Danger.Deadly))
                 {
                     continue;
                 }
 
                 num = squared;
-                targetThing = tempTargetThing;
+                targetThing = targetPawn;
             }
 
             if (targetThing == null)
