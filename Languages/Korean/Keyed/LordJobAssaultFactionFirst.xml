@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-    <SrIrritateFaction>당신의 공격이 {1}의 {0}을(를) 화나게 했으며, 이제 당신도 공격 목표에 포함됩니다!</SrIrritateFaction>
-    <SrAssaultFactionVictory>{1}의 {0}이(가) {3}의 {2} 잔당을 학살할 준비를 하고 있습니다.</SrAssaultFactionVictory>
-    <SrClearBattlefiled>{1}의 {0}이(가) 전리품을 모아 만족하고 떠났습니다.</SrClearBattlefiled>
+    <SrIrritateFaction>당신의 공격이 {1}의 {0}(을)를 화나게 했으며, 이제 당신도 공격 목표에 포함됩니다!</SrIrritateFaction>
+    <SrAssaultFactionVictory>{1}의 {0}(이)가 {3}의 {2} 잔당을 학살할 준비를 하고 있습니다.</SrAssaultFactionVictory>
+    <SrClearBattlefiled>{1}의 {0}(이)가 전리품을 모아 만족하고 떠났습니다.</SrClearBattlefiled>
 </LanguageData>
