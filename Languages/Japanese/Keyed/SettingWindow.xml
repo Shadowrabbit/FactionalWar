@@ -1,7 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-    <SrNeedOptimization>Enable optimization</SrNeedOptimization>
-    <SrDescNeedOptimization>This will cause the destruction of unimportant roles and role relationships each time before a large number of roles are generated.</SrDescNeedOptimization>
-    <SrThreatPointFactor>Threat point factor</SrThreatPointFactor>
-    <SrDescThreatPointFactor>Affects the amount of pawns generated each time in this mod.</SrDescThreatPointFactor>
+  <SrNeedOptimization>最適化を有効</SrNeedOptimization>
+  <SrDescNeedOptimization>これにより,多数のロールを持つポーンが生成される前に,重要ではないロールを持つポーンとロールの関係性にいてのデータが毎回破棄されます.</SrDescNeedOptimization>
+  <SrThreatPointFactor>脅威度ポイント係数</SrThreatPointFactor>
+  <SrDescThreatPointFactor>このModで毎回生成されるポーンの数量(人数)に影響します.</SrDescThreatPointFactor>
+
 </LanguageData>
