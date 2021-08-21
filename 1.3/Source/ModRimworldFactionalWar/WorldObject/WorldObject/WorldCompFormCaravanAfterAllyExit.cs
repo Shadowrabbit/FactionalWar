@@ -57,7 +57,7 @@ namespace SR.ModRimWorld.FactionalWar
                     commandAction.Disable("SrCommandReformCaravanFailAlliesCollectingLoot".Translate());
                 }
 
-                if (GenHostility.AnyHostileActiveThreatToPlayer(mapParent.Map, true)
+                if (GenHostility.AnyHostileActiveThreatToPlayer_NewTemp(mapParent.Map, true)
                 )
                 {
                     commandAction.Disable("CommandReformCaravanFailHostilePawns".Translate());

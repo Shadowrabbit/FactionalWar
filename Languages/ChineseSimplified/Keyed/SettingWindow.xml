@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <SrNeedOptimization>需要优化</SrNeedOptimization>
+    <SrDescNeedOptimization>这将导致每次大量生成角色前，销毁不重要的角色以及角色关系。</SrDescNeedOptimization>
+    <SrThreatPointFactor>威胁点因数</SrThreatPointFactor>
+    <SrDescThreatPointFactor>影响这个模组中生成的角色数量。</SrDescThreatPointFactor>
+</LanguageData>

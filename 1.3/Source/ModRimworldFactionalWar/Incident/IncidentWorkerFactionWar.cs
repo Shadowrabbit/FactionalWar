@@ -110,10 +110,8 @@ namespace SR.ModRimWorld.FactionalWar
                 parms.raidStrategy, parms.faction, combat);
             parms2.points = parms.points;
             //生成派系部队
-            var pawnListFaction1 = parms.raidStrategy.Worker.SpawnThreats(parms);
-            ResolvePawnList(ref pawnListFaction1, parms);
-            var pawnListFaction2 = parms2.raidStrategy.Worker.SpawnThreats(parms2);
-            ResolvePawnList(ref pawnListFaction2, parms2);
+            var pawnListFaction1 = ResolvePawnList(parms);
+            var pawnListFaction2 = ResolvePawnList(parms2);
             //设置角色携带战利品
             GenerateRaidLoot(parms, raidLootPoints, pawnListFaction1);
             GenerateRaidLoot(parms, raidLootPoints, pawnListFaction2);
@@ -310,28 +308,23 @@ namespace SR.ModRimWorld.FactionalWar
         }
 
         /// <summary>
-        /// 校验角色列表
+        /// 生成角色列表
         /// </summary>
-        /// <param name="pawnList"></param>
         /// <param name="parms"></param>
-        private static void ResolvePawnList(ref List<Pawn> pawnList, IncidentParms parms)
+        private static List<Pawn> ResolvePawnList(IncidentParms parms)
         {
-            if (pawnList != null)
-            {
-                return;
-            }
-
             var pawnGroupMakerParms =
                 IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, parms);
             //生成失败 尝试用默认角色组生成器
-            pawnList = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms);
+            var pawnList = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms);
             if (pawnList.Count == 0)
             {
                 Log.Error($"[SR.ModRimWorld.FactionalWar]Got no pawns spawning raid from parms {parms}");
-                return;
+                return pawnList;
             }
 
             parms.raidArrivalMode.Worker.Arrive(pawnList, parms);
+            return pawnList;
         }
     }
 }

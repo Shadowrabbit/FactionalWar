@@ -6,6 +6,7 @@
 //      /  \\        @Modified   2021-07-02 11:05:15
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
+
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
@@ -24,6 +25,7 @@ namespace SR.ModRimWorld.FactionalWar
         public static List<Pawn> GeneratePawns(PawnGroupMakerParms pawnGroupMakerParms)
         {
             DiscardPawns();
+            pawnGroupMakerParms.points *= SettingWindow.Instance.settingModel.threatPointFactor;
             var pawnList = RimWorld.PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms).ToList();
             return pawnList;
         }
@@ -33,6 +35,11 @@ namespace SR.ModRimWorld.FactionalWar
         /// </summary>
         private static void DiscardPawns()
         {
+            if (SettingWindow.Instance.settingModel.needOptimization)
+            {
+                return;
+            }
+
             var worldPawns = Find.World.worldPawns;
             DiscardPawns(worldPawns.GetPawnsBySituation(WorldPawnSituation.Free).ToList());
             DiscardPawns(worldPawns.GetPawnsBySituation(WorldPawnSituation.Dead).ToList());
@@ -53,12 +60,27 @@ namespace SR.ModRimWorld.FactionalWar
                 {
                     continue;
                 }
-                
+
+                var map = pawnList[i].Map;
+                if (map == null)
+                {
+                    continue;
+                }
+
+                //玩家地图上的角色不清理
+                var incidentTargetTags = map.IncidentTargetTags();
+                if (incidentTargetTags.Any(incidentTargetTag =>
+                    incidentTargetTag == IncidentTargetTagDefOf.Map_PlayerHome))
+                {
+                    continue;
+                }
+
                 //玩家的角色
                 if (pawnList[i].Faction != null && pawnList[i].Faction == Faction.OfPlayer)
                 {
                     continue;
                 }
+
                 worldPawns.RemoveAndDiscardPawnViaGC(pawnList[i]);
             }
         }
