@@ -32,7 +32,7 @@
         <OutputPath>..\..\Assemblies\</OutputPath>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="Assembly-CSharp, Version=1.3.7892.27358, Culture=neutral, PublicKeyToken=null">
+        <Reference Include="Assembly-CSharp, Version=1.3.7906.17332, Culture=neutral, PublicKeyToken=null">
           <HintPath>Lib\Assembly-CSharp.dll</HintPath>
           <Private>False</Private>
         </Reference>
