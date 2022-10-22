@@ -1,0 +1,6 @@
+C:\Users\ausu\Desktop\FactionalWar\1.4\Assemblies\ModRimWorldFactionalWar.dll
+C:\Users\ausu\Desktop\FactionalWar\1.4\Assemblies\ModRimWorldFactionalWar.pdb
+C:\Users\ausu\Desktop\FactionalWar\1.4\Source\ModRimworldFactionalWar\obj\Debug\ModRimWorldFactionalWar.csproj.AssemblyReference.cache
+C:\Users\ausu\Desktop\FactionalWar\1.4\Source\ModRimworldFactionalWar\obj\Debug\ModRimWorldFactionalWar.csproj.CoreCompileInputs.cache
+C:\Users\ausu\Desktop\FactionalWar\1.4\Source\ModRimworldFactionalWar\obj\Debug\ModRimWorldFactionalWar.dll
+C:\Users\ausu\Desktop\FactionalWar\1.4\Source\ModRimworldFactionalWar\obj\Debug\ModRimWorldFactionalWar.pdb

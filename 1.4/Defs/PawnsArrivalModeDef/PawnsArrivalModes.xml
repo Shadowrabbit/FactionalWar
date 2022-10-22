@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <PawnsArrivalModeDef>
+        <defName>SrTwoFactionsEdgeWalkIn</defName>
+        <workerClass>PawnsArrivalModeWorker_EdgeWalkIn</workerClass>
+        <selectionWeightCurve>
+            <points>
+                <li>(300, 1.0)</li>
+                <li>(700, 0.4)</li>
+            </points>
+        </selectionWeightCurve>
+        <textEnemy>A group of {0} from {1} and a group of {2} from {3} arrived nearby.</textEnemy>
+        <textFriendly>A group of {0} from {1} and a group of {2} from {3} arrived nearby.</textFriendly>
+        <textWillArrive>A group of {0} from {1} and a group of {2} from {3} arrived nearby.</textWillArrive>
+        <walkIn>true</walkIn>
+    </PawnsArrivalModeDef>
+</Defs>

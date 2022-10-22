@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!--派系战争-->
+    <RaidStrategyDef>
+        <defName>SrFactionFirst</defName>
+        <workerClass>SR.ModRimworld.FactionalWar.RaidStrategyWorkerFactionFirst</workerClass>
+        <selectionWeightPerPointsCurve>
+            <points>
+                <li>(100,0.75)</li>
+                <li>(700,0.25)</li>
+            </points>
+        </selectionWeightPerPointsCurve>
+        <pointsFactorCurve>
+            <points>
+                <li>0, 1</li>
+            </points>
+        </pointsFactorCurve>
+        <arriveModes>
+            <li>SrTwoFactionsEdgeWalkIn</li>
+        </arriveModes>
+        <letterLabelEnemy>Faction Assault</letterLabelEnemy>
+        <arrivalTextEnemy>{0} from {1} and {2} from {3} are about to fight fiercely! Their target is not you.</arrivalTextEnemy>
+    </RaidStrategyDef>
+</Defs>

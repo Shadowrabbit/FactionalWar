@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <IncidentDef>
+        <defName>SrFactionWar</defName>
+        <label>Faction Assault</label>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+            <li>Map_TempIncident</li>
+            <li>Map_Misc</li>
+            <li>Map_RaidBeacon</li>
+        </targetTags>
+        <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerFactionWar</workerClass>
+        <category>Misc</category>
+        <baseChance>1</baseChance>
+        <pointsScaleable>true</pointsScaleable>
+        <requireColonistsPresent>false</requireColonistsPresent>
+    </IncidentDef>
+    <IncidentDef>
+        <defName>SrFactionWarShellingSiteGenerate</defName>
+        <label>Faction Bombardment</label>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+            <li>Map_TempIncident</li>
+            <li>Map_Misc</li>
+            <li>Map_RaidBeacon</li>
+        </targetTags>
+        <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerFactionWarShellingSiteGenerate</workerClass>
+        <category>Misc</category>
+        <baseChance>1</baseChance>
+        <pointsScaleable>true</pointsScaleable>
+        <requireColonistsPresent>false</requireColonistsPresent>
+    </IncidentDef>
+    <IncidentDef>
+        <defName>SrFactionWarContentionSiteGenerate</defName>
+        <label>Faction Contention</label>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+            <li>Map_TempIncident</li>
+            <li>Map_Misc</li>
+            <li>Map_RaidBeacon</li>
+        </targetTags>
+        <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerFactionWarContentionSiteGenerate</workerClass>
+        <category>Misc</category>
+        <baseChance>1</baseChance>
+        <pointsScaleable>true</pointsScaleable>
+        <requireColonistsPresent>false</requireColonistsPresent>
+    </IncidentDef>
+    <IncidentDef>
+        <defName>SrFactionWarTempCampSiteGenerate</defName>
+        <label>Faction Defense</label>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+            <li>Map_TempIncident</li>
+            <li>Map_Misc</li>
+            <li>Map_RaidBeacon</li>
+        </targetTags>
+        <workerClass>SR.ModRimworld.FactionalWar.IncidentWorkerFactionWarTempCampSiteGenerate</workerClass>
+        <category>Misc</category>
+        <baseChance>1</baseChance>
+        <pointsScaleable>true</pointsScaleable>
+        <requireColonistsPresent>false</requireColonistsPresent>
+    </IncidentDef>
+</Defs>

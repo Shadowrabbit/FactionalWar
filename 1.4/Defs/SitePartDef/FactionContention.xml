@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <SitePartDef>
+        <defName>SrFactionContention</defName>
+        <label>Faction Contention</label>
+        <description>A batch of precious resources landed nearby, causing two factions to compete.</description>
+        <workerClass>SR.ModRimWorld.FactionalWar.SitePartWorkerEmpty</workerClass>
+        <siteTexture>World/WorldObjects/Sites/FactionWarContention</siteTexture>
+        <expandingIconTexture>World/WorldObjects/Sites/FactionWarContentionExpand</expandingIconTexture>
+        <applyFactionColorToSiteTexture>false</applyFactionColorToSiteTexture>
+        <showFactionInInspectString>false</showFactionInInspectString>
+        <requiresFaction>false</requiresFaction>
+        <arrivedLetter>The troop have arrived on the battlefield.</arrivedLetter>
+        <arrivedLetterDef>NegativeEvent</arrivedLetterDef>
+        <wantsThreatPoints>false</wantsThreatPoints>
+    </SitePartDef>
+    <GenStepDef>
+        <defName>SrGenStepAirdropResource</defName>
+        <linkWithSite>SrFactionContention</linkWithSite>
+        <order>451</order>
+        <genStep Class="SR.ModRimWorld.FactionalWar.GenStepAirdropResource"/>
+    </GenStepDef>
+</Defs>
